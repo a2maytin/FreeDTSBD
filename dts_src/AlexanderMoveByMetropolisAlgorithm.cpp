@@ -37,14 +37,45 @@ bool AlexanderMoveByMetropolisAlgorithm::Initialize() {
     return true;
 }
 bool AlexanderMoveByMetropolisAlgorithm::EvolveOneStep(int step){
+    // Debug: print immediately to verify function is called
+    // if (step <= 5) {
+    //     std::cerr << "[ALEX_START:" << step << "]" << std::flush;
+    // }
  
     int no_edges = m_pSurfL.size();
     int no_steps = no_edges*m_NumberOfMovePerStep;
     
+    // Debug: print progress for first few steps
+    // if (step <= 5) {
+    //     std::cerr << "[ALEX_EDGES:" << no_edges << "," << no_steps << "]" << std::flush;
+    // }
+    
+    // Safety check: if no edges, return immediately
+    if (no_edges == 0) {
+        return true;
+    }
+    
   for (int i = 0; i< no_steps;i++) {
+      // Debug: print progress every 10% for first few steps
+      // if (step <= 5 && no_steps > 0 && (i % (std::max(1, no_steps/10) + 1) == 0)) {
+      //     std::cout << "." << std::flush;
+      // }
     
       int r_lid = m_pState->GetRandomNumberGenerator()->IntRNG(no_edges);
+      if (r_lid < 0 || r_lid >= no_edges) {
+          continue;  // Safety check: skip invalid indices
+      }
       links *p_link = m_pSurfL[r_lid];
+      if (p_link == nullptr) {
+          continue;  // Safety check: skip null pointers
+      }
+      
+      // Safety check: ensure the edge has valid vertices
+      if (p_link->GetV1() == nullptr || p_link->GetV2() == nullptr || 
+          p_link->GetV3() == nullptr || p_link->GetMirrorLink() == nullptr ||
+          p_link->GetMirrorLink()->GetV3() == nullptr) {
+          continue;  // Skip invalid edges
+      }
 
       double thermal = m_pState->GetRandomNumberGenerator()->UniformRNG(1.0);
       if(FlipOneEdge(step, p_link,thermal)){
@@ -52,6 +83,10 @@ bool AlexanderMoveByMetropolisAlgorithm::EvolveOneStep(int step){
       }
       m_NumberOfAttemptedMoves++;
     }
+    
+    // if (step <= 5) {
+    //     std::cerr << "[ALEX_END:" << step << "]" << std::flush;
+    // }
     
     return true;
 }
@@ -81,7 +116,16 @@ bool AlexanderMoveByMetropolisAlgorithm::FlipOneEdge(int step, links *p_edge, do
     vertex *v1 = p_edge->GetV1();
     vertex *v2 = p_edge->GetV2();
     vertex *v3 = p_edge->GetV3();
-    vertex *v4 = p_edge->GetMirrorLink()->GetV3();
+    links *mirror_link = p_edge->GetMirrorLink();
+    if (mirror_link == nullptr) {
+        return false;  // Safety check: invalid mirror link
+    }
+    vertex *v4 = mirror_link->GetV3();
+    
+    // Safety check: ensure all vertices are valid
+    if (v1 == nullptr || v2 == nullptr || v3 == nullptr || v4 == nullptr) {
+        return false;  // Invalid vertices
+    }
 
     old_energy = v1->GetEnergy();
     old_energy += v2->GetEnergy();
@@ -171,6 +215,9 @@ bool AlexanderMoveByMetropolisAlgorithm::FlipOneEdge(int step, links *p_edge, do
     l4->UpdateShapeOperator(m_pBox);
 
     // --> calculate vertex shape operator
+    // Only update curvature for membrane vertices (those with links)
+    // DNA beads don't have links and shouldn't be part of edges, but check to be safe
+    // Note: EdgeCanBeFliped already checked that all vertices have links, so these should all be valid
     (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(v1);
     (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(v2);
     (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(v3);
@@ -370,11 +417,34 @@ bool AlexanderMoveByMetropolisAlgorithm::EdgeCanBeFliped(links *p_edge) {
      * and using references where applicable.
      */
     
+    // Safety check: ensure edge and mirror link are valid
+    if (p_edge == nullptr) {
+        return false;
+    }
+    links* mirror_link = p_edge->GetMirrorLink();
+    if (mirror_link == nullptr) {
+        return false;
+    }
+    
 // Obtain references to the vertices connected by the edge
     vertex* v1 = p_edge->GetV1();
     vertex* v2 = p_edge->GetV2();
     vertex* v3 = p_edge->GetV3();
-    vertex* v4 = p_edge->GetMirrorLink()->GetV3();
+    vertex* v4 = mirror_link->GetV3();
+    
+    // Safety check: ensure all vertices are valid
+    if (v1 == nullptr || v2 == nullptr || v3 == nullptr || v4 == nullptr) {
+        return false;
+    }
+    
+    // CRITICAL: DNA beads don't have links/triangles, so edges involving DNA beads cannot be flipped
+    // Check if any vertex is a DNA bead (has bonds but no links)
+    if (v1->GetVLinkList().empty() || v2->GetVLinkList().empty() || 
+        v3->GetVLinkList().empty() || v4->GetVLinkList().empty()) {
+        // At least one vertex has no links - this could be a DNA bead or invalid edge
+        // DNA beads should never be part of membrane edges, but check to be safe
+        return false;
+    }
 
     // Get the sizes of the neighbor vertices for v1 and v2
     int v1NeighborSize = v1->GetVNeighbourVertex().size();
@@ -444,11 +514,31 @@ std::vector<links*> AlexanderMoveByMetropolisAlgorithm::GetEdgesWithInteractionC
      * 3. Ensures that edges are not duplicated in the result list.
      */
     
+    // Safety check: ensure edge is valid
+    if (p_edge == nullptr) {
+        return std::vector<links*>();
+    }
+    links* mirror_link = p_edge->GetMirrorLink();
+    if (mirror_link == nullptr) {
+        return std::vector<links*>();
+    }
+    
 // Fetch vertices connected by the edge and their opposing vertices
     vertex* v1 = p_edge->GetV1();
     vertex* v2 = p_edge->GetV2();
     vertex* v3 = p_edge->GetV3();
-    vertex* v4 = p_edge->GetMirrorLink()->GetV3();
+    vertex* v4 = mirror_link->GetV3();
+    
+    // Safety check: ensure all vertices are valid
+    if (v1 == nullptr || v2 == nullptr || v3 == nullptr || v4 == nullptr) {
+        return std::vector<links*>();
+    }
+    
+    // Safety check: DNA beads don't have links, so skip if any vertex is a DNA bead
+    if (v1->GetVLinkList().empty() || v2->GetVLinkList().empty() || 
+        v3->GetVLinkList().empty() || v4->GetVLinkList().empty()) {
+        return std::vector<links*>();  // Return empty vector for DNA beads
+    }
     
 // Vector to store edges that may have interaction changes
     std::vector<links*> edge_with_interaction_change;

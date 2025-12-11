@@ -65,11 +65,34 @@ public:
     int m_genus;   // topological genus of the surface
     int m_noUpperCreatedHole;
     int m_noLowerCreatedHole;
+    
+    // DNA generation parameters
+    bool m_GenerateDNA;              // flag to enable DNA generation
+    std::string m_DNAOutputFilename; // output DNA file (e.g., dna.q)
+    int m_DNANumBeads;               // number of DNA beads per chain (final target)
+    int m_DNANumChains;              // number of DNA chains to generate (default: 1)
+    double m_DNABoundaryRadius;      // boundary radius (R_b) in nm
+    Vec3D m_DNABoundaryOrigin;        // boundary sphere center (x, y, z) in nm (default: 0, 0, 0)
+    double m_DNAMonomerRadius;       // monomer radius (r) in nm
+    double m_DNAPersistenceLength;   // persistence length (L_p) in nm (not used in simplified version)
+    int m_DNANumStages;              // number of growth stages
+    std::vector<std::pair<int, int> > m_DNAStages; // growth stages: (segment_length_nm, num_segments)
+    std::string m_DNABondsFilename;   // output bonds file (e.g., dna_bonds.txt)
+    int m_DNAStartIndex;              // starting vertex ID for DNA beads (inferred from membrane if not set)
+    double m_DNABondK;                // bond spring constant (global)
+    double m_DNABondL0;               // bond equilibrium length (global, or calculated from chain)
+    double m_DNABondKAngle;           // angle spring constant (global)
+    double m_DNABondTheta0;            // angle equilibrium value (global, in radians)
+    
 private:
     void ExploreArguments();         // updates variables based on the command line arguments
     void HelpMessage();              // writes a help message
     void WriteTSI(std::string filename , MeshBluePrint blueprint);
     void WriteQFile(std::string filename , MeshBluePrint blueprint);
+    void GenerateDNA();              // generate DNA chain(s) using Koch-curve algorithm
+    void WriteDNAQFile(std::string filename, const std::vector<Vertex_Map>& dnaVertices, Vec3D box);
+    void WriteDNABondsFile(std::string filename, const std::vector<std::vector<Vertex_Map> >& chains, int start_index, double k, double l0, double k_angle, double theta0);
+    void UpdateInputFileWithBondParams(std::string input_dts_file, std::string bonds_filename, double k, double l0);
     std::string m_tsiPrecision;
     
     

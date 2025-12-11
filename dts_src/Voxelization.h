@@ -55,6 +55,11 @@ Voxelization(){ // Use Type here
     m_Lx = 1;
     m_Ly = 1;
     m_Lz = 1;
+    m_pBox = nullptr;  // Initialize to nullptr to catch uninitialized access
+    m_AllVoxel = nullptr;  // Initialize to nullptr
+    m_Nx = 0;  // Initialize to 0
+    m_Ny = 0;  // Initialize to 0
+    m_Nz = 0;  // Initialize to 0
     Voxel_Size_Default(0) = 1.05;
     Voxel_Size_Default(1) = 1.05;
     Voxel_Size_Default(2) = 1.05;
@@ -66,6 +71,10 @@ Voxelization(Vec3D *pBox) { // Use Type here
         m_Lx = 1;
         m_Ly = 1;
         m_Lz = 1;
+        m_AllVoxel = nullptr;  // Initialize to nullptr
+        m_Nx = 0;  // Initialize to 0
+        m_Ny = 0;  // Initialize to 0
+        m_Nz = 0;  // Initialize to 0
     Voxel_Size_Default(0) = 1.05;
     Voxel_Size_Default(1) = 1.05;
     Voxel_Size_Default(2) = 1.05;
@@ -138,6 +147,11 @@ bool Voxelize(std::vector<Type *> all_pObjects) {
     std::cout<<" all voxels has been emptied \n";
 #endif
         //--->find the appropriate voxel size and number of voxels
+        // Safety check: ensure m_pBox is initialized
+        if (m_pBox == nullptr) {
+            std::cerr << "Error: Voxelization::Voxelize() called with uninitialized m_pBox!" << std::endl;
+            return false;
+        }
         m_Nx = int((*m_pBox)(0)/m_Lx);
         m_Ny = int((*m_pBox)(1)/m_Ly);
         m_Nz = int((*m_pBox)(2)/m_Lz);

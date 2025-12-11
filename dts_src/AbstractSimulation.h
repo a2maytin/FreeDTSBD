@@ -67,8 +67,8 @@ public:
         return;
     }
     void SetMinMaxLength(double min_l, double max_l){
-        m_MinLength2 = min_l;
-        m_MaxLength2 = max_l;
+        m_MinLength2 = min_l * min_l;  // Store squared value
+        m_MaxLength2 = max_l * max_l;  // Store squared value
         return;
     }
 

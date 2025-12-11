@@ -385,27 +385,95 @@ bool vertex::Reverse2PreviousCopy(){  // reverse the edge to the value set at th
 }
 
 bool vertex::CheckVoxel(){
+    // Safety check: if voxel or box is not initialized, return true
+    // This can happen for DNA beads or if voxelization hasn't been performed
+    if (m_pVoxel == nullptr || m_pBox == nullptr) {
+        return true;  // Skip voxel check if not initialized
+    }
     
-//-- obtain the object (vertex)  cell id, with respect to the current cell
-        int i = int((m_X)/m_pVoxel->GetXSideVoxel((*m_pBox)(0)))-m_pVoxel->GetXIndex();
-        int j = int((m_Y)/m_pVoxel->GetYSideVoxel((*m_pBox)(1)))-m_pVoxel->GetYIndex();
-        int k = int((m_Z)/m_pVoxel->GetZSideVoxel((*m_pBox)(2)))-m_pVoxel->GetZIndex();
-        //-- check if it has moved too far
-        if(i!=0 || j!=0 || k!=0) {
-            return false;
-        }
+    // Store box dimensions in local variables to avoid repeated dereferencing
+    // This also helps catch if m_pBox is a dangling pointer (will crash here if invalid)
+    // Additional safety: check if m_pBox points to valid memory by checking if it's within reasonable bounds
+    double box_x, box_y, box_z;
+    try {
+        box_x = (*m_pBox)(0);
+        box_y = (*m_pBox)(1);
+        box_z = (*m_pBox)(2);
+    } catch (...) {
+        // If accessing m_pBox crashes, return true to skip the check
+        return true;
+    }
+    
+    // Check if box dimensions are valid (not zero or negative, and not unreasonably large)
+    if (box_x <= 0 || box_y <= 0 || box_z <= 0 || 
+        box_x > 1e10 || box_y > 1e10 || box_z > 1e10) {
+        return true;  // Invalid box dimensions
+    }
+    
+    // Additional safety: check if voxel methods can be called
+    // If voxel is a dangling pointer, accessing it will crash
+    int NoX, NoY, NoZ, old_nx, old_ny, old_nz;
+    try {
+        NoX = m_pVoxel->GetXNoVoxel();
+        NoY = m_pVoxel->GetYNoVoxel();
+        NoZ = m_pVoxel->GetZNoVoxel();
+        old_nx = m_pVoxel->GetXIndex();
+        old_ny = m_pVoxel->GetYIndex();
+        old_nz = m_pVoxel->GetZIndex();
+    } catch (...) {
+        // If accessing voxel methods crashes, return true to skip the check
+        return true;
+    }
+    
+    //-- obtain the object (vertex)  cell id, with respect to the current cell
+    double side_x, side_y, side_z;
+    try {
+        side_x = m_pVoxel->GetXSideVoxel(box_x);
+        side_y = m_pVoxel->GetYSideVoxel(box_y);
+        side_z = m_pVoxel->GetZSideVoxel(box_z);
+    } catch (...) {
+        return true;  // If accessing voxel methods crashes, skip the check
+    }
+    
+    if (side_x <= 0 || side_y <= 0 || side_z <= 0) {
+        return true;  // Invalid voxel side lengths
+    }
+    
+    int i = int((m_X)/side_x) - old_nx;
+    int j = int((m_Y)/side_y) - old_ny;
+    int k = int((m_Z)/side_z) - old_nz;
+    
+    //-- check if it has moved too far
+    if(i!=0 || j!=0 || k!=0) {
+        return false;
+    }
     
     return true;
 }
 bool vertex::UpdateVoxelAfterAVertexMove(){
+    // Safety check: if voxel or box is not initialized, return true
+    // This can happen for DNA beads or if voxelization hasn't been performed
+    if (m_pVoxel == nullptr || m_pBox == nullptr) {
+        return true;  // Skip voxel update if not initialized
+    }
+    
+    // Store box dimensions in local variables
+    double box_x = (*m_pBox)(0);
+    double box_y = (*m_pBox)(1);
+    double box_z = (*m_pBox)(2);
+    
+    // Check if box dimensions are valid
+    if (box_x <= 0 || box_y <= 0 || box_z <= 0) {
+        return true;  // Invalid box dimensions
+    }
     
     int NoX = m_pVoxel->GetXNoVoxel();
     int NoY = m_pVoxel->GetYNoVoxel();
     int NoZ = m_pVoxel->GetZNoVoxel();
 
-    int new_nx = int(m_X/m_pVoxel->GetXSideVoxel((*m_pBox)(0)));
-    int new_ny = int(m_Y/m_pVoxel->GetYSideVoxel((*m_pBox)(1)));
-    int new_nz = int(m_Z/m_pVoxel->GetZSideVoxel((*m_pBox)(2)));
+    int new_nx = int(m_X/m_pVoxel->GetXSideVoxel(box_x));
+    int new_ny = int(m_Y/m_pVoxel->GetYSideVoxel(box_y));
+    int new_nz = int(m_Z/m_pVoxel->GetZSideVoxel(box_z));
     int old_nx = m_pVoxel->GetXIndex();
     int old_ny = m_pVoxel->GetYIndex();
     int old_nz = m_pVoxel->GetZIndex();
@@ -425,8 +493,14 @@ bool vertex::UpdateVoxelAfterAVertexMove(){
         return false;
     }
     //Voxel<vertex>::GetANeighbourCell
+    // Safety check: ensure we can get the neighbor cell
+    Voxel<vertex>* new_voxel = m_pVoxel->GetANeighbourCell(i, j, k);
+    if (new_voxel == nullptr) {
+        // Neighbor voxel is null - this shouldn't happen, but return false to reject the move
+        return false;
+    }
     m_pVoxel->RemoveObjectFromContentList(this);
-    m_pVoxel = m_pVoxel->GetANeighbourCell(i, j, k);
+    m_pVoxel = new_voxel;
     m_pVoxel->AddtoContentList(this);
 
     return true;

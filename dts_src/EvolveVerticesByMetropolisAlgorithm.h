@@ -24,6 +24,7 @@ private:
     bool EvolveOneVertex(int step, vertex *pvertex, double dx, double dy, double dz,double temp);
     bool VertexMoveIsFine(vertex* pvertex, double dx,double dy, double dz,  double mindist2, double maxdist2);
     bool CheckFacesAfterAVertexMove(vertex* p_vertex);
+    bool CheckFacesAfterAVertexMove(vertex* p_vertex, const std::vector<links*>& linkList);  // Overloaded version using pre-computed link list
     std::vector<links*> GetEdgesWithInteractionChange(vertex* p_vertex);
 
     double  SystemEnergy();  // it is for bug finding only; slow function, this is for development time, should be deleted

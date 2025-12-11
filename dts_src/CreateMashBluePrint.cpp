@@ -301,6 +301,7 @@ void CreateMashBluePrint::Read_Mult_QFile(const std::string& topfile)
 #if DEBUG_MODE == Enabled
         std::cout<<"----> vertex section was read  "<<std::endl;
 #endif
+        std::cout<<"----> Read "<<NV<<" vertices from file "<<qfiles.at(fi)<<", total vertices now: "<<m_VertexMap.size()<<std::endl;
         getline(Qs,str);
         b.clear();
         b = f.split(str);

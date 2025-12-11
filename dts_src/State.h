@@ -163,6 +163,7 @@
 #include "AbstractNonbondedInteractionBetweenVertices.h"
 #include "PolarInteractionBetweenEdgesVertices.h"
 #include "InteractionBetweenInclusionsIn3D.h"
+#include "DNARepulsion.h"
 
 
 struct ParallelReplicaData {  // data structure for turning on and off certain moves

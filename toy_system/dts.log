@@ -1,0 +1,42 @@
+;--------- this state is initiated by this command ---------------------------------  
+../DTS   -in   input.dts   -top   topology.top   -nt   30   
+;--------- this part can be used as an input.dts file ---------------------------------  
+ Run_Tag = dts
+;-- abstract classes
+Integrator_Type = MC_Simulation
+ Min_Max_Lenghts = 1 9
+ MinfaceAngle = -0.5
+ Temprature = 1 0
+ Box_Centering_F = 0
+ Set_Steps = 1 1e+06
+Boundary = PBC
+VertexPositionIntegrator = MetropolisAlgorithmOpenMP 1 1 0.05
+AlexanderMove = MetropolisAlgorithmOpenMP 1
+InclusionPoseIntegrator = MetropolisAlgorithm 1 1
+VectorFieldsRotation = MetropolisAlgorithm 1 0.1
+NonbinaryTrajectory = TSI TrajTSI 1000
+BinaryTrajectory = NoFile
+VisualizationFormat = VTUFileFormat VTU_F 1000
+CurvatureMethod = ShapeOperator_1
+EnergyMethod = FreeDTS1.0_FF
+ Kappa = 60 0 0
+ Edge_Parameters = 5 0 0
+ VertexArea = 0 0.7 0 0
+ConstraintBetweenGroups = No
+InclusionInducedForceOnVertex = No
+VectorFieldsForceOnVertex = No
+ForceOnVertices = No
+ExternalFieldOnVectorFields = No
+ExternalFieldOnInclusions = No
+InclusionConversion = No
+VertexAdhesionToSubstrate = No
+VolumeCoupling = SecondOrder 0 10000 1
+GlobalCurvatureCoupling = HarmonicPotential 150 0.3
+TotalAreaCoupling = HarmonicPotential 0.377929 0.34
+Dynamic_Box = No
+DynamicTopology = No
+OpenEdgeEvolution = No
+TimeSeriesData_Period = 1000
+Restart_Period  =  1000
+;------------------------------------------  
+; the total number of thread used in this run was: 30

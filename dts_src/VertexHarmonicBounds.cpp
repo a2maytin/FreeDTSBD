@@ -4,6 +4,7 @@
 
 VertexHarmonicBounds::VertexHarmonicBounds() {
     m_pVertexBond.clear();
+    m_pVertexAngle.clear();
 }
 
 VertexHarmonicBounds::~VertexHarmonicBounds() {
@@ -12,6 +13,11 @@ VertexHarmonicBounds::~VertexHarmonicBounds() {
 void VertexHarmonicBounds::AddBondToList(bond *b){
     
     m_pVertexBond.push_back(b);
+    return;
+}
+void VertexHarmonicBounds::AddAngleToList(angle *a){
+    
+    m_pVertexAngle.push_back(a);
     return;
 }
 double VertexHarmonicBounds::GetBondEnergyOfVertex(){
@@ -23,4 +29,18 @@ double VertexHarmonicBounds::GetBondEnergyOfVertex(){
     }
     
     return en;
+}
+double VertexHarmonicBounds::GetAngleEnergyOfVertex(){
+    
+    double en = 0;
+    
+    for (std::vector<angle*>::iterator it = m_pVertexAngle.begin() ; it != m_pVertexAngle.end(); ++it){
+        en += (*it)->CalculateEnergy();
+    }
+    
+    return en;
+}
+double VertexHarmonicBounds::GetBondedEnergyOfVertex(){
+    
+    return GetBondEnergyOfVertex() + GetAngleEnergyOfVertex();
 }

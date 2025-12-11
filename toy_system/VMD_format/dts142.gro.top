@@ -1,0 +1,5014 @@
+[ defaults ] 
+1 1 
+[ atomtypes ] 
+CT1 72.0 0.000 A 0.0 0.0  
+[ moleculetype ] 
+ surface    1 
+ [atoms] 
+1 	CT1 	0	Sur 	C 	1 	0  
+2 	CT1 	0	Sur 	C 	2 	0  
+3 	CT1 	0	Sur 	C 	3 	0  
+4 	CT1 	0	Sur 	C 	4 	0  
+5 	CT1 	0	Sur 	C 	5 	0  
+6 	CT1 	0	Sur 	C 	6 	0  
+7 	CT1 	0	Sur 	C 	7 	0  
+8 	CT1 	0	Sur 	C 	8 	0  
+9 	CT1 	0	Sur 	C 	9 	0  
+10 	CT1 	0	Sur 	C 	10 	0  
+11 	CT1 	0	Sur 	C 	11 	0  
+12 	CT1 	0	Sur 	C 	12 	0  
+13 	CT1 	0	Sur 	C 	13 	0  
+14 	CT1 	0	Sur 	C 	14 	0  
+15 	CT1 	0	Sur 	C 	15 	0  
+16 	CT1 	0	Sur 	C 	16 	0  
+17 	CT1 	0	Sur 	C 	17 	0  
+18 	CT1 	0	Sur 	C 	18 	0  
+19 	CT1 	0	Sur 	C 	19 	0  
+20 	CT1 	0	Sur 	C 	20 	0  
+21 	CT1 	0	Sur 	C 	21 	0  
+22 	CT1 	0	Sur 	C 	22 	0  
+23 	CT1 	0	Sur 	C 	23 	0  
+24 	CT1 	0	Sur 	C 	24 	0  
+25 	CT1 	0	Sur 	C 	25 	0  
+26 	CT1 	0	Sur 	C 	26 	0  
+27 	CT1 	0	Sur 	C 	27 	0  
+28 	CT1 	0	Sur 	C 	28 	0  
+29 	CT1 	0	Sur 	C 	29 	0  
+30 	CT1 	0	Sur 	C 	30 	0  
+31 	CT1 	0	Sur 	C 	31 	0  
+32 	CT1 	0	Sur 	C 	32 	0  
+33 	CT1 	0	Sur 	C 	33 	0  
+34 	CT1 	0	Sur 	C 	34 	0  
+35 	CT1 	0	Sur 	C 	35 	0  
+36 	CT1 	0	Sur 	C 	36 	0  
+37 	CT1 	0	Sur 	C 	37 	0  
+38 	CT1 	0	Sur 	C 	38 	0  
+39 	CT1 	0	Sur 	C 	39 	0  
+40 	CT1 	0	Sur 	C 	40 	0  
+41 	CT1 	0	Sur 	C 	41 	0  
+42 	CT1 	0	Sur 	C 	42 	0  
+43 	CT1 	0	Sur 	C 	43 	0  
+44 	CT1 	0	Sur 	C 	44 	0  
+45 	CT1 	0	Sur 	C 	45 	0  
+46 	CT1 	0	Sur 	C 	46 	0  
+47 	CT1 	0	Sur 	C 	47 	0  
+48 	CT1 	0	Sur 	C 	48 	0  
+49 	CT1 	0	Sur 	C 	49 	0  
+50 	CT1 	0	Sur 	C 	50 	0  
+51 	CT1 	0	Sur 	C 	51 	0  
+52 	CT1 	0	Sur 	C 	52 	0  
+53 	CT1 	0	Sur 	C 	53 	0  
+54 	CT1 	0	Sur 	C 	54 	0  
+55 	CT1 	0	Sur 	C 	55 	0  
+56 	CT1 	0	Sur 	C 	56 	0  
+57 	CT1 	0	Sur 	C 	57 	0  
+58 	CT1 	0	Sur 	C 	58 	0  
+59 	CT1 	0	Sur 	C 	59 	0  
+60 	CT1 	0	Sur 	C 	60 	0  
+61 	CT1 	0	Sur 	C 	61 	0  
+62 	CT1 	0	Sur 	C 	62 	0  
+63 	CT1 	0	Sur 	C 	63 	0  
+64 	CT1 	0	Sur 	C 	64 	0  
+65 	CT1 	0	Sur 	C 	65 	0  
+66 	CT1 	0	Sur 	C 	66 	0  
+67 	CT1 	0	Sur 	C 	67 	0  
+68 	CT1 	0	Sur 	C 	68 	0  
+69 	CT1 	0	Sur 	C 	69 	0  
+70 	CT1 	0	Sur 	C 	70 	0  
+71 	CT1 	0	Sur 	C 	71 	0  
+72 	CT1 	0	Sur 	C 	72 	0  
+73 	CT1 	0	Sur 	C 	73 	0  
+74 	CT1 	0	Sur 	C 	74 	0  
+75 	CT1 	0	Sur 	C 	75 	0  
+76 	CT1 	0	Sur 	C 	76 	0  
+77 	CT1 	0	Sur 	C 	77 	0  
+78 	CT1 	0	Sur 	C 	78 	0  
+79 	CT1 	0	Sur 	C 	79 	0  
+80 	CT1 	0	Sur 	C 	80 	0  
+81 	CT1 	0	Sur 	C 	81 	0  
+82 	CT1 	0	Sur 	C 	82 	0  
+83 	CT1 	0	Sur 	C 	83 	0  
+84 	CT1 	0	Sur 	C 	84 	0  
+85 	CT1 	0	Sur 	C 	85 	0  
+86 	CT1 	0	Sur 	C 	86 	0  
+87 	CT1 	0	Sur 	C 	87 	0  
+88 	CT1 	0	Sur 	C 	88 	0  
+89 	CT1 	0	Sur 	C 	89 	0  
+90 	CT1 	0	Sur 	C 	90 	0  
+91 	CT1 	0	Sur 	C 	91 	0  
+92 	CT1 	0	Sur 	C 	92 	0  
+93 	CT1 	0	Sur 	C 	93 	0  
+94 	CT1 	0	Sur 	C 	94 	0  
+95 	CT1 	0	Sur 	C 	95 	0  
+96 	CT1 	0	Sur 	C 	96 	0  
+97 	CT1 	0	Sur 	C 	97 	0  
+98 	CT1 	0	Sur 	C 	98 	0  
+99 	CT1 	0	Sur 	C 	99 	0  
+100 	CT1 	0	Sur 	C 	100 	0  
+101 	CT1 	0	Sur 	C 	101 	0  
+102 	CT1 	0	Sur 	C 	102 	0  
+103 	CT1 	0	Sur 	C 	103 	0  
+104 	CT1 	0	Sur 	C 	104 	0  
+105 	CT1 	0	Sur 	C 	105 	0  
+106 	CT1 	0	Sur 	C 	106 	0  
+107 	CT1 	0	Sur 	C 	107 	0  
+108 	CT1 	0	Sur 	C 	108 	0  
+109 	CT1 	0	Sur 	C 	109 	0  
+110 	CT1 	0	Sur 	C 	110 	0  
+111 	CT1 	0	Sur 	C 	111 	0  
+112 	CT1 	0	Sur 	C 	112 	0  
+113 	CT1 	0	Sur 	C 	113 	0  
+114 	CT1 	0	Sur 	C 	114 	0  
+115 	CT1 	0	Sur 	C 	115 	0  
+116 	CT1 	0	Sur 	C 	116 	0  
+117 	CT1 	0	Sur 	C 	117 	0  
+118 	CT1 	0	Sur 	C 	118 	0  
+119 	CT1 	0	Sur 	C 	119 	0  
+120 	CT1 	0	Sur 	C 	120 	0  
+121 	CT1 	0	Sur 	C 	121 	0  
+122 	CT1 	0	Sur 	C 	122 	0  
+123 	CT1 	0	Sur 	C 	123 	0  
+124 	CT1 	0	Sur 	C 	124 	0  
+125 	CT1 	0	Sur 	C 	125 	0  
+126 	CT1 	0	Sur 	C 	126 	0  
+127 	CT1 	0	Sur 	C 	127 	0  
+128 	CT1 	0	Sur 	C 	128 	0  
+129 	CT1 	0	Sur 	C 	129 	0  
+130 	CT1 	0	Sur 	C 	130 	0  
+131 	CT1 	0	Sur 	C 	131 	0  
+132 	CT1 	0	Sur 	C 	132 	0  
+133 	CT1 	0	Sur 	C 	133 	0  
+134 	CT1 	0	Sur 	C 	134 	0  
+135 	CT1 	0	Sur 	C 	135 	0  
+136 	CT1 	0	Sur 	C 	136 	0  
+137 	CT1 	0	Sur 	C 	137 	0  
+138 	CT1 	0	Sur 	C 	138 	0  
+139 	CT1 	0	Sur 	C 	139 	0  
+140 	CT1 	0	Sur 	C 	140 	0  
+141 	CT1 	0	Sur 	C 	141 	0  
+142 	CT1 	0	Sur 	C 	142 	0  
+143 	CT1 	0	Sur 	C 	143 	0  
+144 	CT1 	0	Sur 	C 	144 	0  
+145 	CT1 	0	Sur 	C 	145 	0  
+146 	CT1 	0	Sur 	C 	146 	0  
+147 	CT1 	0	Sur 	C 	147 	0  
+148 	CT1 	0	Sur 	C 	148 	0  
+149 	CT1 	0	Sur 	C 	149 	0  
+150 	CT1 	0	Sur 	C 	150 	0  
+151 	CT1 	0	Sur 	C 	151 	0  
+152 	CT1 	0	Sur 	C 	152 	0  
+153 	CT1 	0	Sur 	C 	153 	0  
+154 	CT1 	0	Sur 	C 	154 	0  
+155 	CT1 	0	Sur 	C 	155 	0  
+156 	CT1 	0	Sur 	C 	156 	0  
+157 	CT1 	0	Sur 	C 	157 	0  
+158 	CT1 	0	Sur 	C 	158 	0  
+159 	CT1 	0	Sur 	C 	159 	0  
+160 	CT1 	0	Sur 	C 	160 	0  
+161 	CT1 	0	Sur 	C 	161 	0  
+162 	CT1 	0	Sur 	C 	162 	0  
+163 	CT1 	0	Sur 	C 	163 	0  
+164 	CT1 	0	Sur 	C 	164 	0  
+165 	CT1 	0	Sur 	C 	165 	0  
+166 	CT1 	0	Sur 	C 	166 	0  
+167 	CT1 	0	Sur 	C 	167 	0  
+168 	CT1 	0	Sur 	C 	168 	0  
+169 	CT1 	0	Sur 	C 	169 	0  
+170 	CT1 	0	Sur 	C 	170 	0  
+171 	CT1 	0	Sur 	C 	171 	0  
+172 	CT1 	0	Sur 	C 	172 	0  
+173 	CT1 	0	Sur 	C 	173 	0  
+174 	CT1 	0	Sur 	C 	174 	0  
+175 	CT1 	0	Sur 	C 	175 	0  
+176 	CT1 	0	Sur 	C 	176 	0  
+177 	CT1 	0	Sur 	C 	177 	0  
+178 	CT1 	0	Sur 	C 	178 	0  
+179 	CT1 	0	Sur 	C 	179 	0  
+180 	CT1 	0	Sur 	C 	180 	0  
+181 	CT1 	0	Sur 	C 	181 	0  
+182 	CT1 	0	Sur 	C 	182 	0  
+183 	CT1 	0	Sur 	C 	183 	0  
+184 	CT1 	0	Sur 	C 	184 	0  
+185 	CT1 	0	Sur 	C 	185 	0  
+186 	CT1 	0	Sur 	C 	186 	0  
+187 	CT1 	0	Sur 	C 	187 	0  
+188 	CT1 	0	Sur 	C 	188 	0  
+189 	CT1 	0	Sur 	C 	189 	0  
+190 	CT1 	0	Sur 	C 	190 	0  
+191 	CT1 	0	Sur 	C 	191 	0  
+192 	CT1 	0	Sur 	C 	192 	0  
+193 	CT1 	0	Sur 	C 	193 	0  
+194 	CT1 	0	Sur 	C 	194 	0  
+195 	CT1 	0	Sur 	C 	195 	0  
+196 	CT1 	0	Sur 	C 	196 	0  
+197 	CT1 	0	Sur 	C 	197 	0  
+198 	CT1 	0	Sur 	C 	198 	0  
+199 	CT1 	0	Sur 	C 	199 	0  
+200 	CT1 	0	Sur 	C 	200 	0  
+201 	CT1 	0	Sur 	C 	201 	0  
+202 	CT1 	0	Sur 	C 	202 	0  
+203 	CT1 	0	Sur 	C 	203 	0  
+204 	CT1 	0	Sur 	C 	204 	0  
+205 	CT1 	0	Sur 	C 	205 	0  
+206 	CT1 	0	Sur 	C 	206 	0  
+207 	CT1 	0	Sur 	C 	207 	0  
+208 	CT1 	0	Sur 	C 	208 	0  
+209 	CT1 	0	Sur 	C 	209 	0  
+210 	CT1 	0	Sur 	C 	210 	0  
+211 	CT1 	0	Sur 	C 	211 	0  
+212 	CT1 	0	Sur 	C 	212 	0  
+213 	CT1 	0	Sur 	C 	213 	0  
+214 	CT1 	0	Sur 	C 	214 	0  
+215 	CT1 	0	Sur 	C 	215 	0  
+216 	CT1 	0	Sur 	C 	216 	0  
+217 	CT1 	0	Sur 	C 	217 	0  
+218 	CT1 	0	Sur 	C 	218 	0  
+219 	CT1 	0	Sur 	C 	219 	0  
+220 	CT1 	0	Sur 	C 	220 	0  
+221 	CT1 	0	Sur 	C 	221 	0  
+222 	CT1 	0	Sur 	C 	222 	0  
+223 	CT1 	0	Sur 	C 	223 	0  
+224 	CT1 	0	Sur 	C 	224 	0  
+225 	CT1 	0	Sur 	C 	225 	0  
+226 	CT1 	0	Sur 	C 	226 	0  
+227 	CT1 	0	Sur 	C 	227 	0  
+228 	CT1 	0	Sur 	C 	228 	0  
+229 	CT1 	0	Sur 	C 	229 	0  
+230 	CT1 	0	Sur 	C 	230 	0  
+231 	CT1 	0	Sur 	C 	231 	0  
+232 	CT1 	0	Sur 	C 	232 	0  
+233 	CT1 	0	Sur 	C 	233 	0  
+234 	CT1 	0	Sur 	C 	234 	0  
+235 	CT1 	0	Sur 	C 	235 	0  
+236 	CT1 	0	Sur 	C 	236 	0  
+237 	CT1 	0	Sur 	C 	237 	0  
+238 	CT1 	0	Sur 	C 	238 	0  
+239 	CT1 	0	Sur 	C 	239 	0  
+240 	CT1 	0	Sur 	C 	240 	0  
+241 	CT1 	0	Sur 	C 	241 	0  
+242 	CT1 	0	Sur 	C 	242 	0  
+243 	CT1 	0	Sur 	C 	243 	0  
+244 	CT1 	0	Sur 	C 	244 	0  
+245 	CT1 	0	Sur 	C 	245 	0  
+246 	CT1 	0	Sur 	C 	246 	0  
+247 	CT1 	0	Sur 	C 	247 	0  
+248 	CT1 	0	Sur 	C 	248 	0  
+249 	CT1 	0	Sur 	C 	249 	0  
+250 	CT1 	0	Sur 	C 	250 	0  
+251 	CT1 	0	Sur 	C 	251 	0  
+252 	CT1 	0	Sur 	C 	252 	0  
+253 	CT1 	0	Sur 	C 	253 	0  
+254 	CT1 	0	Sur 	C 	254 	0  
+255 	CT1 	0	Sur 	C 	255 	0  
+256 	CT1 	0	Sur 	C 	256 	0  
+257 	CT1 	0	Sur 	C 	257 	0  
+258 	CT1 	0	Sur 	C 	258 	0  
+259 	CT1 	0	Sur 	C 	259 	0  
+260 	CT1 	0	Sur 	C 	260 	0  
+261 	CT1 	0	Sur 	C 	261 	0  
+262 	CT1 	0	Sur 	C 	262 	0  
+263 	CT1 	0	Sur 	C 	263 	0  
+264 	CT1 	0	Sur 	C 	264 	0  
+265 	CT1 	0	Sur 	C 	265 	0  
+266 	CT1 	0	Sur 	C 	266 	0  
+267 	CT1 	0	Sur 	C 	267 	0  
+268 	CT1 	0	Sur 	C 	268 	0  
+269 	CT1 	0	Sur 	C 	269 	0  
+270 	CT1 	0	Sur 	C 	270 	0  
+271 	CT1 	0	Sur 	C 	271 	0  
+272 	CT1 	0	Sur 	C 	272 	0  
+273 	CT1 	0	Sur 	C 	273 	0  
+274 	CT1 	0	Sur 	C 	274 	0  
+275 	CT1 	0	Sur 	C 	275 	0  
+276 	CT1 	0	Sur 	C 	276 	0  
+277 	CT1 	0	Sur 	C 	277 	0  
+278 	CT1 	0	Sur 	C 	278 	0  
+279 	CT1 	0	Sur 	C 	279 	0  
+280 	CT1 	0	Sur 	C 	280 	0  
+281 	CT1 	0	Sur 	C 	281 	0  
+282 	CT1 	0	Sur 	C 	282 	0  
+283 	CT1 	0	Sur 	C 	283 	0  
+284 	CT1 	0	Sur 	C 	284 	0  
+285 	CT1 	0	Sur 	C 	285 	0  
+286 	CT1 	0	Sur 	C 	286 	0  
+287 	CT1 	0	Sur 	C 	287 	0  
+288 	CT1 	0	Sur 	C 	288 	0  
+289 	CT1 	0	Sur 	C 	289 	0  
+290 	CT1 	0	Sur 	C 	290 	0  
+291 	CT1 	0	Sur 	C 	291 	0  
+292 	CT1 	0	Sur 	C 	292 	0  
+293 	CT1 	0	Sur 	C 	293 	0  
+294 	CT1 	0	Sur 	C 	294 	0  
+295 	CT1 	0	Sur 	C 	295 	0  
+296 	CT1 	0	Sur 	C 	296 	0  
+297 	CT1 	0	Sur 	C 	297 	0  
+298 	CT1 	0	Sur 	C 	298 	0  
+299 	CT1 	0	Sur 	C 	299 	0  
+300 	CT1 	0	Sur 	C 	300 	0  
+301 	CT1 	0	Sur 	C 	301 	0  
+302 	CT1 	0	Sur 	C 	302 	0  
+303 	CT1 	0	Sur 	C 	303 	0  
+304 	CT1 	0	Sur 	C 	304 	0  
+305 	CT1 	0	Sur 	C 	305 	0  
+306 	CT1 	0	Sur 	C 	306 	0  
+307 	CT1 	0	Sur 	C 	307 	0  
+308 	CT1 	0	Sur 	C 	308 	0  
+309 	CT1 	0	Sur 	C 	309 	0  
+310 	CT1 	0	Sur 	C 	310 	0  
+311 	CT1 	0	Sur 	C 	311 	0  
+312 	CT1 	0	Sur 	C 	312 	0  
+313 	CT1 	0	Sur 	C 	313 	0  
+314 	CT1 	0	Sur 	C 	314 	0  
+315 	CT1 	0	Sur 	C 	315 	0  
+316 	CT1 	0	Sur 	C 	316 	0  
+317 	CT1 	0	Sur 	C 	317 	0  
+318 	CT1 	0	Sur 	C 	318 	0  
+319 	CT1 	0	Sur 	C 	319 	0  
+320 	CT1 	0	Sur 	C 	320 	0  
+321 	CT1 	0	Sur 	C 	321 	0  
+322 	CT1 	0	Sur 	C 	322 	0  
+323 	CT1 	0	Sur 	C 	323 	0  
+324 	CT1 	0	Sur 	C 	324 	0  
+325 	CT1 	0	Sur 	C 	325 	0  
+326 	CT1 	0	Sur 	C 	326 	0  
+327 	CT1 	0	Sur 	C 	327 	0  
+328 	CT1 	0	Sur 	C 	328 	0  
+329 	CT1 	0	Sur 	C 	329 	0  
+330 	CT1 	0	Sur 	C 	330 	0  
+331 	CT1 	0	Sur 	C 	331 	0  
+332 	CT1 	0	Sur 	C 	332 	0  
+333 	CT1 	0	Sur 	C 	333 	0  
+334 	CT1 	0	Sur 	C 	334 	0  
+335 	CT1 	0	Sur 	C 	335 	0  
+336 	CT1 	0	Sur 	C 	336 	0  
+337 	CT1 	0	Sur 	C 	337 	0  
+338 	CT1 	0	Sur 	C 	338 	0  
+339 	CT1 	0	Sur 	C 	339 	0  
+340 	CT1 	0	Sur 	C 	340 	0  
+341 	CT1 	0	Sur 	C 	341 	0  
+342 	CT1 	0	Sur 	C 	342 	0  
+343 	CT1 	0	Sur 	C 	343 	0  
+344 	CT1 	0	Sur 	C 	344 	0  
+345 	CT1 	0	Sur 	C 	345 	0  
+346 	CT1 	0	Sur 	C 	346 	0  
+347 	CT1 	0	Sur 	C 	347 	0  
+348 	CT1 	0	Sur 	C 	348 	0  
+349 	CT1 	0	Sur 	C 	349 	0  
+350 	CT1 	0	Sur 	C 	350 	0  
+351 	CT1 	0	Sur 	C 	351 	0  
+352 	CT1 	0	Sur 	C 	352 	0  
+353 	CT1 	0	Sur 	C 	353 	0  
+354 	CT1 	0	Sur 	C 	354 	0  
+355 	CT1 	0	Sur 	C 	355 	0  
+356 	CT1 	0	Sur 	C 	356 	0  
+357 	CT1 	0	Sur 	C 	357 	0  
+358 	CT1 	0	Sur 	C 	358 	0  
+359 	CT1 	0	Sur 	C 	359 	0  
+360 	CT1 	0	Sur 	C 	360 	0  
+361 	CT1 	0	Sur 	C 	361 	0  
+362 	CT1 	0	Sur 	C 	362 	0  
+363 	CT1 	0	Sur 	C 	363 	0  
+364 	CT1 	0	Sur 	C 	364 	0  
+365 	CT1 	0	Sur 	C 	365 	0  
+366 	CT1 	0	Sur 	C 	366 	0  
+367 	CT1 	0	Sur 	C 	367 	0  
+368 	CT1 	0	Sur 	C 	368 	0  
+369 	CT1 	0	Sur 	C 	369 	0  
+370 	CT1 	0	Sur 	C 	370 	0  
+371 	CT1 	0	Sur 	C 	371 	0  
+372 	CT1 	0	Sur 	C 	372 	0  
+373 	CT1 	0	Sur 	C 	373 	0  
+374 	CT1 	0	Sur 	C 	374 	0  
+375 	CT1 	0	Sur 	C 	375 	0  
+376 	CT1 	0	Sur 	C 	376 	0  
+377 	CT1 	0	Sur 	C 	377 	0  
+378 	CT1 	0	Sur 	C 	378 	0  
+379 	CT1 	0	Sur 	C 	379 	0  
+380 	CT1 	0	Sur 	C 	380 	0  
+381 	CT1 	0	Sur 	C 	381 	0  
+382 	CT1 	0	Sur 	C 	382 	0  
+383 	CT1 	0	Sur 	C 	383 	0  
+384 	CT1 	0	Sur 	C 	384 	0  
+385 	CT1 	0	Sur 	C 	385 	0  
+386 	CT1 	0	Sur 	C 	386 	0  
+387 	CT1 	0	Sur 	C 	387 	0  
+388 	CT1 	0	Sur 	C 	388 	0  
+389 	CT1 	0	Sur 	C 	389 	0  
+390 	CT1 	0	Sur 	C 	390 	0  
+391 	CT1 	0	Sur 	C 	391 	0  
+392 	CT1 	0	Sur 	C 	392 	0  
+393 	CT1 	0	Sur 	C 	393 	0  
+394 	CT1 	0	Sur 	C 	394 	0  
+395 	CT1 	0	Sur 	C 	395 	0  
+396 	CT1 	0	Sur 	C 	396 	0  
+397 	CT1 	0	Sur 	C 	397 	0  
+398 	CT1 	0	Sur 	C 	398 	0  
+399 	CT1 	0	Sur 	C 	399 	0  
+400 	CT1 	0	Sur 	C 	400 	0  
+401 	CT1 	0	Sur 	C 	401 	0  
+402 	CT1 	0	Sur 	C 	402 	0  
+403 	CT1 	0	Sur 	C 	403 	0  
+404 	CT1 	0	Sur 	C 	404 	0  
+405 	CT1 	0	Sur 	C 	405 	0  
+406 	CT1 	0	Sur 	C 	406 	0  
+407 	CT1 	0	Sur 	C 	407 	0  
+408 	CT1 	0	Sur 	C 	408 	0  
+409 	CT1 	0	Sur 	C 	409 	0  
+410 	CT1 	0	Sur 	C 	410 	0  
+411 	CT1 	0	Sur 	C 	411 	0  
+412 	CT1 	0	Sur 	C 	412 	0  
+413 	CT1 	0	Sur 	C 	413 	0  
+414 	CT1 	0	Sur 	C 	414 	0  
+415 	CT1 	0	Sur 	C 	415 	0  
+416 	CT1 	0	Sur 	C 	416 	0  
+417 	CT1 	0	Sur 	C 	417 	0  
+418 	CT1 	0	Sur 	C 	418 	0  
+419 	CT1 	0	Sur 	C 	419 	0  
+420 	CT1 	0	Sur 	C 	420 	0  
+421 	CT1 	0	Sur 	C 	421 	0  
+422 	CT1 	0	Sur 	C 	422 	0  
+423 	CT1 	0	Sur 	C 	423 	0  
+424 	CT1 	0	Sur 	C 	424 	0  
+425 	CT1 	0	Sur 	C 	425 	0  
+426 	CT1 	0	Sur 	C 	426 	0  
+427 	CT1 	0	Sur 	C 	427 	0  
+428 	CT1 	0	Sur 	C 	428 	0  
+429 	CT1 	0	Sur 	C 	429 	0  
+430 	CT1 	0	Sur 	C 	430 	0  
+431 	CT1 	0	Sur 	C 	431 	0  
+432 	CT1 	0	Sur 	C 	432 	0  
+433 	CT1 	0	Sur 	C 	433 	0  
+434 	CT1 	0	Sur 	C 	434 	0  
+435 	CT1 	0	Sur 	C 	435 	0  
+436 	CT1 	0	Sur 	C 	436 	0  
+437 	CT1 	0	Sur 	C 	437 	0  
+438 	CT1 	0	Sur 	C 	438 	0  
+439 	CT1 	0	Sur 	C 	439 	0  
+440 	CT1 	0	Sur 	C 	440 	0  
+441 	CT1 	0	Sur 	C 	441 	0  
+442 	CT1 	0	Sur 	C 	442 	0  
+443 	CT1 	0	Sur 	C 	443 	0  
+444 	CT1 	0	Sur 	C 	444 	0  
+445 	CT1 	0	Sur 	C 	445 	0  
+446 	CT1 	0	Sur 	C 	446 	0  
+447 	CT1 	0	Sur 	C 	447 	0  
+448 	CT1 	0	Sur 	C 	448 	0  
+449 	CT1 	0	Sur 	C 	449 	0  
+450 	CT1 	0	Sur 	C 	450 	0  
+451 	CT1 	0	Sur 	C 	451 	0  
+452 	CT1 	0	Sur 	C 	452 	0  
+453 	CT1 	0	Sur 	C 	453 	0  
+454 	CT1 	0	Sur 	C 	454 	0  
+455 	CT1 	0	Sur 	C 	455 	0  
+456 	CT1 	0	Sur 	C 	456 	0  
+457 	CT1 	0	Sur 	C 	457 	0  
+458 	CT1 	0	Sur 	C 	458 	0  
+459 	CT1 	0	Sur 	C 	459 	0  
+460 	CT1 	0	Sur 	C 	460 	0  
+461 	CT1 	0	Sur 	C 	461 	0  
+462 	CT1 	0	Sur 	C 	462 	0  
+463 	CT1 	0	Sur 	C 	463 	0  
+464 	CT1 	0	Sur 	C 	464 	0  
+465 	CT1 	0	Sur 	C 	465 	0  
+466 	CT1 	0	Sur 	C 	466 	0  
+467 	CT1 	0	Sur 	C 	467 	0  
+468 	CT1 	0	Sur 	C 	468 	0  
+469 	CT1 	0	Sur 	C 	469 	0  
+470 	CT1 	0	Sur 	C 	470 	0  
+471 	CT1 	0	Sur 	C 	471 	0  
+472 	CT1 	0	Sur 	C 	472 	0  
+473 	CT1 	0	Sur 	C 	473 	0  
+474 	CT1 	0	Sur 	C 	474 	0  
+475 	CT1 	0	Sur 	C 	475 	0  
+476 	CT1 	0	Sur 	C 	476 	0  
+477 	CT1 	0	Sur 	C 	477 	0  
+478 	CT1 	0	Sur 	C 	478 	0  
+479 	CT1 	0	Sur 	C 	479 	0  
+480 	CT1 	0	Sur 	C 	480 	0  
+481 	CT1 	0	Sur 	C 	481 	0  
+482 	CT1 	0	Sur 	C 	482 	0  
+483 	CT1 	0	Sur 	C 	483 	0  
+484 	CT1 	0	Sur 	C 	484 	0  
+485 	CT1 	0	Sur 	C 	485 	0  
+486 	CT1 	0	Sur 	C 	486 	0  
+487 	CT1 	0	Sur 	C 	487 	0  
+488 	CT1 	0	Sur 	C 	488 	0  
+489 	CT1 	0	Sur 	C 	489 	0  
+490 	CT1 	0	Sur 	C 	490 	0  
+491 	CT1 	0	Sur 	C 	491 	0  
+492 	CT1 	0	Sur 	C 	492 	0  
+493 	CT1 	0	Sur 	C 	493 	0  
+494 	CT1 	0	Sur 	C 	494 	0  
+495 	CT1 	0	Sur 	C 	495 	0  
+496 	CT1 	0	Sur 	C 	496 	0  
+497 	CT1 	0	Sur 	C 	497 	0  
+498 	CT1 	0	Sur 	C 	498 	0  
+499 	CT1 	0	Sur 	C 	499 	0  
+500 	CT1 	0	Sur 	C 	500 	0  
+501 	CT1 	0	Sur 	C 	501 	0  
+502 	CT1 	0	Sur 	C 	502 	0  
+503 	CT1 	0	Sur 	C 	503 	0  
+504 	CT1 	0	Sur 	C 	504 	0  
+505 	CT1 	0	Sur 	C 	505 	0  
+506 	CT1 	0	Sur 	C 	506 	0  
+507 	CT1 	0	Sur 	C 	507 	0  
+508 	CT1 	0	Sur 	C 	508 	0  
+509 	CT1 	0	Sur 	C 	509 	0  
+510 	CT1 	0	Sur 	C 	510 	0  
+511 	CT1 	0	Sur 	C 	511 	0  
+512 	CT1 	0	Sur 	C 	512 	0  
+513 	CT1 	0	Sur 	C 	513 	0  
+514 	CT1 	0	Sur 	C 	514 	0  
+515 	CT1 	0	Sur 	C 	515 	0  
+516 	CT1 	0	Sur 	C 	516 	0  
+517 	CT1 	0	Sur 	C 	517 	0  
+518 	CT1 	0	Sur 	C 	518 	0  
+519 	CT1 	0	Sur 	C 	519 	0  
+520 	CT1 	0	Sur 	C 	520 	0  
+521 	CT1 	0	Sur 	C 	521 	0  
+522 	CT1 	0	Sur 	C 	522 	0  
+523 	CT1 	0	Sur 	C 	523 	0  
+524 	CT1 	0	Sur 	C 	524 	0  
+525 	CT1 	0	Sur 	C 	525 	0  
+526 	CT1 	0	Sur 	C 	526 	0  
+527 	CT1 	0	Sur 	C 	527 	0  
+528 	CT1 	0	Sur 	C 	528 	0  
+529 	CT1 	0	Sur 	C 	529 	0  
+530 	CT1 	0	Sur 	C 	530 	0  
+531 	CT1 	0	Sur 	C 	531 	0  
+532 	CT1 	0	Sur 	C 	532 	0  
+533 	CT1 	0	Sur 	C 	533 	0  
+534 	CT1 	0	Sur 	C 	534 	0  
+535 	CT1 	0	Sur 	C 	535 	0  
+536 	CT1 	0	Sur 	C 	536 	0  
+537 	CT1 	0	Sur 	C 	537 	0  
+538 	CT1 	0	Sur 	C 	538 	0  
+539 	CT1 	0	Sur 	C 	539 	0  
+540 	CT1 	0	Sur 	C 	540 	0  
+541 	CT1 	0	Sur 	C 	541 	0  
+542 	CT1 	0	Sur 	C 	542 	0  
+543 	CT1 	0	Sur 	C 	543 	0  
+544 	CT1 	0	Sur 	C 	544 	0  
+545 	CT1 	0	Sur 	C 	545 	0  
+546 	CT1 	0	Sur 	C 	546 	0  
+547 	CT1 	0	Sur 	C 	547 	0  
+548 	CT1 	0	Sur 	C 	548 	0  
+549 	CT1 	0	Sur 	C 	549 	0  
+550 	CT1 	0	Sur 	C 	550 	0  
+551 	CT1 	0	Sur 	C 	551 	0  
+552 	CT1 	0	Sur 	C 	552 	0  
+553 	CT1 	0	Sur 	C 	553 	0  
+554 	CT1 	0	Sur 	C 	554 	0  
+555 	CT1 	0	Sur 	C 	555 	0  
+556 	CT1 	0	Sur 	C 	556 	0  
+557 	CT1 	0	Sur 	C 	557 	0  
+558 	CT1 	0	Sur 	C 	558 	0  
+559 	CT1 	0	Sur 	C 	559 	0  
+560 	CT1 	0	Sur 	C 	560 	0  
+561 	CT1 	0	Sur 	C 	561 	0  
+562 	CT1 	0	Sur 	C 	562 	0  
+563 	CT1 	0	Sur 	C 	563 	0  
+564 	CT1 	0	Sur 	C 	564 	0  
+565 	CT1 	0	Sur 	C 	565 	0  
+566 	CT1 	0	Sur 	C 	566 	0  
+567 	CT1 	0	Sur 	C 	567 	0  
+568 	CT1 	0	Sur 	C 	568 	0  
+569 	CT1 	0	Sur 	C 	569 	0  
+570 	CT1 	0	Sur 	C 	570 	0  
+571 	CT1 	0	Sur 	C 	571 	0  
+572 	CT1 	0	Sur 	C 	572 	0  
+573 	CT1 	0	Sur 	C 	573 	0  
+574 	CT1 	0	Sur 	C 	574 	0  
+575 	CT1 	0	Sur 	C 	575 	0  
+576 	CT1 	0	Sur 	C 	576 	0  
+577 	CT1 	0	Sur 	C 	577 	0  
+578 	CT1 	0	Sur 	C 	578 	0  
+579 	CT1 	0	Sur 	C 	579 	0  
+580 	CT1 	0	Sur 	C 	580 	0  
+581 	CT1 	0	Sur 	C 	581 	0  
+582 	CT1 	0	Sur 	C 	582 	0  
+583 	CT1 	0	Sur 	C 	583 	0  
+584 	CT1 	0	Sur 	C 	584 	0  
+585 	CT1 	0	Sur 	C 	585 	0  
+586 	CT1 	0	Sur 	C 	586 	0  
+587 	CT1 	0	Sur 	C 	587 	0  
+588 	CT1 	0	Sur 	C 	588 	0  
+589 	CT1 	0	Sur 	C 	589 	0  
+590 	CT1 	0	Sur 	C 	590 	0  
+591 	CT1 	0	Sur 	C 	591 	0  
+592 	CT1 	0	Sur 	C 	592 	0  
+593 	CT1 	0	Sur 	C 	593 	0  
+594 	CT1 	0	Sur 	C 	594 	0  
+595 	CT1 	0	Sur 	C 	595 	0  
+596 	CT1 	0	Sur 	C 	596 	0  
+597 	CT1 	0	Sur 	C 	597 	0  
+598 	CT1 	0	Sur 	C 	598 	0  
+599 	CT1 	0	Sur 	C 	599 	0  
+600 	CT1 	0	Sur 	C 	600 	0  
+601 	CT1 	0	Sur 	C 	601 	0  
+602 	CT1 	0	Sur 	C 	602 	0  
+603 	CT1 	0	Sur 	C 	603 	0  
+604 	CT1 	0	Sur 	C 	604 	0  
+605 	CT1 	0	Sur 	C 	605 	0  
+606 	CT1 	0	Sur 	C 	606 	0  
+607 	CT1 	0	Sur 	C 	607 	0  
+608 	CT1 	0	Sur 	C 	608 	0  
+609 	CT1 	0	Sur 	C 	609 	0  
+610 	CT1 	0	Sur 	C 	610 	0  
+611 	CT1 	0	Sur 	C 	611 	0  
+612 	CT1 	0	Sur 	C 	612 	0  
+613 	CT1 	0	Sur 	C 	613 	0  
+614 	CT1 	0	Sur 	C 	614 	0  
+615 	CT1 	0	Sur 	C 	615 	0  
+616 	CT1 	0	Sur 	C 	616 	0  
+617 	CT1 	0	Sur 	C 	617 	0  
+618 	CT1 	0	Sur 	C 	618 	0  
+619 	CT1 	0	Sur 	C 	619 	0  
+620 	CT1 	0	Sur 	C 	620 	0  
+621 	CT1 	0	Sur 	C 	621 	0  
+622 	CT1 	0	Sur 	C 	622 	0  
+623 	CT1 	0	Sur 	C 	623 	0  
+624 	CT1 	0	Sur 	C 	624 	0  
+625 	CT1 	0	Sur 	C 	625 	0  
+626 	CT1 	0	Sur 	C 	626 	0  
+627 	CT1 	0	Sur 	C 	627 	0  
+628 	CT1 	0	Sur 	C 	628 	0  
+629 	CT1 	0	Sur 	C 	629 	0  
+630 	CT1 	0	Sur 	C 	630 	0  
+631 	CT1 	0	Sur 	C 	631 	0  
+632 	CT1 	0	Sur 	C 	632 	0  
+633 	CT1 	0	Sur 	C 	633 	0  
+634 	CT1 	0	Sur 	C 	634 	0  
+635 	CT1 	0	Sur 	C 	635 	0  
+636 	CT1 	0	Sur 	C 	636 	0  
+637 	CT1 	0	Sur 	C 	637 	0  
+638 	CT1 	0	Sur 	C 	638 	0  
+639 	CT1 	0	Sur 	C 	639 	0  
+640 	CT1 	0	Sur 	C 	640 	0  
+641 	CT1 	0	Sur 	C 	641 	0  
+642 	CT1 	0	Sur 	C 	642 	0  
+643 	CT1 	0	Sur 	C 	643 	0  
+644 	CT1 	0	Sur 	C 	644 	0  
+645 	CT1 	0	Sur 	C 	645 	0  
+646 	CT1 	0	Sur 	C 	646 	0  
+647 	CT1 	0	Sur 	C 	647 	0  
+648 	CT1 	0	Sur 	C 	648 	0  
+649 	CT1 	0	Sur 	C 	649 	0  
+650 	CT1 	0	Sur 	C 	650 	0  
+651 	CT1 	0	Sur 	C 	651 	0  
+652 	CT1 	0	Sur 	C 	652 	0  
+653 	CT1 	0	Sur 	C 	653 	0  
+654 	CT1 	0	Sur 	C 	654 	0  
+655 	CT1 	0	Sur 	C 	655 	0  
+656 	CT1 	0	Sur 	C 	656 	0  
+657 	CT1 	0	Sur 	C 	657 	0  
+658 	CT1 	0	Sur 	C 	658 	0  
+659 	CT1 	0	Sur 	C 	659 	0  
+660 	CT1 	0	Sur 	C 	660 	0  
+661 	CT1 	0	Sur 	C 	661 	0  
+662 	CT1 	0	Sur 	C 	662 	0  
+663 	CT1 	0	Sur 	C 	663 	0  
+664 	CT1 	0	Sur 	C 	664 	0  
+665 	CT1 	0	Sur 	C 	665 	0  
+666 	CT1 	0	Sur 	C 	666 	0  
+667 	CT1 	0	Sur 	C 	667 	0  
+668 	CT1 	0	Sur 	C 	668 	0  
+669 	CT1 	0	Sur 	C 	669 	0  
+670 	CT1 	0	Sur 	C 	670 	0  
+671 	CT1 	0	Sur 	C 	671 	0  
+672 	CT1 	0	Sur 	C 	672 	0  
+673 	CT1 	0	Sur 	C 	673 	0  
+674 	CT1 	0	Sur 	C 	674 	0  
+675 	CT1 	0	Sur 	C 	675 	0  
+676 	CT1 	0	Sur 	C 	676 	0  
+677 	CT1 	0	Sur 	C 	677 	0  
+678 	CT1 	0	Sur 	C 	678 	0  
+679 	CT1 	0	Sur 	C 	679 	0  
+680 	CT1 	0	Sur 	C 	680 	0  
+681 	CT1 	0	Sur 	C 	681 	0  
+682 	CT1 	0	Sur 	C 	682 	0  
+683 	CT1 	0	Sur 	C 	683 	0  
+684 	CT1 	0	Sur 	C 	684 	0  
+685 	CT1 	0	Sur 	C 	685 	0  
+686 	CT1 	0	Sur 	C 	686 	0  
+687 	CT1 	0	Sur 	C 	687 	0  
+688 	CT1 	0	Sur 	C 	688 	0  
+689 	CT1 	0	Sur 	C 	689 	0  
+690 	CT1 	0	Sur 	C 	690 	0  
+691 	CT1 	0	Sur 	C 	691 	0  
+692 	CT1 	0	Sur 	C 	692 	0  
+693 	CT1 	0	Sur 	C 	693 	0  
+694 	CT1 	0	Sur 	C 	694 	0  
+695 	CT1 	0	Sur 	C 	695 	0  
+696 	CT1 	0	Sur 	C 	696 	0  
+697 	CT1 	0	Sur 	C 	697 	0  
+698 	CT1 	0	Sur 	C 	698 	0  
+699 	CT1 	0	Sur 	C 	699 	0  
+700 	CT1 	0	Sur 	C 	700 	0  
+701 	CT1 	0	Sur 	C 	701 	0  
+702 	CT1 	0	Sur 	C 	702 	0  
+703 	CT1 	0	Sur 	C 	703 	0  
+704 	CT1 	0	Sur 	C 	704 	0  
+705 	CT1 	0	Sur 	C 	705 	0  
+706 	CT1 	0	Sur 	C 	706 	0  
+707 	CT1 	0	Sur 	C 	707 	0  
+708 	CT1 	0	Sur 	C 	708 	0  
+709 	CT1 	0	Sur 	C 	709 	0  
+710 	CT1 	0	Sur 	C 	710 	0  
+711 	CT1 	0	Sur 	C 	711 	0  
+712 	CT1 	0	Sur 	C 	712 	0  
+713 	CT1 	0	Sur 	C 	713 	0  
+714 	CT1 	0	Sur 	C 	714 	0  
+715 	CT1 	0	Sur 	C 	715 	0  
+716 	CT1 	0	Sur 	C 	716 	0  
+717 	CT1 	0	Sur 	C 	717 	0  
+718 	CT1 	0	Sur 	C 	718 	0  
+719 	CT1 	0	Sur 	C 	719 	0  
+720 	CT1 	0	Sur 	C 	720 	0  
+721 	CT1 	0	Sur 	C 	721 	0  
+722 	CT1 	0	Sur 	C 	722 	0  
+723 	CT1 	0	Sur 	C 	723 	0  
+724 	CT1 	0	Sur 	C 	724 	0  
+725 	CT1 	0	Sur 	C 	725 	0  
+726 	CT1 	0	Sur 	C 	726 	0  
+727 	CT1 	0	Sur 	C 	727 	0  
+728 	CT1 	0	Sur 	C 	728 	0  
+729 	CT1 	0	Sur 	C 	729 	0  
+730 	CT1 	0	Sur 	C 	730 	0  
+731 	CT1 	0	Sur 	C 	731 	0  
+732 	CT1 	0	Sur 	C 	732 	0  
+733 	CT1 	0	Sur 	C 	733 	0  
+734 	CT1 	0	Sur 	C 	734 	0  
+735 	CT1 	0	Sur 	C 	735 	0  
+736 	CT1 	0	Sur 	C 	736 	0  
+737 	CT1 	0	Sur 	C 	737 	0  
+738 	CT1 	0	Sur 	C 	738 	0  
+739 	CT1 	0	Sur 	C 	739 	0  
+740 	CT1 	0	Sur 	C 	740 	0  
+741 	CT1 	0	Sur 	C 	741 	0  
+742 	CT1 	0	Sur 	C 	742 	0  
+743 	CT1 	0	Sur 	C 	743 	0  
+744 	CT1 	0	Sur 	C 	744 	0  
+745 	CT1 	0	Sur 	C 	745 	0  
+746 	CT1 	0	Sur 	C 	746 	0  
+747 	CT1 	0	Sur 	C 	747 	0  
+748 	CT1 	0	Sur 	C 	748 	0  
+749 	CT1 	0	Sur 	C 	749 	0  
+750 	CT1 	0	Sur 	C 	750 	0  
+751 	CT1 	0	Sur 	C 	751 	0  
+752 	CT1 	0	Sur 	C 	752 	0  
+753 	CT1 	0	Sur 	C 	753 	0  
+754 	CT1 	0	Sur 	C 	754 	0  
+755 	CT1 	0	Sur 	C 	755 	0  
+756 	CT1 	0	Sur 	C 	756 	0  
+757 	CT1 	0	Sur 	C 	757 	0  
+758 	CT1 	0	Sur 	C 	758 	0  
+759 	CT1 	0	Sur 	C 	759 	0  
+760 	CT1 	0	Sur 	C 	760 	0  
+761 	CT1 	0	Sur 	C 	761 	0  
+762 	CT1 	0	Sur 	C 	762 	0  
+763 	CT1 	0	Sur 	C 	763 	0  
+764 	CT1 	0	Sur 	C 	764 	0  
+765 	CT1 	0	Sur 	C 	765 	0  
+766 	CT1 	0	Sur 	C 	766 	0  
+767 	CT1 	0	Sur 	C 	767 	0  
+768 	CT1 	0	Sur 	C 	768 	0  
+769 	CT1 	0	Sur 	C 	769 	0  
+770 	CT1 	0	Sur 	C 	770 	0  
+771 	CT1 	0	Sur 	C 	771 	0  
+772 	CT1 	0	Sur 	C 	772 	0  
+773 	CT1 	0	Sur 	C 	773 	0  
+774 	CT1 	0	Sur 	C 	774 	0  
+775 	CT1 	0	Sur 	C 	775 	0  
+776 	CT1 	0	Sur 	C 	776 	0  
+777 	CT1 	0	Sur 	C 	777 	0  
+778 	CT1 	0	Sur 	C 	778 	0  
+779 	CT1 	0	Sur 	C 	779 	0  
+780 	CT1 	0	Sur 	C 	780 	0  
+781 	CT1 	0	Sur 	C 	781 	0  
+782 	CT1 	0	Sur 	C 	782 	0  
+783 	CT1 	0	Sur 	C 	783 	0  
+784 	CT1 	0	Sur 	C 	784 	0  
+785 	CT1 	0	Sur 	C 	785 	0  
+786 	CT1 	0	Sur 	C 	786 	0  
+787 	CT1 	0	Sur 	C 	787 	0  
+788 	CT1 	0	Sur 	C 	788 	0  
+789 	CT1 	0	Sur 	C 	789 	0  
+790 	CT1 	0	Sur 	C 	790 	0  
+791 	CT1 	0	Sur 	C 	791 	0  
+792 	CT1 	0	Sur 	C 	792 	0  
+793 	CT1 	0	Sur 	C 	793 	0  
+794 	CT1 	0	Sur 	C 	794 	0  
+795 	CT1 	0	Sur 	C 	795 	0  
+796 	CT1 	0	Sur 	C 	796 	0  
+797 	CT1 	0	Sur 	C 	797 	0  
+798 	CT1 	0	Sur 	C 	798 	0  
+799 	CT1 	0	Sur 	C 	799 	0  
+800 	CT1 	0	Sur 	C 	800 	0  
+801 	CT1 	0	Sur 	C 	801 	0  
+802 	CT1 	0	Sur 	C 	802 	0  
+803 	CT1 	0	Sur 	C 	803 	0  
+804 	CT1 	0	Sur 	C 	804 	0  
+805 	CT1 	0	Sur 	C 	805 	0  
+806 	CT1 	0	Sur 	C 	806 	0  
+807 	CT1 	0	Sur 	C 	807 	0  
+808 	CT1 	0	Sur 	C 	808 	0  
+809 	CT1 	0	Sur 	C 	809 	0  
+810 	CT1 	0	Sur 	C 	810 	0  
+811 	CT1 	0	Sur 	C 	811 	0  
+812 	CT1 	0	Sur 	C 	812 	0  
+813 	CT1 	0	Sur 	C 	813 	0  
+814 	CT1 	0	Sur 	C 	814 	0  
+815 	CT1 	0	Sur 	C 	815 	0  
+816 	CT1 	0	Sur 	C 	816 	0  
+817 	CT1 	0	Sur 	C 	817 	0  
+818 	CT1 	0	Sur 	C 	818 	0  
+819 	CT1 	0	Sur 	C 	819 	0  
+820 	CT1 	0	Sur 	C 	820 	0  
+821 	CT1 	0	Sur 	C 	821 	0  
+822 	CT1 	0	Sur 	C 	822 	0  
+823 	CT1 	0	Sur 	C 	823 	0  
+824 	CT1 	0	Sur 	C 	824 	0  
+825 	CT1 	0	Sur 	C 	825 	0  
+826 	CT1 	0	Sur 	C 	826 	0  
+827 	CT1 	0	Sur 	C 	827 	0  
+828 	CT1 	0	Sur 	C 	828 	0  
+829 	CT1 	0	Sur 	C 	829 	0  
+830 	CT1 	0	Sur 	C 	830 	0  
+831 	CT1 	0	Sur 	C 	831 	0  
+832 	CT1 	0	Sur 	C 	832 	0  
+833 	CT1 	0	Sur 	C 	833 	0  
+834 	CT1 	0	Sur 	C 	834 	0  
+835 	CT1 	0	Sur 	C 	835 	0  
+836 	CT1 	0	Sur 	C 	836 	0  
+837 	CT1 	0	Sur 	C 	837 	0  
+838 	CT1 	0	Sur 	C 	838 	0  
+839 	CT1 	0	Sur 	C 	839 	0  
+840 	CT1 	0	Sur 	C 	840 	0  
+841 	CT1 	0	Sur 	C 	841 	0  
+842 	CT1 	0	Sur 	C 	842 	0  
+843 	CT1 	0	Sur 	C 	843 	0  
+844 	CT1 	0	Sur 	C 	844 	0  
+845 	CT1 	0	Sur 	C 	845 	0  
+846 	CT1 	0	Sur 	C 	846 	0  
+847 	CT1 	0	Sur 	C 	847 	0  
+848 	CT1 	0	Sur 	C 	848 	0  
+849 	CT1 	0	Sur 	C 	849 	0  
+850 	CT1 	0	Sur 	C 	850 	0  
+851 	CT1 	0	Sur 	C 	851 	0  
+852 	CT1 	0	Sur 	C 	852 	0  
+853 	CT1 	0	Sur 	C 	853 	0  
+854 	CT1 	0	Sur 	C 	854 	0  
+855 	CT1 	0	Sur 	C 	855 	0  
+856 	CT1 	0	Sur 	C 	856 	0  
+857 	CT1 	0	Sur 	C 	857 	0  
+858 	CT1 	0	Sur 	C 	858 	0  
+859 	CT1 	0	Sur 	C 	859 	0  
+860 	CT1 	0	Sur 	C 	860 	0  
+861 	CT1 	0	Sur 	C 	861 	0  
+862 	CT1 	0	Sur 	C 	862 	0  
+863 	CT1 	0	Sur 	C 	863 	0  
+864 	CT1 	0	Sur 	C 	864 	0  
+865 	CT1 	0	Sur 	C 	865 	0  
+866 	CT1 	0	Sur 	C 	866 	0  
+867 	CT1 	0	Sur 	C 	867 	0  
+868 	CT1 	0	Sur 	C 	868 	0  
+869 	CT1 	0	Sur 	C 	869 	0  
+870 	CT1 	0	Sur 	C 	870 	0  
+871 	CT1 	0	Sur 	C 	871 	0  
+872 	CT1 	0	Sur 	C 	872 	0  
+873 	CT1 	0	Sur 	C 	873 	0  
+874 	CT1 	0	Sur 	C 	874 	0  
+875 	CT1 	0	Sur 	C 	875 	0  
+876 	CT1 	0	Sur 	C 	876 	0  
+877 	CT1 	0	Sur 	C 	877 	0  
+878 	CT1 	0	Sur 	C 	878 	0  
+879 	CT1 	0	Sur 	C 	879 	0  
+880 	CT1 	0	Sur 	C 	880 	0  
+881 	CT1 	0	Sur 	C 	881 	0  
+882 	CT1 	0	Sur 	C 	882 	0  
+883 	CT1 	0	Sur 	C 	883 	0  
+884 	CT1 	0	Sur 	C 	884 	0  
+885 	CT1 	0	Sur 	C 	885 	0  
+886 	CT1 	0	Sur 	C 	886 	0  
+887 	CT1 	0	Sur 	C 	887 	0  
+888 	CT1 	0	Sur 	C 	888 	0  
+889 	CT1 	0	Sur 	C 	889 	0  
+890 	CT1 	0	Sur 	C 	890 	0  
+891 	CT1 	0	Sur 	C 	891 	0  
+892 	CT1 	0	Sur 	C 	892 	0  
+893 	CT1 	0	Sur 	C 	893 	0  
+894 	CT1 	0	Sur 	C 	894 	0  
+895 	CT1 	0	Sur 	C 	895 	0  
+896 	CT1 	0	Sur 	C 	896 	0  
+897 	CT1 	0	Sur 	C 	897 	0  
+898 	CT1 	0	Sur 	C 	898 	0  
+899 	CT1 	0	Sur 	C 	899 	0  
+900 	CT1 	0	Sur 	C 	900 	0  
+901 	CT1 	0	Sur 	C 	901 	0  
+902 	CT1 	0	Sur 	C 	902 	0  
+903 	CT1 	0	Sur 	C 	903 	0  
+904 	CT1 	0	Sur 	C 	904 	0  
+905 	CT1 	0	Sur 	C 	905 	0  
+906 	CT1 	0	Sur 	C 	906 	0  
+907 	CT1 	0	Sur 	C 	907 	0  
+908 	CT1 	0	Sur 	C 	908 	0  
+909 	CT1 	0	Sur 	C 	909 	0  
+910 	CT1 	0	Sur 	C 	910 	0  
+911 	CT1 	0	Sur 	C 	911 	0  
+912 	CT1 	0	Sur 	C 	912 	0  
+913 	CT1 	0	Sur 	C 	913 	0  
+914 	CT1 	0	Sur 	C 	914 	0  
+915 	CT1 	0	Sur 	C 	915 	0  
+916 	CT1 	0	Sur 	C 	916 	0  
+917 	CT1 	0	Sur 	C 	917 	0  
+918 	CT1 	0	Sur 	C 	918 	0  
+919 	CT1 	0	Sur 	C 	919 	0  
+920 	CT1 	0	Sur 	C 	920 	0  
+921 	CT1 	0	Sur 	C 	921 	0  
+922 	CT1 	0	Sur 	C 	922 	0  
+923 	CT1 	0	Sur 	C 	923 	0  
+924 	CT1 	0	Sur 	C 	924 	0  
+925 	CT1 	0	Sur 	C 	925 	0  
+926 	CT1 	0	Sur 	C 	926 	0  
+927 	CT1 	0	Sur 	C 	927 	0  
+928 	CT1 	0	Sur 	C 	928 	0  
+929 	CT1 	0	Sur 	C 	929 	0  
+930 	CT1 	0	Sur 	C 	930 	0  
+931 	CT1 	0	Sur 	C 	931 	0  
+932 	CT1 	0	Sur 	C 	932 	0  
+933 	CT1 	0	Sur 	C 	933 	0  
+934 	CT1 	0	Sur 	C 	934 	0  
+935 	CT1 	0	Sur 	C 	935 	0  
+936 	CT1 	0	Sur 	C 	936 	0  
+937 	CT1 	0	Sur 	C 	937 	0  
+938 	CT1 	0	Sur 	C 	938 	0  
+939 	CT1 	0	Sur 	C 	939 	0  
+940 	CT1 	0	Sur 	C 	940 	0  
+941 	CT1 	0	Sur 	C 	941 	0  
+942 	CT1 	0	Sur 	C 	942 	0  
+943 	CT1 	0	Sur 	C 	943 	0  
+944 	CT1 	0	Sur 	C 	944 	0  
+945 	CT1 	0	Sur 	C 	945 	0  
+946 	CT1 	0	Sur 	C 	946 	0  
+947 	CT1 	0	Sur 	C 	947 	0  
+948 	CT1 	0	Sur 	C 	948 	0  
+949 	CT1 	0	Sur 	C 	949 	0  
+950 	CT1 	0	Sur 	C 	950 	0  
+951 	CT1 	0	Sur 	C 	951 	0  
+952 	CT1 	0	Sur 	C 	952 	0  
+953 	CT1 	0	Sur 	C 	953 	0  
+954 	CT1 	0	Sur 	C 	954 	0  
+955 	CT1 	0	Sur 	C 	955 	0  
+956 	CT1 	0	Sur 	C 	956 	0  
+957 	CT1 	0	Sur 	C 	957 	0  
+958 	CT1 	0	Sur 	C 	958 	0  
+959 	CT1 	0	Sur 	C 	959 	0  
+960 	CT1 	0	Sur 	C 	960 	0  
+961 	CT1 	0	Sur 	C 	961 	0  
+962 	CT1 	0	Sur 	C 	962 	0  
+963 	CT1 	0	Sur 	C 	963 	0  
+964 	CT1 	0	Sur 	C 	964 	0  
+965 	CT1 	0	Sur 	C 	965 	0  
+966 	CT1 	0	Sur 	C 	966 	0  
+967 	CT1 	0	Sur 	C 	967 	0  
+968 	CT1 	0	Sur 	C 	968 	0  
+969 	CT1 	0	Sur 	C 	969 	0  
+970 	CT1 	0	Sur 	C 	970 	0  
+971 	CT1 	0	Sur 	C 	971 	0  
+972 	CT1 	0	Sur 	C 	972 	0  
+973 	CT1 	0	Sur 	C 	973 	0  
+974 	CT1 	0	Sur 	C 	974 	0  
+975 	CT1 	0	Sur 	C 	975 	0  
+976 	CT1 	0	Sur 	C 	976 	0  
+977 	CT1 	0	Sur 	C 	977 	0  
+978 	CT1 	0	Sur 	C 	978 	0  
+979 	CT1 	0	Sur 	C 	979 	0  
+980 	CT1 	0	Sur 	C 	980 	0  
+981 	CT1 	0	Sur 	C 	981 	0  
+982 	CT1 	0	Sur 	C 	982 	0  
+983 	CT1 	0	Sur 	C 	983 	0  
+984 	CT1 	0	Sur 	C 	984 	0  
+985 	CT1 	0	Sur 	C 	985 	0  
+986 	CT1 	0	Sur 	C 	986 	0  
+987 	CT1 	0	Sur 	C 	987 	0  
+988 	CT1 	0	Sur 	C 	988 	0  
+989 	CT1 	0	Sur 	C 	989 	0  
+990 	CT1 	0	Sur 	C 	990 	0  
+991 	CT1 	0	Sur 	C 	991 	0  
+992 	CT1 	0	Sur 	C 	992 	0  
+993 	CT1 	0	Sur 	C 	993 	0  
+994 	CT1 	0	Sur 	C 	994 	0  
+995 	CT1 	0	Sur 	C 	995 	0  
+996 	CT1 	0	Sur 	C 	996 	0  
+997 	CT1 	0	Sur 	C 	997 	0  
+998 	CT1 	0	Sur 	C 	998 	0  
+999 	CT1 	0	Sur 	C 	999 	0  
+1000 	CT1 	0	Sur 	C 	1000 	0  
+1001 	CT1 	0	Sur 	C 	1001 	0  
+1002 	CT1 	0	Sur 	C 	1002 	0  
+1003 	CT1 	0	Sur 	C 	1003 	0  
+1004 	CT1 	0	Sur 	C 	1004 	0  
+1005 	CT1 	0	Sur 	C 	1005 	0  
+1006 	CT1 	0	Sur 	C 	1006 	0  
+1007 	CT1 	0	Sur 	C 	1007 	0  
+1008 	CT1 	0	Sur 	C 	1008 	0  
+1009 	CT1 	0	Sur 	C 	1009 	0  
+1010 	CT1 	0	Sur 	C 	1010 	0  
+1011 	CT1 	0	Sur 	C 	1011 	0  
+1012 	CT1 	0	Sur 	C 	1012 	0  
+1013 	CT1 	0	Sur 	C 	1013 	0  
+1014 	CT1 	0	Sur 	C 	1014 	0  
+1015 	CT1 	0	Sur 	C 	1015 	0  
+1016 	CT1 	0	Sur 	C 	1016 	0  
+1017 	CT1 	0	Sur 	C 	1017 	0  
+1018 	CT1 	0	Sur 	C 	1018 	0  
+1019 	CT1 	0	Sur 	C 	1019 	0  
+1020 	CT1 	0	Sur 	C 	1020 	0  
+1021 	CT1 	0	Sur 	C 	1021 	0  
+1022 	CT1 	0	Sur 	C 	1022 	0  
+1023 	CT1 	0	Sur 	C 	1023 	0  
+1024 	CT1 	0	Sur 	C 	1024 	0  
+1025 	CT1 	0	Sur 	C 	1025 	0  
+1026 	CT1 	0	Sur 	C 	1026 	0  
+1027 	CT1 	0	Sur 	C 	1027 	0  
+1028 	CT1 	0	Sur 	C 	1028 	0  
+1029 	CT1 	0	Sur 	C 	1029 	0  
+1030 	CT1 	0	Sur 	C 	1030 	0  
+1031 	CT1 	0	Sur 	C 	1031 	0  
+1032 	CT1 	0	Sur 	C 	1032 	0  
+1033 	CT1 	0	Sur 	C 	1033 	0  
+1034 	CT1 	0	Sur 	C 	1034 	0  
+1035 	CT1 	0	Sur 	C 	1035 	0  
+1036 	CT1 	0	Sur 	C 	1036 	0  
+1037 	CT1 	0	Sur 	C 	1037 	0  
+1038 	CT1 	0	Sur 	C 	1038 	0  
+1039 	CT1 	0	Sur 	C 	1039 	0  
+1040 	CT1 	0	Sur 	C 	1040 	0  
+1041 	CT1 	0	Sur 	C 	1041 	0  
+1042 	CT1 	0	Sur 	C 	1042 	0  
+1043 	CT1 	0	Sur 	C 	1043 	0  
+1044 	CT1 	0	Sur 	C 	1044 	0  
+1045 	CT1 	0	Sur 	C 	1045 	0  
+1046 	CT1 	0	Sur 	C 	1046 	0  
+1047 	CT1 	0	Sur 	C 	1047 	0  
+1048 	CT1 	0	Sur 	C 	1048 	0  
+1049 	CT1 	0	Sur 	C 	1049 	0  
+1050 	CT1 	0	Sur 	C 	1050 	0  
+1051 	CT1 	0	Sur 	C 	1051 	0  
+1052 	CT1 	0	Sur 	C 	1052 	0  
+1053 	CT1 	0	Sur 	C 	1053 	0  
+1054 	CT1 	0	Sur 	C 	1054 	0  
+1055 	CT1 	0	Sur 	C 	1055 	0  
+1056 	CT1 	0	Sur 	C 	1056 	0  
+1057 	CT1 	0	Sur 	C 	1057 	0  
+1058 	CT1 	0	Sur 	C 	1058 	0  
+1059 	CT1 	0	Sur 	C 	1059 	0  
+1060 	CT1 	0	Sur 	C 	1060 	0  
+1061 	CT1 	0	Sur 	C 	1061 	0  
+1062 	CT1 	0	Sur 	C 	1062 	0  
+1063 	CT1 	0	Sur 	C 	1063 	0  
+1064 	CT1 	0	Sur 	C 	1064 	0  
+1065 	CT1 	0	Sur 	C 	1065 	0  
+1066 	CT1 	0	Sur 	C 	1066 	0  
+1067 	CT1 	0	Sur 	C 	1067 	0  
+1068 	CT1 	0	Sur 	C 	1068 	0  
+1069 	CT1 	0	Sur 	C 	1069 	0  
+1070 	CT1 	0	Sur 	C 	1070 	0  
+1071 	CT1 	0	Sur 	C 	1071 	0  
+1072 	CT1 	0	Sur 	C 	1072 	0  
+1073 	CT1 	0	Sur 	C 	1073 	0  
+1074 	CT1 	0	Sur 	C 	1074 	0  
+1075 	CT1 	0	Sur 	C 	1075 	0  
+1076 	CT1 	0	Sur 	C 	1076 	0  
+1077 	CT1 	0	Sur 	C 	1077 	0  
+1078 	CT1 	0	Sur 	C 	1078 	0  
+1079 	CT1 	0	Sur 	C 	1079 	0  
+1080 	CT1 	0	Sur 	C 	1080 	0  
+1081 	CT1 	0	Sur 	C 	1081 	0  
+1082 	CT1 	0	Sur 	C 	1082 	0  
+1083 	CT1 	0	Sur 	C 	1083 	0  
+1084 	CT1 	0	Sur 	C 	1084 	0  
+1085 	CT1 	0	Sur 	C 	1085 	0  
+1086 	CT1 	0	Sur 	C 	1086 	0  
+1087 	CT1 	0	Sur 	C 	1087 	0  
+1088 	CT1 	0	Sur 	C 	1088 	0  
+1089 	CT1 	0	Sur 	C 	1089 	0  
+1090 	CT1 	0	Sur 	C 	1090 	0  
+1091 	CT1 	0	Sur 	C 	1091 	0  
+1092 	CT1 	0	Sur 	C 	1092 	0  
+1093 	CT1 	0	Sur 	C 	1093 	0  
+1094 	CT1 	0	Sur 	C 	1094 	0  
+1095 	CT1 	0	Sur 	C 	1095 	0  
+1096 	CT1 	0	Sur 	C 	1096 	0  
+1097 	CT1 	0	Sur 	C 	1097 	0  
+1098 	CT1 	0	Sur 	C 	1098 	0  
+1099 	CT1 	0	Sur 	C 	1099 	0  
+1100 	CT1 	0	Sur 	C 	1100 	0  
+1101 	CT1 	0	Sur 	C 	1101 	0  
+1102 	CT1 	0	Sur 	C 	1102 	0  
+1103 	CT1 	0	Sur 	C 	1103 	0  
+1104 	CT1 	0	Sur 	C 	1104 	0  
+1105 	CT1 	0	Sur 	C 	1105 	0  
+1106 	CT1 	0	Sur 	C 	1106 	0  
+1107 	CT1 	0	Sur 	C 	1107 	0  
+1108 	CT1 	0	Sur 	C 	1108 	0  
+1109 	CT1 	0	Sur 	C 	1109 	0  
+1110 	CT1 	0	Sur 	C 	1110 	0  
+1111 	CT1 	0	Sur 	C 	1111 	0  
+1112 	CT1 	0	Sur 	C 	1112 	0  
+1113 	CT1 	0	Sur 	C 	1113 	0  
+1114 	CT1 	0	Sur 	C 	1114 	0  
+1115 	CT1 	0	Sur 	C 	1115 	0  
+1116 	CT1 	0	Sur 	C 	1116 	0  
+1117 	CT1 	0	Sur 	C 	1117 	0  
+1118 	CT1 	0	Sur 	C 	1118 	0  
+1119 	CT1 	0	Sur 	C 	1119 	0  
+1120 	CT1 	0	Sur 	C 	1120 	0  
+1121 	CT1 	0	Sur 	C 	1121 	0  
+1122 	CT1 	0	Sur 	C 	1122 	0  
+1123 	CT1 	0	Sur 	C 	1123 	0  
+1124 	CT1 	0	Sur 	C 	1124 	0  
+1125 	CT1 	0	Sur 	C 	1125 	0  
+1126 	CT1 	0	Sur 	C 	1126 	0  
+1127 	CT1 	0	Sur 	C 	1127 	0  
+1128 	CT1 	0	Sur 	C 	1128 	0  
+1129 	CT1 	0	Sur 	C 	1129 	0  
+1130 	CT1 	0	Sur 	C 	1130 	0  
+1131 	CT1 	0	Sur 	C 	1131 	0  
+1132 	CT1 	0	Sur 	C 	1132 	0  
+1133 	CT1 	0	Sur 	C 	1133 	0  
+1134 	CT1 	0	Sur 	C 	1134 	0  
+1135 	CT1 	0	Sur 	C 	1135 	0  
+1136 	CT1 	0	Sur 	C 	1136 	0  
+1137 	CT1 	0	Sur 	C 	1137 	0  
+1138 	CT1 	0	Sur 	C 	1138 	0  
+1139 	CT1 	0	Sur 	C 	1139 	0  
+1140 	CT1 	0	Sur 	C 	1140 	0  
+1141 	CT1 	0	Sur 	C 	1141 	0  
+1142 	CT1 	0	Sur 	C 	1142 	0  
+1143 	CT1 	0	Sur 	C 	1143 	0  
+1144 	CT1 	0	Sur 	C 	1144 	0  
+1145 	CT1 	0	Sur 	C 	1145 	0  
+1146 	CT1 	0	Sur 	C 	1146 	0  
+1147 	CT1 	0	Sur 	C 	1147 	0  
+1148 	CT1 	0	Sur 	C 	1148 	0  
+1149 	CT1 	0	Sur 	C 	1149 	0  
+1150 	CT1 	0	Sur 	C 	1150 	0  
+1151 	CT1 	0	Sur 	C 	1151 	0  
+1152 	CT1 	0	Sur 	C 	1152 	0  
+1153 	CT1 	0	Sur 	C 	1153 	0  
+1154 	CT1 	0	Sur 	C 	1154 	0  
+1155 	CT1 	0	Sur 	C 	1155 	0  
+1156 	CT1 	0	Sur 	C 	1156 	0  
+1157 	CT1 	0	Sur 	C 	1157 	0  
+1158 	CT1 	0	Sur 	C 	1158 	0  
+1159 	CT1 	0	Sur 	C 	1159 	0  
+1160 	CT1 	0	Sur 	C 	1160 	0  
+1161 	CT1 	0	Sur 	C 	1161 	0  
+1162 	CT1 	0	Sur 	C 	1162 	0  
+1163 	CT1 	0	Sur 	C 	1163 	0  
+1164 	CT1 	0	Sur 	C 	1164 	0  
+1165 	CT1 	0	Sur 	C 	1165 	0  
+1166 	CT1 	0	Sur 	C 	1166 	0  
+1167 	CT1 	0	Sur 	C 	1167 	0  
+1168 	CT1 	0	Sur 	C 	1168 	0  
+1169 	CT1 	0	Sur 	C 	1169 	0  
+1170 	CT1 	0	Sur 	C 	1170 	0  
+1171 	CT1 	0	Sur 	C 	1171 	0  
+1172 	CT1 	0	Sur 	C 	1172 	0  
+1173 	CT1 	0	Sur 	C 	1173 	0  
+1174 	CT1 	0	Sur 	C 	1174 	0  
+1175 	CT1 	0	Sur 	C 	1175 	0  
+1176 	CT1 	0	Sur 	C 	1176 	0  
+1177 	CT1 	0	Sur 	C 	1177 	0  
+1178 	CT1 	0	Sur 	C 	1178 	0  
+1179 	CT1 	0	Sur 	C 	1179 	0  
+1180 	CT1 	0	Sur 	C 	1180 	0  
+1181 	CT1 	0	Sur 	C 	1181 	0  
+1182 	CT1 	0	Sur 	C 	1182 	0  
+1183 	CT1 	0	Sur 	C 	1183 	0  
+1184 	CT1 	0	Sur 	C 	1184 	0  
+1185 	CT1 	0	Sur 	C 	1185 	0  
+1186 	CT1 	0	Sur 	C 	1186 	0  
+1187 	CT1 	0	Sur 	C 	1187 	0  
+1188 	CT1 	0	Sur 	C 	1188 	0  
+1189 	CT1 	0	Sur 	C 	1189 	0  
+1190 	CT1 	0	Sur 	C 	1190 	0  
+1191 	CT1 	0	Sur 	C 	1191 	0  
+1192 	CT1 	0	Sur 	C 	1192 	0  
+1193 	CT1 	0	Sur 	C 	1193 	0  
+1194 	CT1 	0	Sur 	C 	1194 	0  
+1195 	CT1 	0	Sur 	C 	1195 	0  
+1196 	CT1 	0	Sur 	C 	1196 	0  
+1197 	CT1 	0	Sur 	C 	1197 	0  
+1198 	CT1 	0	Sur 	C 	1198 	0  
+1199 	CT1 	0	Sur 	C 	1199 	0  
+1200 	CT1 	0	Sur 	C 	1200 	0  
+1201 	CT1 	0	Sur 	C 	1201 	0  
+1202 	CT1 	0	Sur 	C 	1202 	0  
+1203 	CT1 	0	Sur 	C 	1203 	0  
+1204 	CT1 	0	Sur 	C 	1204 	0  
+1205 	CT1 	0	Sur 	C 	1205 	0  
+1206 	CT1 	0	Sur 	C 	1206 	0  
+1207 	CT1 	0	Sur 	C 	1207 	0  
+1208 	CT1 	0	Sur 	C 	1208 	0  
+1209 	CT1 	0	Sur 	C 	1209 	0  
+1210 	CT1 	0	Sur 	C 	1210 	0  
+1211 	CT1 	0	Sur 	C 	1211 	0  
+1212 	CT1 	0	Sur 	C 	1212 	0  
+1213 	CT1 	0	Sur 	C 	1213 	0  
+1214 	CT1 	0	Sur 	C 	1214 	0  
+1215 	CT1 	0	Sur 	C 	1215 	0  
+1216 	CT1 	0	Sur 	C 	1216 	0  
+1217 	CT1 	0	Sur 	C 	1217 	0  
+1218 	CT1 	0	Sur 	C 	1218 	0  
+1219 	CT1 	0	Sur 	C 	1219 	0  
+1220 	CT1 	0	Sur 	C 	1220 	0  
+1221 	CT1 	0	Sur 	C 	1221 	0  
+1222 	CT1 	0	Sur 	C 	1222 	0  
+1223 	CT1 	0	Sur 	C 	1223 	0  
+1224 	CT1 	0	Sur 	C 	1224 	0  
+1225 	CT1 	0	Sur 	C 	1225 	0  
+1226 	CT1 	0	Sur 	C 	1226 	0  
+1227 	CT1 	0	Sur 	C 	1227 	0  
+1228 	CT1 	0	Sur 	C 	1228 	0  
+1229 	CT1 	0	Sur 	C 	1229 	0  
+1230 	CT1 	0	Sur 	C 	1230 	0  
+1231 	CT1 	0	Sur 	C 	1231 	0  
+1232 	CT1 	0	Sur 	C 	1232 	0  
+1233 	CT1 	0	Sur 	C 	1233 	0  
+1234 	CT1 	0	Sur 	C 	1234 	0  
+1235 	CT1 	0	Sur 	C 	1235 	0  
+1236 	CT1 	0	Sur 	C 	1236 	0  
+1237 	CT1 	0	Sur 	C 	1237 	0  
+1238 	CT1 	0	Sur 	C 	1238 	0  
+1239 	CT1 	0	Sur 	C 	1239 	0  
+1240 	CT1 	0	Sur 	C 	1240 	0  
+1241 	CT1 	0	Sur 	C 	1241 	0  
+1242 	CT1 	0	Sur 	C 	1242 	0  
+1243 	CT1 	0	Sur 	C 	1243 	0  
+1244 	CT1 	0	Sur 	C 	1244 	0  
+1245 	CT1 	0	Sur 	C 	1245 	0  
+1246 	CT1 	0	Sur 	C 	1246 	0  
+1247 	CT1 	0	Sur 	C 	1247 	0  
+1248 	CT1 	0	Sur 	C 	1248 	0  
+1249 	CT1 	0	Sur 	C 	1249 	0  
+1250 	CT1 	0	Sur 	C 	1250 	0  
+1251 	CT1 	0	Sur 	C 	1251 	0  
+1252 	CT1 	0	Sur 	C 	1252 	0  
+ [bonds] 
+1226   237     1     1      20000
+1216   847     1     1      20000
+847   846     1     1      20000
+1188   908     1     1      20000
+176   100     1     1      20000
+214   166     1     1      20000
+772   682     1     1      20000
+834   772     1     1      20000
+372   99     1     1      20000
+382   372     1     1      20000
+1111   146     1     1      20000
+593   397     1     1      20000
+820   818     1     1      20000
+818   760     1     1      20000
+501   499     1     1      20000
+499   466     1     1      20000
+475   379     1     1      20000
+619   475     1     1      20000
+1020   233     1     1      20000
+233   217     1     1      20000
+1086   923     1     1      20000
+1143   1086     1     1      20000
+927   100     1     1      20000
+519   147     1     1      20000
+1000   519     1     1      20000
+201   58     1     1      20000
+784   24     1     1      20000
+507   33     1     1      20000
+480   145     1     1      20000
+70   4     1     1      20000
+355   70     1     1      20000
+654   41     1     1      20000
+149   64     1     1      20000
+375   149     1     1      20000
+1222   1138     1     1      20000
+926   203     1     1      20000
+1231   444     1     1      20000
+1207   1206     1     1      20000
+1206   304     1     1      20000
+1118   1114     1     1      20000
+1114   889     1     1      20000
+833   38     1     1      20000
+1197   1089     1     1      20000
+1089   936     1     1      20000
+1228   268     1     1      20000
+252   119     1     1      20000
+564   252     1     1      20000
+1053   79     1     1      20000
+420   162     1     1      20000
+1249   1104     1     1      20000
+1104   1061     1     1      20000
+1051   969     1     1      20000
+1199   1051     1     1      20000
+1186   1061     1     1      20000
+1233   888     1     1      20000
+756   143     1     1      20000
+1029   979     1     1      20000
+677   370     1     1      20000
+370   113     1     1      20000
+1142   1097     1     1      20000
+1097   651     1     1      20000
+862   313     1     1      20000
+313   155     1     1      20000
+1188   1156     1     1      20000
+681   51     1     1      20000
+51   48     1     1      20000
+480   111     1     1      20000
+965   480     1     1      20000
+1148   762     1     1      20000
+762   666     1     1      20000
+1205   1185     1     1      20000
+1185   1126     1     1      20000
+170   165     1     1      20000
+165   152     1     1      20000
+1201   1040     1     1      20000
+1040   1022     1     1      20000
+450   232     1     1      20000
+791   201     1     1      20000
+1004   955     1     1      20000
+1241   1191     1     1      20000
+1191   974     1     1      20000
+672   31     1     1      20000
+164   114     1     1      20000
+114   6     1     1      20000
+715   101     1     1      20000
+576   352     1     1      20000
+352   341     1     1      20000
+1099   1003     1     1      20000
+604   106     1     1      20000
+1180   315     1     1      20000
+882   737     1     1      20000
+840   787     1     1      20000
+787   227     1     1      20000
+766   724     1     1      20000
+724   701     1     1      20000
+1147   1129     1     1      20000
+1184   1147     1     1      20000
+1084   573     1     1      20000
+1052   295     1     1      20000
+1186   908     1     1      20000
+1188   1186     1     1      20000
+705   157     1     1      20000
+157   32     1     1      20000
+564   351     1     1      20000
+351   220     1     1      20000
+696   680     1     1      20000
+680   536     1     1      20000
+1209   441     1     1      20000
+408   22     1     1      20000
+861   126     1     1      20000
+126   86     1     1      20000
+930   570     1     1      20000
+1190   998     1     1      20000
+998   573     1     1      20000
+626   456     1     1      20000
+456   391     1     1      20000
+1103   1069     1     1      20000
+1069   563     1     1      20000
+1072   538     1     1      20000
+538   323     1     1      20000
+447   294     1     1      20000
+294   120     1     1      20000
+1229   198     1     1      20000
+1143   964     1     1      20000
+831   699     1     1      20000
+1118   1089     1     1      20000
+1089   913     1     1      20000
+1045   616     1     1      20000
+479   168     1     1      20000
+233   175     1     1      20000
+863   509     1     1      20000
+509   431     1     1      20000
+1015   987     1     1      20000
+987   563     1     1      20000
+1143   1120     1     1      20000
+1120   1080     1     1      20000
+427   369     1     1      20000
+369   168     1     1      20000
+432   382     1     1      20000
+382   273     1     1      20000
+619   473     1     1      20000
+473   389     1     1      20000
+696   536     1     1      20000
+536   362     1     1      20000
+1101   639     1     1      20000
+435   339     1     1      20000
+576   435     1     1      20000
+274   156     1     1      20000
+756   274     1     1      20000
+930   651     1     1      20000
+651   554     1     1      20000
+1087   906     1     1      20000
+1101   624     1     1      20000
+1130   574     1     1      20000
+690   118     1     1      20000
+118   61     1     1      20000
+1238   640     1     1      20000
+1064   610     1     1      20000
+1103   636     1     1      20000
+1008   1002     1     1      20000
+1069   1008     1     1      20000
+268   235     1     1      20000
+278   268     1     1      20000
+1181   1102     1     1      20000
+1102   324     1     1      20000
+567   540     1     1      20000
+540   276     1     1      20000
+780   652     1     1      20000
+1136   1009     1     1      20000
+484   357     1     1      20000
+357   90     1     1      20000
+634   305     1     1      20000
+1076   634     1     1      20000
+298   184     1     1      20000
+1016   298     1     1      20000
+700   12     1     1      20000
+1066   1017     1     1      20000
+1017   910     1     1      20000
+1065   204     1     1      20000
+261   159     1     1      20000
+949   859     1     1      20000
+1122   949     1     1      20000
+783   86     1     1      20000
+417   397     1     1      20000
+461   417     1     1      20000
+1160   1018     1     1      20000
+1212   1160     1     1      20000
+592   454     1     1      20000
+623   592     1     1      20000
+468   290     1     1      20000
+1071   468     1     1      20000
+416   73     1     1      20000
+73   10     1     1      20000
+974   939     1     1      20000
+939   911     1     1      20000
+407   389     1     1      20000
+451   407     1     1      20000
+928   891     1     1      20000
+671   368     1     1      20000
+566   433     1     1      20000
+1157   555     1     1      20000
+555   276     1     1      20000
+664   382     1     1      20000
+382   149     1     1      20000
+1208   1140     1     1      20000
+1140   570     1     1      20000
+993   628     1     1      20000
+628   539     1     1      20000
+928   462     1     1      20000
+536   340     1     1      20000
+604   20     1     1      20000
+947   215     1     1      20000
+1212   505     1     1      20000
+348   49     1     1      20000
+759   750     1     1      20000
+750   58     1     1      20000
+530   299     1     1      20000
+713   51     1     1      20000
+882   532     1     1      20000
+1247   1214     1     1      20000
+1214   259     1     1      20000
+840   838     1     1      20000
+838   38     1     1      20000
+1035   609     1     1      20000
+609   489     1     1      20000
+334   275     1     1      20000
+275   72     1     1      20000
+837   750     1     1      20000
+448   294     1     1      20000
+294   222     1     1      20000
+833   782     1     1      20000
+782   755     1     1      20000
+1093   617     1     1      20000
+1007   629     1     1      20000
+629   483     1     1      20000
+1233   871     1     1      20000
+1233   1131     1     1      20000
+1131   729     1     1      20000
+853   218     1     1      20000
+660   509     1     1      20000
+359   331     1     1      20000
+373   359     1     1      20000
+984   35     1     1      20000
+1101   326     1     1      20000
+654   167     1     1      20000
+727   81     1     1      20000
+213   60     1     1      20000
+60   38     1     1      20000
+653   43     1     1      20000
+1218   964     1     1      20000
+948   898     1     1      20000
+898   212     1     1      20000
+557   445     1     1      20000
+781   557     1     1      20000
+1216   790     1     1      20000
+790   602     1     1      20000
+561   535     1     1      20000
+535   431     1     1      20000
+814   462     1     1      20000
+231   74     1     1      20000
+1042   231     1     1      20000
+745   478     1     1      20000
+757   428     1     1      20000
+970   268     1     1      20000
+1166   970     1     1      20000
+1043   277     1     1      20000
+707   508     1     1      20000
+1066   987     1     1      20000
+987   979     1     1      20000
+463   416     1     1      20000
+416   10     1     1      20000
+553   401     1     1      20000
+401   385     1     1      20000
+1088   923     1     1      20000
+1161   831     1     1      20000
+831   748     1     1      20000
+705   8     1     1      20000
+1227   1116     1     1      20000
+1116   315     1     1      20000
+1216   890     1     1      20000
+890   708     1     1      20000
+614   567     1     1      20000
+793   686     1     1      20000
+1211   1057     1     1      20000
+1061   1058     1     1      20000
+1249   1061     1     1      20000
+585   226     1     1      20000
+909   217     1     1      20000
+1144   909     1     1      20000
+1134   917     1     1      20000
+917   545     1     1      20000
+890   777     1     1      20000
+777   708     1     1      20000
+683   349     1     1      20000
+583   317     1     1      20000
+317   311     1     1      20000
+343   63     1     1      20000
+103   98     1     1      20000
+98   37     1     1      20000
+660   381     1     1      20000
+727   239     1     1      20000
+239   25     1     1      20000
+176   115     1     1      20000
+948   749     1     1      20000
+866   552     1     1      20000
+1149   866     1     1      20000
+787   770     1     1      20000
+822   787     1     1      20000
+223   72     1     1      20000
+275   223     1     1      20000
+1242   1104     1     1      20000
+1104   944     1     1      20000
+421   42     1     1      20000
+304   283     1     1      20000
+1091   304     1     1      20000
+1152   1098     1     1      20000
+1098   908     1     1      20000
+333   248     1     1      20000
+248   47     1     1      20000
+261   167     1     1      20000
+167   127     1     1      20000
+1000   320     1     1      20000
+320   230     1     1      20000
+1113   332     1     1      20000
+1241   915     1     1      20000
+1177   545     1     1      20000
+1150   312     1     1      20000
+1172   1164     1     1      20000
+1178   1172     1     1      20000
+1051   97     1     1      20000
+857   803     1     1      20000
+803   306     1     1      20000
+1185   1080     1     1      20000
+107   17     1     1      20000
+449   107     1     1      20000
+1190   573     1     1      20000
+291   254     1     1      20000
+447   291     1     1      20000
+1134   545     1     1      20000
+1188   1134     1     1      20000
+281   179     1     1      20000
+997   281     1     1      20000
+158   48     1     1      20000
+1098   598     1     1      20000
+824   477     1     1      20000
+477   362     1     1      20000
+1248   1178     1     1      20000
+1178   1075     1     1      20000
+661   308     1     1      20000
+519   148     1     1      20000
+148   147     1     1      20000
+1174   892     1     1      20000
+1151   609     1     1      20000
+521   120     1     1      20000
+411   352     1     1      20000
+1214   236     1     1      20000
+899   807     1     1      20000
+807   711     1     1      20000
+977   453     1     1      20000
+1091   950     1     1      20000
+950   194     1     1      20000
+269   221     1     1      20000
+450   269     1     1      20000
+564   521     1     1      20000
+521   252     1     1      20000
+245   66     1     1      20000
+290   245     1     1      20000
+520   398     1     1      20000
+1015   639     1     1      20000
+1052   422     1     1      20000
+1050   639     1     1      20000
+758   492     1     1      20000
+492   390     1     1      20000
+660   514     1     1      20000
+435   426     1     1      20000
+426   339     1     1      20000
+731   659     1     1      20000
+659   168     1     1      20000
+1224   1038     1     1      20000
+801   371     1     1      20000
+560   341     1     1      20000
+659   560     1     1      20000
+985   942     1     1      20000
+1116   985     1     1      20000
+1244   1242     1     1      20000
+1242   1088     1     1      20000
+1186   1152     1     1      20000
+1152   908     1     1      20000
+960   737     1     1      20000
+445   391     1     1      20000
+792   445     1     1      20000
+734   1     1     1      20000
+1115   524     1     1      20000
+686   476     1     1      20000
+499   181     1     1      20000
+181   133     1     1      20000
+956   647     1     1      20000
+1231   575     1     1      20000
+1213   729     1     1      20000
+287   268     1     1      20000
+767   287     1     1      20000
+1078   87     1     1      20000
+493   338     1     1      20000
+854   13     1     1      20000
+919   361     1     1      20000
+590   541     1     1      20000
+614   590     1     1      20000
+406   355     1     1      20000
+355   4     1     1      20000
+432   273     1     1      20000
+452   432     1     1      20000
+993   986     1     1      20000
+986   277     1     1      20000
+865   663     1     1      20000
+663   379     1     1      20000
+1209   527     1     1      20000
+1155   315     1     1      20000
+1000   571     1     1      20000
+571   320     1     1      20000
+1105   1090     1     1      20000
+1090   1009     1     1      20000
+170   152     1     1      20000
+1124   170     1     1      20000
+1168   1138     1     1      20000
+1138   1094     1     1      20000
+267   186     1     1      20000
+186   185     1     1      20000
+1106   1075     1     1      20000
+1178   1106     1     1      20000
+1243   722     1     1      20000
+1101   505     1     1      20000
+678   463     1     1      20000
+463   10     1     1      20000
+1045   554     1     1      20000
+935   218     1     1      20000
+1195   802     1     1      20000
+881   750     1     1      20000
+938   936     1     1      20000
+936   777     1     1      20000
+1171   548     1     1      20000
+1110   982     1     1      20000
+982   529     1     1      20000
+1183   539     1     1      20000
+857   841     1     1      20000
+841   177     1     1      20000
+646   592     1     1      20000
+1219   1204     1     1      20000
+1209   650     1     1      20000
+650   527     1     1      20000
+514   381     1     1      20000
+381   360     1     1      20000
+1127   187     1     1      20000
+1005   313     1     1      20000
+580   267     1     1      20000
+267   185     1     1      20000
+768   51     1     1      20000
+1072   500     1     1      20000
+750   80     1     1      20000
+80   58     1     1      20000
+554   457     1     1      20000
+457   442     1     1      20000
+1201   949     1     1      20000
+949   823     1     1      20000
+1165   164     1     1      20000
+164   6     1     1      20000
+1236   203     1     1      20000
+1179   903     1     1      20000
+1185   1179     1     1      20000
+1129   207     1     1      20000
+207   198     1     1      20000
+118   39     1     1      20000
+635   104     1     1      20000
+931   361     1     1      20000
+443   16     1     1      20000
+604   463     1     1      20000
+463   54     1     1      20000
+1077   1003     1     1      20000
+1099   1077     1     1      20000
+880   724     1     1      20000
+976   258     1     1      20000
+899   430     1     1      20000
+621   399     1     1      20000
+1113   621     1     1      20000
+1112   1075     1     1      20000
+875   856     1     1      20000
+856   310     1     1      20000
+1162   1053     1     1      20000
+1183   986     1     1      20000
+1243   901     1     1      20000
+901   173     1     1      20000
+956   845     1     1      20000
+987   910     1     1      20000
+910   563     1     1      20000
+231   90     1     1      20000
+768   122     1     1      20000
+122   24     1     1      20000
+994   589     1     1      20000
+534   381     1     1      20000
+660   534     1     1      20000
+352   18     1     1      20000
+347   23     1     1      20000
+1212   1018     1     1      20000
+1018   505     1     1      20000
+564   440     1     1      20000
+440   182     1     1      20000
+877   722     1     1      20000
+951   813     1     1      20000
+813   216     1     1      20000
+1239   551     1     1      20000
+551   548     1     1      20000
+448   224     1     1      20000
+224   36     1     1      20000
+711   600     1     1      20000
+1180   1164     1     1      20000
+1164   1132     1     1      20000
+565   83     1     1      20000
+83   20     1     1      20000
+1092   613     1     1      20000
+613   305     1     1      20000
+931   732     1     1      20000
+943   306     1     1      20000
+306   282     1     1      20000
+1173   1073     1     1      20000
+1240   893     1     1      20000
+653   96     1     1      20000
+825   368     1     1      20000
+362   340     1     1      20000
+689   362     1     1      20000
+1108   1107     1     1      20000
+1225   1108     1     1      20000
+1122   941     1     1      20000
+941   878     1     1      20000
+869   556     1     1      20000
+690   412     1     1      20000
+412   118     1     1      20000
+493   420     1     1      20000
+420   338     1     1      20000
+231   206     1     1      20000
+206   90     1     1      20000
+952   844     1     1      20000
+1063   952     1     1      20000
+778   674     1     1      20000
+674   476     1     1      20000
+564   447     1     1      20000
+447   120     1     1      20000
+239   157     1     1      20000
+157   93     1     1      20000
+241   45     1     1      20000
+45   16     1     1      20000
+443   45     1     1      20000
+938   777     1     1      20000
+192   152     1     1      20000
+302   192     1     1      20000
+1251   322     1     1      20000
+864   404     1     1      20000
+1234   732     1     1      20000
+510   29     1     1      20000
+916   636     1     1      20000
+1105   916     1     1      20000
+848   256     1     1      20000
+256   138     1     1      20000
+449   28     1     1      20000
+1239   1169     1     1      20000
+1169   957     1     1      20000
+364   299     1     1      20000
+1250   939     1     1      20000
+633   466     1     1      20000
+466   35     1     1      20000
+400   229     1     1      20000
+929   738     1     1      20000
+991   955     1     1      20000
+955   862     1     1      20000
+422   295     1     1      20000
+295   230     1     1      20000
+908   598     1     1      20000
+1169   908     1     1      20000
+1137   906     1     1      20000
+1211   1137     1     1      20000
+509   428     1     1      20000
+789   414     1     1      20000
+572   417     1     1      20000
+925   50     1     1      20000
+1176   968     1     1      20000
+968   895     1     1      20000
+1185   1120     1     1      20000
+780   730     1     1      20000
+665   344     1     1      20000
+714   665     1     1      20000
+410   409     1     1      20000
+507   410     1     1      20000
+1033   612     1     1      20000
+1140   1033     1     1      20000
+671   345     1     1      20000
+1238   1149     1     1      20000
+1149   597     1     1      20000
+1098   913     1     1      20000
+1216   846     1     1      20000
+1111   286     1     1      20000
+286   87     1     1      20000
+558   254     1     1      20000
+914   740     1     1      20000
+740   652     1     1      20000
+280   25     1     1      20000
+819   736     1     1      20000
+736   699     1     1      20000
+803   214     1     1      20000
+214   178     1     1      20000
+786   284     1     1      20000
+1045   930     1     1      20000
+930   554     1     1      20000
+398   365     1     1      20000
+1122   859     1     1      20000
+1148   887     1     1      20000
+887   870     1     1      20000
+973   782     1     1      20000
+1161   748     1     1      20000
+578   249     1     1      20000
+1172   971     1     1      20000
+164   41     1     1      20000
+769   658     1     1      20000
+658   50     1     1      20000
+1145   889     1     1      20000
+466   102     1     1      20000
+862   155     1     1      20000
+1092   862     1     1      20000
+1169   598     1     1      20000
+499   367     1     1      20000
+367   261     1     1      20000
+1142   612     1     1      20000
+1016   171     1     1      20000
+1146   217     1     1      20000
+217   175     1     1      20000
+752   354     1     1      20000
+998   489     1     1      20000
+489   326     1     1      20000
+1127   296     1     1      20000
+296   187     1     1      20000
+678   2     1     1      20000
+1001   467     1     1      20000
+1176   934     1     1      20000
+1188   1169     1     1      20000
+1169   1134     1     1      20000
+1084   998     1     1      20000
+998   547     1     1      20000
+1032   230     1     1      20000
+1215   931     1     1      20000
+931   704     1     1      20000
+439   411     1     1      20000
+411   407     1     1      20000
+273   45     1     1      20000
+303   192     1     1      20000
+959   954     1     1      20000
+954   817     1     1      20000
+1119   285     1     1      20000
+939   723     1     1      20000
+924   833     1     1      20000
+833   755     1     1      20000
+914   900     1     1      20000
+900   877     1     1      20000
+287   183     1     1      20000
+559   468     1     1      20000
+468   226     1     1      20000
+849   497     1     1      20000
+744   495     1     1      20000
+977   252     1     1      20000
+261   34     1     1      20000
+1206   202     1     1      20000
+335   327     1     1      20000
+327   116     1     1      20000
+1060   999     1     1      20000
+999   986     1     1      20000
+829   460     1     1      20000
+994   378     1     1      20000
+773   44     1     1      20000
+935   82     1     1      20000
+1021   569     1     1      20000
+585   559     1     1      20000
+559   226     1     1      20000
+335   116     1     1      20000
+116   115     1     1      20000
+1016   583     1     1      20000
+583   171     1     1      20000
+678   10     1     1      20000
+860   856     1     1      20000
+856   233     1     1      20000
+1247   1049     1     1      20000
+807   402     1     1      20000
+805   649     1     1      20000
+649   109     1     1      20000
+696   668     1     1      20000
+606   350     1     1      20000
+350   341     1     1      20000
+468   325     1     1      20000
+325   290     1     1      20000
+726   723     1     1      20000
+959   726     1     1      20000
+387   206     1     1      20000
+1195   764     1     1      20000
+1183   305     1     1      20000
+504   441     1     1      20000
+899   805     1     1      20000
+805   715     1     1      20000
+106   20     1     1      20000
+160   106     1     1      20000
+1011   538     1     1      20000
+538   66     1     1      20000
+525   401     1     1      20000
+1161   763     1     1      20000
+801   698     1     1      20000
+175   140     1     1      20000
+922   175     1     1      20000
+565   169     1     1      20000
+169   83     1     1      20000
+1072   319     1     1      20000
+952   595     1     1      20000
+670   266     1     1      20000
+266   61     1     1      20000
+1230   1070     1     1      20000
+196   141     1     1      20000
+771   196     1     1      20000
+141   51     1     1      20000
+771   141     1     1      20000
+1187   615     1     1      20000
+615   458     1     1      20000
+1157   1059     1     1      20000
+1059   555     1     1      20000
+1148   666     1     1      20000
+719   497     1     1      20000
+861   93     1     1      20000
+1069   636     1     1      20000
+855   766     1     1      20000
+502   390     1     1      20000
+473   379     1     1      20000
+520   473     1     1      20000
+280   93     1     1      20000
+861   280     1     1      20000
+1158   505     1     1      20000
+606   341     1     1      20000
+822   200     1     1      20000
+526   33     1     1      20000
+689   438     1     1      20000
+824   689     1     1      20000
+801   799     1     1      20000
+837   801     1     1      20000
+1085   746     1     1      20000
+746   504     1     1      20000
+580   130     1     1      20000
+1179   1041     1     1      20000
+1041   903     1     1      20000
+743   442     1     1      20000
+690   406     1     1      20000
+523   49     1     1      20000
+1085   599     1     1      20000
+754   347     1     1      20000
+347   71     1     1      20000
+205   36     1     1      20000
+1161   462     1     1      20000
+1148   1034     1     1      20000
+1034   762     1     1      20000
+904   812     1     1      20000
+812   71     1     1      20000
+1026   316     1     1      20000
+1091   753     1     1      20000
+706   54     1     1      20000
+440   220     1     1      20000
+830   772     1     1      20000
+772   761     1     1      20000
+499   117     1     1      20000
+1112   945     1     1      20000
+945   237     1     1      20000
+520   379     1     1      20000
+663   520     1     1      20000
+450   221     1     1      20000
+1180   971     1     1      20000
+971   944     1     1      20000
+1198   883     1     1      20000
+875   310     1     1      20000
+1148   826     1     1      20000
+826   535     1     1      20000
+1166   268     1     1      20000
+1228   1166     1     1      20000
+927   144     1     1      20000
+144   115     1     1      20000
+1252   1207     1     1      20000
+1207   194     1     1      20000
+992   66     1     1      20000
+437   342     1     1      20000
+793   330     1     1      20000
+611   70     1     1      20000
+996   249     1     1      20000
+1102   1043     1     1      20000
+1043   324     1     1      20000
+1175   911     1     1      20000
+911   723     1     1      20000
+776   444     1     1      20000
+1173   1099     1     1      20000
+1099   1073     1     1      20000
+1214   216     1     1      20000
+625   623     1     1      20000
+623   486     1     1      20000
+768   24     1     1      20000
+784   768     1     1      20000
+400   65     1     1      20000
+742   25     1     1      20000
+533   474     1     1      20000
+474   391     1     1      20000
+1144   217     1     1      20000
+694   24     1     1      20000
+512   371     1     1      20000
+801   512     1     1      20000
+850   699     1     1      20000
+699   620     1     1      20000
+948   848     1     1      20000
+703   673     1     1      20000
+673   418     1     1      20000
+1246   1116     1     1      20000
+357   135     1     1      20000
+135   90     1     1      20000
+644   640     1     1      20000
+1070   644     1     1      20000
+854   676     1     1      20000
+676   414     1     1      20000
+673   27     1     1      20000
+808   740     1     1      20000
+740   722     1     1      20000
+1216   602     1     1      20000
+1164   315     1     1      20000
+180   128     1     1      20000
+694   180     1     1      20000
+899   715     1     1      20000
+715   430     1     1      20000
+374   373     1     1      20000
+611   374     1     1      20000
+465   271     1     1      20000
+537   465     1     1      20000
+739   14     1     1      20000
+145   103     1     1      20000
+103   30     1     1      20000
+967   264     1     1      20000
+765   68     1     1      20000
+366   16     1     1      20000
+1100   921     1     1      20000
+1049   236     1     1      20000
+1214   1049     1     1      20000
+1064   305     1     1      20000
+847   845     1     1      20000
+972   847     1     1      20000
+667   29     1     1      20000
+1206   918     1     1      20000
+918   202     1     1      20000
+528   410     1     1      20000
+410   405     1     1      20000
+590   491     1     1      20000
+311   148     1     1      20000
+633   311     1     1      20000
+408   28     1     1      20000
+662   408     1     1      20000
+854   688     1     1      20000
+688   676     1     1      20000
+367   34     1     1      20000
+1048   1020     1     1      20000
+1020   909     1     1      20000
+121   2     1     1      20000
+137   121     1     1      20000
+296   170     1     1      20000
+1249   1058     1     1      20000
+391   360     1     1      20000
+626   391     1     1      20000
+1034   933     1     1      20000
+933   595     1     1      20000
+825   510     1     1      20000
+510   368     1     1      20000
+975   79     1     1      20000
+981   562     1     1      20000
+1130   1033     1     1      20000
+1171   1130     1     1      20000
+377   241     1     1      20000
+421   266     1     1      20000
+266   92     1     1      20000
+611   55     1     1      20000
+1041   1038     1     1      20000
+1224   1041     1     1      20000
+1208   885     1     1      20000
+1189   1025     1     1      20000
+1025   624     1     1      20000
+1171   1033     1     1      20000
+1087   1057     1     1      20000
+1211   1087     1     1      20000
+1248   1236     1     1      20000
+1236   1172     1     1      20000
+1211   1210     1     1      20000
+1210   1137     1     1      20000
+1115   587     1     1      20000
+964   903     1     1      20000
+1041   964     1     1      20000
+800   765     1     1      20000
+717   128     1     1      20000
+476   14     1     1      20000
+778   476     1     1      20000
+1203   305     1     1      20000
+655   108     1     1      20000
+1251   1072     1     1      20000
+1072   1039     1     1      20000
+529   324     1     1      20000
+999   529     1     1      20000
+714   13     1     1      20000
+798   714     1     1      20000
+146   56     1     1      20000
+163   146     1     1      20000
+1213   1131     1     1      20000
+1131   883     1     1      20000
+1001   983     1     1      20000
+983   627     1     1      20000
+142   76     1     1      20000
+76   56     1     1      20000
+1208   570     1     1      20000
+995   472     1     1      20000
+1015   505     1     1      20000
+1050   1015     1     1      20000
+327   10     1     1      20000
+739   353     1     1      20000
+353   21     1     1      20000
+854   9     1     1      20000
+115   100     1     1      20000
+927   115     1     1      20000
+1145   1089     1     1      20000
+683   572     1     1      20000
+572   190     1     1      20000
+884   446     1     1      20000
+446   57     1     1      20000
+1193   640     1     1      20000
+679   497     1     1      20000
+736   679     1     1      20000
+639   489     1     1      20000
+1029   639     1     1      20000
+418   85     1     1      20000
+85   12     1     1      20000
+1052   483     1     1      20000
+483   153     1     1      20000
+933   866     1     1      20000
+1149   933     1     1      20000
+1219   1206     1     1      20000
+1206   258     1     1      20000
+168   17     1     1      20000
+296   136     1     1      20000
+985   638     1     1      20000
+1105   985     1     1      20000
+531   435     1     1      20000
+974   729     1     1      20000
+1172   1132     1     1      20000
+812   754     1     1      20000
+754   71     1     1      20000
+850   817     1     1      20000
+817   748     1     1      20000
+518   498     1     1      20000
+498   349     1     1      20000
+959   817     1     1      20000
+1101   1018     1     1      20000
+1018   624     1     1      20000
+1013   942     1     1      20000
+1040   618     1     1      20000
+1167   815     1     1      20000
+1219   264     1     1      20000
+1139   1004     1     1      20000
+1004   991     1     1      20000
+900   763     1     1      20000
+1105   1010     1     1      20000
+1056   467     1     1      20000
+1225   1004     1     1      20000
+260   228     1     1      20000
+1006   260     1     1      20000
+1085   504     1     1      20000
+500   207     1     1      20000
+421   162     1     1      20000
+1140   651     1     1      20000
+651   570     1     1      20000
+950   753     1     1      20000
+753   146     1     1      20000
+1076   262     1     1      20000
+830   682     1     1      20000
+1072   323     1     1      20000
+1000   147     1     1      20000
+376   29     1     1      20000
+1014   1007     1     1      20000
+1007   230     1     1      20000
+113   67     1     1      20000
+67   14     1     1      20000
+1222   1122     1     1      20000
+284   72     1     1      20000
+537   396     1     1      20000
+658   51     1     1      20000
+768   658     1     1      20000
+1244   1104     1     1      20000
+270   130     1     1      20000
+296   270     1     1      20000
+484   34     1     1      20000
+979   609     1     1      20000
+1059   979     1     1      20000
+1245   1080     1     1      20000
+425   409     1     1      20000
+409   271     1     1      20000
+632   603     1     1      20000
+603   262     1     1      20000
+871   777     1     1      20000
+611   560     1     1      20000
+560   70     1     1      20000
+642   380     1     1      20000
+1083   1073     1     1      20000
+1073   1009     1     1      20000
+407   352     1     1      20000
+352   339     1     1      20000
+1165   37     1     1      20000
+499   261     1     1      20000
+712   499     1     1      20000
+544   104     1     1      20000
+980   596     1     1      20000
+1042   74     1     1      20000
+40   19     1     1      20000
+665   40     1     1      20000
+1157   983     1     1      20000
+1059   983     1     1      20000
+983   631     1     1      20000
+470   332     1     1      20000
+1030   185     1     1      20000
+118   78     1     1      20000
+78   61     1     1      20000
+1081   166     1     1      20000
+103   88     1     1      20000
+88   30     1     1      20000
+122   52     1     1      20000
+52   24     1     1      20000
+800   750     1     1      20000
+750   94     1     1      20000
+924   234     1     1      20000
+1203   1095     1     1      20000
+1095   219     1     1      20000
+511   332     1     1      20000
+1233   974     1     1      20000
+1074   990     1     1      20000
+990   955     1     1      20000
+1229   970     1     1      20000
+970   902     1     1      20000
+851   835     1     1      20000
+835   258     1     1      20000
+683   397     1     1      20000
+221   36     1     1      20000
+328   221     1     1      20000
+684   300     1     1      20000
+300   16     1     1      20000
+680   11     1     1      20000
+747   680     1     1      20000
+488   188     1     1      20000
+851   177     1     1      20000
+518   410     1     1      20000
+743   515     1     1      20000
+515   504     1     1      20000
+943   178     1     1      20000
+178   166     1     1      20000
+733   719     1     1      20000
+719   679     1     1      20000
+1223   1121     1     1      20000
+1121   945     1     1      20000
+1182   1180     1     1      20000
+1200   1182     1     1      20000
+901   749     1     1      20000
+776   556     1     1      20000
+556   459     1     1      20000
+972   845     1     1      20000
+347   68     1     1      20000
+765   347     1     1      20000
+1247   946     1     1      20000
+1008   617     1     1      20000
+617   594     1     1      20000
+816   138     1     1      20000
+905   816     1     1      20000
+309   264     1     1      20000
+1219   309     1     1      20000
+960   780     1     1      20000
+160   20     1     1      20000
+433   253     1     1      20000
+607   433     1     1      20000
+1159   1041     1     1      20000
+1111   165     1     1      20000
+1096   227     1     1      20000
+685   44     1     1      20000
+1233   777     1     1      20000
+113   110     1     1      20000
+395   113     1     1      20000
+1243   877     1     1      20000
+1077   250     1     1      20000
+865   379     1     1      20000
+180   111     1     1      20000
+717   180     1     1      20000
+1081   214     1     1      20000
+1202   1081     1     1      20000
+421   46     1     1      20000
+807   430     1     1      20000
+1160   624     1     1      20000
+389   386     1     1      20000
+451   389     1     1      20000
+1087   932     1     1      20000
+434   210     1     1      20000
+680   403     1     1      20000
+403   11     1     1      20000
+204   192     1     1      20000
+207   204     1     1      20000
+197   159     1     1      20000
+706   197     1     1      20000
+863   826     1     1      20000
+826   797     1     1      20000
+235   193     1     1      20000
+813   235     1     1      20000
+959   723     1     1      20000
+995   490     1     1      20000
+1152   1114     1     1      20000
+1114   1098     1     1      20000
+1247   259     1     1      20000
+607   229     1     1      20000
+1151   489     1     1      20000
+1110   250     1     1      20000
+481   396     1     1      20000
+396   91     1     1      20000
+503   263     1     1      20000
+263   129     1     1      20000
+1243   816     1     1      20000
+1123   195     1     1      20000
+1168   618     1     1      20000
+1014   320     1     1      20000
+585   277     1     1      20000
+1205   951     1     1      20000
+1214   1205     1     1      20000
+566   105     1     1      20000
+921   601     1     1      20000
+937   921     1     1      20000
+1016   517     1     1      20000
+517   247     1     1      20000
+896   817     1     1      20000
+1250   896     1     1      20000
+836   173     1     1      20000
+901   836     1     1      20000
+81   37     1     1      20000
+98   81     1     1      20000
+709   562     1     1      20000
+562   490     1     1      20000
+802   462     1     1      20000
+1198   802     1     1      20000
+646   623     1     1      20000
+655   113     1     1      20000
+1189   641     1     1      20000
+1208   1189     1     1      20000
+630   516     1     1      20000
+516   502     1     1      20000
+353   14     1     1      20000
+1045   743     1     1      20000
+927   111     1     1      20000
+424   337     1     1      20000
+337   29     1     1      20000
+869   697     1     1      20000
+1197   913     1     1      20000
+27   3     1     1      20000
+393   27     1     1      20000
+108   53     1     1      20000
+694   108     1     1      20000
+1244   1196     1     1      20000
+1196   889     1     1      20000
+978   513     1     1      20000
+513   401     1     1      20000
+670   333     1     1      20000
+333   47     1     1      20000
+1097   457     1     1      20000
+564   182     1     1      20000
+163   56     1     1      20000
+534   509     1     1      20000
+842   534     1     1      20000
+935   139     1     1      20000
+1029   609     1     1      20000
+296   142     1     1      20000
+925   769     1     1      20000
+769   50     1     1      20000
+981   605     1     1      20000
+605   211     1     1      20000
+749   218     1     1      20000
+218   139     1     1      20000
+653   123     1     1      20000
+123   12     1     1      20000
+199   165     1     1      20000
+165   136     1     1      20000
+280   161     1     1      20000
+884   688     1     1      20000
+688   424     1     1      20000
+546   188     1     1      20000
+928   312     1     1      20000
+1049   946     1     1      20000
+1080   964     1     1      20000
+1143   1080     1     1      20000
+884   414     1     1      20000
+759   58     1     1      20000
+1014   559     1     1      20000
+723   704     1     1      20000
+919   723     1     1      20000
+924   755     1     1      20000
+755   292     1     1      20000
+797   444     1     1      20000
+1196   1088     1     1      20000
+1088   1086     1     1      20000
+892   809     1     1      20000
+853   354     1     1      20000
+354   218     1     1      20000
+1133   582     1     1      20000
+805   101     1     1      20000
+435   384     1     1      20000
+384   26     1     1      20000
+1157   540     1     1      20000
+611   210     1     1      20000
+488   189     1     1      20000
+769   308     1     1      20000
+1048   946     1     1      20000
+946   873     1     1      20000
+904   347     1     1      20000
+347   94     1     1      20000
+261   127     1     1      20000
+244   36     1     1      20000
+537   481     1     1      20000
+481   189     1     1      20000
+1234   931     1     1      20000
+931   620     1     1      20000
+675   475     1     1      20000
+475   389     1     1      20000
+757   668     1     1      20000
+668   362     1     1      20000
+1110   155     1     1      20000
+1015   563     1     1      20000
+1158   1015     1     1      20000
+622   474     1     1      20000
+443   366     1     1      20000
+366   45     1     1      20000
+606   560     1     1      20000
+560   55     1     1      20000
+1200   944     1     1      20000
+1249   1200     1     1      20000
+432   85     1     1      20000
+710   69     1     1      20000
+69   15     1     1      20000
+557   533     1     1      20000
+533   445     1     1      20000
+707   589     1     1      20000
+589   508     1     1      20000
+1199   738     1     1      20000
+1198   888     1     1      20000
+1110   529     1     1      20000
+1011   323     1     1      20000
+867   561     1     1      20000
+464   377     1     1      20000
+700   464     1     1      20000
+590   573     1     1      20000
+1084   590     1     1      20000
+1209   867     1     1      20000
+867   622     1     1      20000
+1072   1071     1     1      20000
+1071   290     1     1      20000
+448   74     1     1      20000
+966   595     1     1      20000
+521   229     1     1      20000
+664   39     1     1      20000
+485   482     1     1      20000
+482   299     1     1      20000
+143   131     1     1      20000
+131   41     1     1      20000
+654   131     1     1      20000
+131   127     1     1      20000
+1231   751     1     1      20000
+502   26     1     1      20000
+980   502     1     1      20000
+368   44     1     1      20000
+439   368     1     1      20000
+842   477     1     1      20000
+302   152     1     1      20000
+1213   896     1     1      20000
+1250   1213     1     1      20000
+1086   964     1     1      20000
+1218   1086     1     1      20000
+561   431     1     1      20000
+660   561     1     1      20000
+635   526     1     1      20000
+526   104     1     1      20000
+1098   921     1     1      20000
+1192   1098     1     1      20000
+1230   574     1     1      20000
+728   30     1     1      20000
+280   200     1     1      20000
+200   25     1     1      20000
+960   806     1     1      20000
+806   679     1     1      20000
+1109   813     1     1      20000
+1053   163     1     1      20000
+163   79     1     1      20000
+820   196     1     1      20000
+1209   622     1     1      20000
+622   441     1     1      20000
+887   866     1     1      20000
+1111   87     1     1      20000
+393   176     1     1      20000
+176   116     1     1      20000
+1000   230     1     1      20000
+1032   1000     1     1      20000
+681   122     1     1      20000
+122   51     1     1      20000
+157   98     1     1      20000
+242   157     1     1      20000
+965   180     1     1      20000
+180   8     1     1      20000
+925   812     1     1      20000
+775   423     1     1      20000
+671   376     1     1      20000
+376   345     1     1      20000
+855   82     1     1      20000
+801   759     1     1      20000
+759   512     1     1      20000
+984   318     1     1      20000
+318   132     1     1      20000
+1230   1154     1     1      20000
+1154   574     1     1      20000
+519   269     1     1      20000
+269   232     1     1      20000
+1033   961     1     1      20000
+961   612     1     1      20000
+514   360     1     1      20000
+775   514     1     1      20000
+1204   193     1     1      20000
+427   168     1     1      20000
+659   427     1     1      20000
+981   329     1     1      20000
+1150   1125     1     1      20000
+1125   312     1     1      20000
+1122   1038     1     1      20000
+1038   97     1     1      20000
+523   346     1     1      20000
+346   49     1     1      20000
+980   522     1     1      20000
+1029   987     1     1      20000
+987   639     1     1      20000
+1245   903     1     1      20000
+629   585     1     1      20000
+585   542     1     1      20000
+501   357     1     1      20000
+1165   274     1     1      20000
+274   143     1     1      20000
+343   145     1     1      20000
+728   343     1     1      20000
+1154   1142     1     1      20000
+1142   574     1     1      20000
+1165   6     1     1      20000
+455   77     1     1      20000
+317   66     1     1      20000
+1161   882     1     1      20000
+882   831     1     1      20000
+854   80     1     1      20000
+904   336     1     1      20000
+181   127     1     1      20000
+288   181     1     1      20000
+1147   1095     1     1      20000
+1203   1147     1     1      20000
+1167   847     1     1      20000
+847   602     1     1      20000
+954   939     1     1      20000
+1250   954     1     1      20000
+915   790     1     1      20000
+1216   915     1     1      20000
+1112   237     1     1      20000
+808   652     1     1      20000
+317   147     1     1      20000
+420   364     1     1      20000
+364   338     1     1      20000
+123   96     1     1      20000
+408   123     1     1      20000
+1175   834     1     1      20000
+604   565     1     1      20000
+565   20     1     1      20000
+785   234     1     1      20000
+1003   313     1     1      20000
+503   133     1     1      20000
+873   233     1     1      20000
+1020   873     1     1      20000
+961   574     1     1      20000
+1142   961     1     1      20000
+778   449     1     1      20000
+449   17     1     1      20000
+1074   955     1     1      20000
+789   657     1     1      20000
+657   656     1     1      20000
+996   272     1     1      20000
+394   160     1     1      20000
+160   83     1     1      20000
+1163   843     1     1      20000
+1040   958     1     1      20000
+958   878     1     1      20000
+426   407     1     1      20000
+407   339     1     1      20000
+980   471     1     1      20000
+296   199     1     1      20000
+199   136     1     1      20000
+294   105     1     1      20000
+566   294     1     1      20000
+1030   786     1     1      20000
+786   580     1     1      20000
+351   190     1     1      20000
+549   351     1     1      20000
+569   460     1     1      20000
+625   569     1     1      20000
+900   810     1     1      20000
+810   763     1     1      20000
+1222   1168     1     1      20000
+1168   941     1     1      20000
+1104   889     1     1      20000
+661   388     1     1      20000
+935   661     1     1      20000
+686   345     1     1      20000
+1213   872     1     1      20000
+800   798     1     1      20000
+798   9     1     1      20000
+916   617     1     1      20000
+655   110     1     1      20000
+686   15     1     1      20000
+1136   1105     1     1      20000
+1105   1009     1     1      20000
+500   228     1     1      20000
+1039   500     1     1      20000
+822   265     1     1      20000
+531   358     1     1      20000
+836   749     1     1      20000
+448   36     1     1      20000
+1235   581     1     1      20000
+895   889     1     1      20000
+1022   895     1     1      20000
+972   956     1     1      20000
+956   874     1     1      20000
+1148   933     1     1      20000
+1105   638     1     1      20000
+1065   192     1     1      20000
+492   358     1     1      20000
+531   492     1     1      20000
+1042   92     1     1      20000
+737   736     1     1      20000
+819   737     1     1      20000
+853   820     1     1      20000
+820   695     1     1      20000
+831   737     1     1      20000
+737   699     1     1      20000
+197   167     1     1      20000
+167   159     1     1      20000
+687   2     1     1      20000
+966   602     1     1      20000
+1039   228     1     1      20000
+1148   870     1     1      20000
+1133   885     1     1      20000
+885   582     1     1      20000
+865   758     1     1      20000
+758   511     1     1      20000
+1047   527     1     1      20000
+1145   1118     1     1      20000
+1118   889     1     1      20000
+243   65     1     1      20000
+1165   143     1     1      20000
+943   282     1     1      20000
+282   178     1     1      20000
+1209   868     1     1      20000
+868   643     1     1      20000
+172   72     1     1      20000
+223   172     1     1      20000
+794   424     1     1      20000
+200   161     1     1      20000
+227   200     1     1      20000
+935   388     1     1      20000
+387   47     1     1      20000
+947   943     1     1      20000
+943   166     1     1      20000
+1032   269     1     1      20000
+1174   312     1     1      20000
+1244   1088     1     1      20000
+143   41     1     1      20000
+164   143     1     1      20000
+1252   194     1     1      20000
+554   442     1     1      20000
+616   554     1     1      20000
+1177   1031     1     1      20000
+1031   617     1     1      20000
+1016   251     1     1      20000
+965   59     1     1      20000
+59   32     1     1      20000
+633   148     1     1      20000
+557   399     1     1      20000
+1078   150     1     1      20000
+1013   581     1     1      20000
+1235   1013     1     1      20000
+696   362     1     1      20000
+68   23     1     1      20000
+1093   545     1     1      20000
+1177   1093     1     1      20000
+580   307     1     1      20000
+307   270     1     1      20000
+988   570     1     1      20000
+805   371     1     1      20000
+371   101     1     1      20000
+239   98     1     1      20000
+350   331     1     1      20000
+359   350     1     1      20000
+1093   916     1     1      20000
+916   638     1     1      20000
+898   818     1     1      20000
+818   212     1     1      20000
+1067   856     1     1      20000
+630   390     1     1      20000
+1144   969     1     1      20000
+1201   1086     1     1      20000
+1218   1201     1     1      20000
+1218   859     1     1      20000
+1110   1060     1     1      20000
+1178   581     1     1      20000
+799   388     1     1      20000
+388   336     1     1      20000
+1006   228     1     1      20000
+1177   962     1     1      20000
+417   359     1     1      20000
+484   90     1     1      20000
+406   118     1     1      20000
+412   406     1     1      20000
+1068   996     1     1      20000
+996   645     1     1      20000
+970   767     1     1      20000
+767   268     1     1      20000
+874   647     1     1      20000
+938   874     1     1      20000
+980   506     1     1      20000
+1133   707     1     1      20000
+707   568     1     1      20000
+919   704     1     1      20000
+704   361     1     1      20000
+1213   883     1     1      20000
+1153   537     1     1      20000
+537   467     1     1      20000
+677   113     1     1      20000
+113   14     1     1      20000
+736   620     1     1      20000
+693   137     1     1      20000
+137   2     1     1      20000
+544   425     1     1      20000
+425   271     1     1      20000
+1126   1120     1     1      20000
+1120   203     1     1      20000
+544   409     1     1      20000
+950   146     1     1      20000
+920   234     1     1      20000
+800   9     1     1      20000
+1181   1028     1     1      20000
+1175   919     1     1      20000
+919   834     1     1      20000
+705   32     1     1      20000
+609   276     1     1      20000
+776   459     1     1      20000
+459   428     1     1      20000
+156   72     1     1      20000
+284   156     1     1      20000
+1079   467     1     1      20000
+947   770     1     1      20000
+1175   723     1     1      20000
+976   177     1     1      20000
+712   181     1     1      20000
+1013   316     1     1      20000
+1119   1013     1     1      20000
+832   60     1     1      20000
+60   5     1     1      20000
+1148   535     1     1      20000
+536   11     1     1      20000
+11   1     1     1      20000
+1008   636     1     1      20000
+636   617     1     1      20000
+836   808     1     1      20000
+808   173     1     1      20000
+937   640     1     1      20000
+887   535     1     1      20000
+517   179     1     1      20000
+1228   235     1     1      20000
+1074   279     1     1      20000
+1223   1074     1     1      20000
+1241   777     1     1      20000
+1139   862     1     1      20000
+432   31     1     1      20000
+446   403     1     1      20000
+403   57     1     1      20000
+1129   198     1     1      20000
+1229   1129     1     1      20000
+869   600     1     1      20000
+466   208     1     1      20000
+208   102     1     1      20000
+1220   894     1     1      20000
+894   891     1     1      20000
+543   419     1     1      20000
+572   543     1     1      20000
+962   906     1     1      20000
+1024   962     1     1      20000
+1074   1004     1     1      20000
+1004   279     1     1      20000
+899   711     1     1      20000
+1184   1062     1     1      20000
+653   107     1     1      20000
+107   28     1     1      20000
+1072   290     1     1      20000
+564   119     1     1      20000
+1121   257     1     1      20000
+1176   174     1     1      20000
+736   497     1     1      20000
+669   27     1     1      20000
+248   160     1     1      20000
+394   248     1     1      20000
+1186   1182     1     1      20000
+1221   1186     1     1      20000
+317   245     1     1      20000
+245   147     1     1      20000
+793   479     1     1      20000
+479   369     1     1      20000
+400   253     1     1      20000
+1126   203     1     1      20000
+1199   1146     1     1      20000
+1146   738     1     1      20000
+774   741     1     1      20000
+741   720     1     1      20000
+783   5     1     1      20000
+705   122     1     1      20000
+550   525     1     1      20000
+525   329     1     1      20000
+1017   250     1     1      20000
+824   362     1     1      20000
+1230   1100     1     1      20000
+1100   644     1     1      20000
+1241   1216     1     1      20000
+1216   708     1     1      20000
+914   882     1     1      20000
+882   763     1     1      20000
+176   3     1     1      20000
+593   471     1     1      20000
+471   384     1     1      20000
+690   346     1     1      20000
+447   222     1     1      20000
+1127   270     1     1      20000
+1072   1044     1     1      20000
+1044   500     1     1      20000
+153   65     1     1      20000
+400   153     1     1      20000
+1114   913     1     1      20000
+881   94     1     1      20000
+744   534     1     1      20000
+842   744     1     1      20000
+621   470     1     1      20000
+470   380     1     1      20000
+550   380     1     1      20000
+561   514     1     1      20000
+775   561     1     1      20000
+458   211     1     1      20000
+1068   458     1     1      20000
+1209   643     1     1      20000
+351   77     1     1      20000
+1177   617     1     1      20000
+907   599     1     1      20000
+599   591     1     1      20000
+1096   861     1     1      20000
+861   838     1     1      20000
+202   193     1     1      20000
+235   202     1     1      20000
+493   482     1     1      20000
+482   49     1     1      20000
+549   190     1     1      20000
+1152   889     1     1      20000
+557   486     1     1      20000
+765   94     1     1      20000
+774   62     1     1      20000
+1000   325     1     1      20000
+158   86     1     1      20000
+822   770     1     1      20000
+770   289     1     1      20000
+1050   505     1     1      20000
+1101   1050     1     1      20000
+583   35     1     1      20000
+683   190     1     1      20000
+1102   631     1     1      20000
+805   109     1     1      20000
+1005   155     1     1      20000
+383   346     1     1      20000
+523   383     1     1      20000
+1163   817     1     1      20000
+158   157     1     1      20000
+705   158     1     1      20000
+348   209     1     1      20000
+437   348     1     1      20000
+1129   260     1     1      20000
+260   207     1     1      20000
+1053   334     1     1      20000
+334   265     1     1      20000
+960   736     1     1      20000
+1225   257     1     1      20000
+264   216     1     1      20000
+216   193     1     1      20000
+436   252     1     1      20000
+521   436     1     1      20000
+1067   967     1     1      20000
+967   309     1     1      20000
+821   804     1     1      20000
+804   139     1     1      20000
+924   306     1     1      20000
+306   255     1     1      20000
+420   61     1     1      20000
+947   289     1     1      20000
+1142   651     1     1      20000
+651   612     1     1      20000
+521   433     1     1      20000
+607   521     1     1      20000
+655   53     1     1      20000
+187   170     1     1      20000
+247   187     1     1      20000
+826   431     1     1      20000
+593   461     1     1      20000
+461   397     1     1      20000
+957   598     1     1      20000
+598   551     1     1      20000
+1210   1208     1     1      20000
+1208   641     1     1      20000
+742   72     1     1      20000
+754   53     1     1      20000
+233   140     1     1      20000
+1021   380     1     1      20000
+709   490     1     1      20000
+1136   1013     1     1      20000
+111   3     1     1      20000
+717   111     1     1      20000
+848   785     1     1      20000
+785   292     1     1      20000
+1040   823     1     1      20000
+416   106     1     1      20000
+1120   944     1     1      20000
+1228   897     1     1      20000
+641   624     1     1      20000
+1137   641     1     1      20000
+664   149     1     1      20000
+149   39     1     1      20000
+1035   573     1     1      20000
+1016   170     1     1      20000
+29   11     1     1      20000
+403   29     1     1      20000
+807   779     1     1      20000
+779   402     1     1      20000
+242   98     1     1      20000
+702   242     1     1      20000
+1096   838     1     1      20000
+1207   258     1     1      20000
+1215   723     1     1      20000
+1171   1087     1     1      20000
+1087   548     1     1      20000
+1173   1090     1     1      20000
+1128   51     1     1      20000
+486   441     1     1      20000
+622   486     1     1      20000
+756   131     1     1      20000
+131   125     1     1      20000
+675   389     1     1      20000
+605   587     1     1      20000
+587   211     1     1      20000
+593   384     1     1      20000
+830   666     1     1      20000
+963   804     1     1      20000
+1126   1036     1     1      20000
+1205   1126     1     1      20000
+633   208     1     1      20000
+910   637     1     1      20000
+1237   910     1     1      20000
+649   600     1     1      20000
+600   62     1     1      20000
+186   7     1     1      20000
+745   668     1     1      20000
+998   568     1     1      20000
+568   547     1     1      20000
+703   418     1     1      20000
+418   22     1     1      20000
+795   494     1     1      20000
+494   332     1     1      20000
+480   343     1     1      20000
+343   111     1     1      20000
+144   63     1     1      20000
+687   144     1     1      20000
+264   259     1     1      20000
+259   216     1     1      20000
+1081   163     1     1      20000
+1162   1081     1     1      20000
+1064   613     1     1      20000
+613   610     1     1      20000
+604   356     1     1      20000
+884   424     1     1      20000
+1129   1062     1     1      20000
+1184   1129     1     1      20000
+225   170     1     1      20000
+1124   225     1     1      20000
+685   368     1     1      20000
+1185   1037     1     1      20000
+1130   961     1     1      20000
+466   357     1     1      20000
+501   466     1     1      20000
+774   725     1     1      20000
+1138   1123     1     1      20000
+1195   1138     1     1      20000
+506   490     1     1      20000
+522   506     1     1      20000
+795   557     1     1      20000
+1212   1158     1     1      20000
+1158   1002     1     1      20000
+976   841     1     1      20000
+1192   598     1     1      20000
+937   601     1     1      20000
+956   937     1     1      20000
+105   36     1     1      20000
+221   105     1     1      20000
+432   89     1     1      20000
+672   432     1     1      20000
+1122   823     1     1      20000
+986   324     1     1      20000
+324   277     1     1      20000
+280   239     1     1      20000
+239   93     1     1      20000
+1222   1123     1     1      20000
+632   228     1     1      20000
+1149   952     1     1      20000
+952   933     1     1      20000
+464   12     1     1      20000
+629   243     1     1      20000
+659   341     1     1      20000
+341   18     1     1      20000
+933   870     1     1      20000
+870   866     1     1      20000
+69   14     1     1      20000
+476   69     1     1      20000
+543   437     1     1      20000
+437   209     1     1      20000
+952   815     1     1      20000
+815   595     1     1      20000
+1012   986     1     1      20000
+986   539     1     1      20000
+907   591     1     1      20000
+1187   907     1     1      20000
+1232   462     1     1      20000
+1014   230     1     1      20000
+137   114     1     1      20000
+543   209     1     1      20000
+482   209     1     1      20000
+209   49     1     1      20000
+905   138     1     1      20000
+538   290     1     1      20000
+290   66     1     1      20000
+1176   895     1     1      20000
+405   119     1     1      20000
+83   34     1     1      20000
+394   83     1     1      20000
+1069   1002     1     1      20000
+1158   1069     1     1      20000
+1198   1131     1     1      20000
+1131   888     1     1      20000
+357   102     1     1      20000
+672   393     1     1      20000
+393   116     1     1      20000
+807   789     1     1      20000
+789   680     1     1      20000
+854   714     1     1      20000
+714   688     1     1      20000
+762   595     1     1      20000
+231   135     1     1      20000
+135   74     1     1      20000
+627   540     1     1      20000
+978   390     1     1      20000
+1089   893     1     1      20000
+622   423     1     1      20000
+670   47     1     1      20000
+625   486     1     1      20000
+495   360     1     1      20000
+534   495     1     1      20000
+865   404     1     1      20000
+639   326     1     1      20000
+728   63     1     1      20000
+1103   1090     1     1      20000
+1090   1010     1     1      20000
+451   439     1     1      20000
+439   407     1     1      20000
+984   133     1     1      20000
+1090   1083     1     1      20000
+1083   1009     1     1      20000
+935   855     1     1      20000
+855   821     1     1      20000
+864   520     1     1      20000
+520   404     1     1      20000
+1210   641     1     1      20000
+661   218     1     1      20000
+321   45     1     1      20000
+1024   1002     1     1      20000
+1031   1024     1     1      20000
+632   191     1     1      20000
+1178   1164     1     1      20000
+1164   581     1     1      20000
+871   788     1     1      20000
+788   174     1     1      20000
+263   7     1     1      20000
+1023   540     1     1      20000
+1133   568     1     1      20000
+703   353     1     1      20000
+609   555     1     1      20000
+1059   609     1     1      20000
+1054   323     1     1      20000
+323   246     1     1      20000
+169   159     1     1      20000
+159   34     1     1      20000
+1065   240     1     1      20000
+240   152     1     1      20000
+572   397     1     1      20000
+1229   1095     1     1      20000
+789   656     1     1      20000
+825   392     1     1      20000
+392   29     1     1      20000
+791   58     1     1      20000
+633   35     1     1      20000
+700   653     1     1      20000
+653   12     1     1      20000
+469   249     1     1      20000
+684   16     1     1      20000
+16   4     1     1      20000
+1243   900     1     1      20000
+900   312     1     1      20000
+890   874     1     1      20000
+938   890     1     1      20000
+1001   542     1     1      20000
+681   48     1     1      20000
+487   272     1     1      20000
+994   487     1     1      20000
+448   205     1     1      20000
+1215   620     1     1      20000
+370   347     1     1      20000
+754   370     1     1      20000
+288   127     1     1      20000
+975   223     1     1      20000
+1095   897     1     1      20000
+897   219     1     1      20000
+746   599     1     1      20000
+599   582     1     1      20000
+564   364     1     1      20000
+525   472     1     1      20000
+472   329     1     1      20000
+832   5     1     1      20000
+160   99     1     1      20000
+546   453     1     1      20000
+453   188     1     1      20000
+1227   315     1     1      20000
+876   512     1     1      20000
+512   58     1     1      20000
+1159   909     1     1      20000
+519   232     1     1      20000
+266   162     1     1      20000
+162   61     1     1      20000
+463   121     1     1      20000
+121   54     1     1      20000
+1134   548     1     1      20000
+1231   579     1     1      20000
+793   415     1     1      20000
+415   345     1     1      20000
+769   713     1     1      20000
+713   658     1     1      20000
+669   393     1     1      20000
+393   151     1     1      20000
+1122   97     1     1      20000
+503   181     1     1      20000
+181   7     1     1      20000
+1199   217     1     1      20000
+434   346     1     1      20000
+1047   515     1     1      20000
+805   701     1     1      20000
+701   371     1     1      20000
+727   98     1     1      20000
+392   1     1     1      20000
+1168   878     1     1      20000
+780   737     1     1      20000
+737   652     1     1      20000
+684   107     1     1      20000
+798   13     1     1      20000
+13   9     1     1      20000
+1163   886     1     1      20000
+886   817     1     1      20000
+526   507     1     1      20000
+507   409     1     1      20000
+384   350     1     1      20000
+303   150     1     1      20000
+1223   1112     1     1      20000
+1112   1074     1     1      20000
+1065   1054     1     1      20000
+1054   240     1     1      20000
+244   102     1     1      20000
+102   36     1     1      20000
+984   503     1     1      20000
+503   318     1     1      20000
+1252   950     1     1      20000
+604   54     1     1      20000
+317   148     1     1      20000
+668   478     1     1      20000
+680   668     1     1      20000
+836   827     1     1      20000
+827   808     1     1      20000
+297   105     1     1      20000
+586   405     1     1      20000
+670   39     1     1      20000
+1119   1106     1     1      20000
+1106   581     1     1      20000
+1205   1036     1     1      20000
+1036   951     1     1      20000
+103   37     1     1      20000
+621   486     1     1      20000
+486   399     1     1      20000
+1189   885     1     1      20000
+885   648     1     1      20000
+820   212     1     1      20000
+716   109     1     1      20000
+774   716     1     1      20000
+664   118     1     1      20000
+948   212     1     1      20000
+1217   921     1     1      20000
+1145   174     1     1      20000
+783   213     1     1      20000
+213   86     1     1      20000
+322   226     1     1      20000
+468   322     1     1      20000
+826   666     1     1      20000
+1111   302     1     1      20000
+302   165     1     1      20000
+972   846     1     1      20000
+876   779     1     1      20000
+779   715     1     1      20000
+773   439     1     1      20000
+439   44     1     1      20000
+1039   322     1     1      20000
+1251   1039     1     1      20000
+827   652     1     1      20000
+537   189     1     1      20000
+876   58     1     1      20000
+725   62     1     1      20000
+748   699     1     1      20000
+850   748     1     1      20000
+783   60     1     1      20000
+898   848     1     1      20000
+848   818     1     1      20000
+266   47     1     1      20000
+825   451     1     1      20000
+451   365     1     1      20000
+1008   594     1     1      20000
+876   791     1     1      20000
+791   779     1     1      20000
+158   141     1     1      20000
+141   86     1     1      20000
+1109   951     1     1      20000
+951   945     1     1      20000
+599   487     1     1      20000
+487   378     1     1      20000
+1091   283     1     1      20000
+795   332     1     1      20000
+1053   265     1     1      20000
+544   465     1     1      20000
+710   15     1     1      20000
+418   27     1     1      20000
+669   418     1     1      20000
+680   656     1     1      20000
+656   403     1     1      20000
+346   61     1     1      20000
+493   346     1     1      20000
+611   355     1     1      20000
+355   210     1     1      20000
+242   124     1     1      20000
+1061   889     1     1      20000
+1152   1061     1     1      20000
+927   343     1     1      20000
+343   144     1     1      20000
+132   35     1     1      20000
+984   132     1     1      20000
+453   436     1     1      20000
+436   229     1     1      20000
+1181   1059     1     1      20000
+1047   650     1     1      20000
+650   515     1     1      20000
+1078   283     1     1      20000
+283   202     1     1      20000
+611   434     1     1      20000
+434   383     1     1      20000
+939   729     1     1      20000
+1213   939     1     1      20000
+1179   1037     1     1      20000
+654   114     1     1      20000
+1206   1204     1     1      20000
+1204   918     1     1      20000
+978   401     1     1      20000
+943   255     1     1      20000
+706   565     1     1      20000
+565   356     1     1      20000
+1235   942     1     1      20000
+673   128     1     1      20000
+128   3     1     1      20000
+248   149     1     1      20000
+375   248     1     1      20000
+1190   489     1     1      20000
+730   652     1     1      20000
+879   730     1     1      20000
+578   272     1     1      20000
+272   249     1     1      20000
+642   615     1     1      20000
+615   569     1     1      20000
+1027   955     1     1      20000
+501   484     1     1      20000
+484   367     1     1      20000
+1174   138     1     1      20000
+377   300     1     1      20000
+700   377     1     1      20000
+1099   1082     1     1      20000
+1082   1077     1     1      20000
+518   507     1     1      20000
+507   498     1     1      20000
+675   358     1     1      20000
+1203   219     1     1      20000
+615   460     1     1      20000
+965   124     1     1      20000
+811   312     1     1      20000
+900   811     1     1      20000
+558   46     1     1      20000
+1042   558     1     1      20000
+1081   950     1     1      20000
+950   163     1     1      20000
+1153   1079     1     1      20000
+1079   465     1     1      20000
+1220   764     1     1      20000
+1161   811     1     1      20000
+811   763     1     1      20000
+657   57     1     1      20000
+1234   720     1     1      20000
+492   379     1     1      20000
+914   810     1     1      20000
+998   326     1     1      20000
+921   598     1     1      20000
+1192   921     1     1      20000
+766   733     1     1      20000
+806   766     1     1      20000
+727   25     1     1      20000
+829   615     1     1      20000
+1237   637     1     1      20000
+1217   551     1     1      20000
+932   548     1     1      20000
+1055   932     1     1      20000
+962   545     1     1      20000
+904   769     1     1      20000
+925   904     1     1      20000
+924   857     1     1      20000
+857   306     1     1      20000
+1214   951     1     1      20000
+951   216     1     1      20000
+812   658     1     1      20000
+584   544     1     1      20000
+544   524     1     1      20000
+424   29     1     1      20000
+446   424     1     1      20000
+750   9     1     1      20000
+854   750     1     1      20000
+1173   1083     1     1      20000
+576   384     1     1      20000
+1197   921     1     1      20000
+921   913     1     1      20000
+1078   287     1     1      20000
+792   781     1     1      20000
+781   445     1     1      20000
+539   322     1     1      20000
+322   191     1     1      20000
+1187   458     1     1      20000
+869   721     1     1      20000
+721   600     1     1      20000
+578   469     1     1      20000
+1084   578     1     1      20000
+1193   844     1     1      20000
+844   640     1     1      20000
+782   38     1     1      20000
+1017   637     1     1      20000
+664   321     1     1      20000
+321   273     1     1      20000
+960   679     1     1      20000
+780   766     1     1      20000
+806   780     1     1      20000
+622   561     1     1      20000
+775   622     1     1      20000
+671   510     1     1      20000
+510   376     1     1      20000
+605   562     1     1      20000
+852   741     1     1      20000
+741   579     1     1      20000
+1205   236     1     1      20000
+564   120     1     1      20000
+180   52     1     1      20000
+1239   957     1     1      20000
+957   551     1     1      20000
+849   720     1     1      20000
+1234   849     1     1      20000
+539   191     1     1      20000
+632   539     1     1      20000
+959   850     1     1      20000
+850   726     1     1      20000
+517   171     1     1      20000
+151   89     1     1      20000
+89   85     1     1      20000
+432   372     1     1      20000
+670   61     1     1      20000
+771   51     1     1      20000
+1128   771     1     1      20000
+1087   1055     1     1      20000
+1055   548     1     1      20000
+1038   859     1     1      20000
+1218   1038     1     1      20000
+653   28     1     1      20000
+742   81     1     1      20000
+81   25     1     1      20000
+99   64     1     1      20000
+382   99     1     1      20000
+406   210     1     1      20000
+539   226     1     1      20000
+421   291     1     1      20000
+291   162     1     1      20000
+691   424     1     1      20000
+794   691     1     1      20000
+1142   457     1     1      20000
+482   338     1     1      20000
+338   299     1     1      20000
+488   65     1     1      20000
+557   332     1     1      20000
+1113   557     1     1      20000
+739   408     1     1      20000
+719   716     1     1      20000
+716   497     1     1      20000
+827   804     1     1      20000
+879   827     1     1      20000
+996   487     1     1      20000
+1234   852     1     1      20000
+852   732     1     1      20000
+528   409     1     1      20000
+1135   582     1     1      20000
+407   358     1     1      20000
+675   407     1     1      20000
+914   763     1     1      20000
+997   263     1     1      20000
+263   187     1     1      20000
+223   79     1     1      20000
+79   76     1     1      20000
+1125   894     1     1      20000
+894   828     1     1      20000
+1016   184     1     1      20000
+819   699     1     1      20000
+897   257     1     1      20000
+257   219     1     1      20000
+533   486     1     1      20000
+486   474     1     1      20000
+1031   594     1     1      20000
+646   591     1     1      20000
+1085   646     1     1      20000
+492   475     1     1      20000
+475   358     1     1      20000
+904   71     1     1      20000
+993   585     1     1      20000
+1143   1141     1     1      20000
+1141   1120     1     1      20000
+731   168     1     1      20000
+866   442     1     1      20000
+1163   1161     1     1      20000
+1161   843     1     1      20000
+1221   1182     1     1      20000
+1182   1058     1     1      20000
+822   289     1     1      20000
+289   265     1     1      20000
+968   889     1     1      20000
+100   3     1     1      20000
+111   100     1     1      20000
+1240   174     1     1      20000
+1092   155     1     1      20000
+1016   247     1     1      20000
+247   170     1     1      20000
+586   546     1     1      20000
+546   91     1     1      20000
+1000   269     1     1      20000
+757   697     1     1      20000
+697   668     1     1      20000
+1239   1134     1     1      20000
+1024   906     1     1      20000
+1212   1024     1     1      20000
+937   845     1     1      20000
+845   640     1     1      20000
+621   380     1     1      20000
+1021   621     1     1      20000
+761   732     1     1      20000
+732   579     1     1      20000
+1139   305     1     1      20000
+503   129     1     1      20000
+805   711     1     1      20000
+711   649     1     1      20000
+1081   215     1     1      20000
+864   734     1     1      20000
+734   398     1     1      20000
+840   38     1     1      20000
+72   25     1     1      20000
+334   72     1     1      20000
+1106   285     1     1      20000
+1078   286     1     1      20000
+286   283     1     1      20000
+156   75     1     1      20000
+75   37     1     1      20000
+1147   305     1     1      20000
+597   552     1     1      20000
+552   457     1     1      20000
+512   101     1     1      20000
+1111   56     1     1      20000
+803   177     1     1      20000
+851   803     1     1      20000
+981   211     1     1      20000
+973   292     1     1      20000
+1201   1022     1     1      20000
+509   477     1     1      20000
+842   509     1     1      20000
+825   365     1     1      20000
+365   1     1     1      20000
+827   718     1     1      20000
+665   15     1     1      20000
+653   300     1     1      20000
+300   43     1     1      20000
+364   182     1     1      20000
+530   364     1     1      20000
+394   206     1     1      20000
+206   112     1     1      20000
+717   3     1     1      20000
+409   104     1     1      20000
+526   409     1     1      20000
+787   200     1     1      20000
+925   658     1     1      20000
+1088   944     1     1      20000
+944   923     1     1      20000
+380   332     1     1      20000
+553   380     1     1      20000
+452   377     1     1      20000
+701   698     1     1      20000
+698   371     1     1      20000
+940   577     1     1      20000
+1176   940     1     1      20000
+1245   964     1     1      20000
+480   124     1     1      20000
+553   385     1     1      20000
+385   380     1     1      20000
+669   85     1     1      20000
+978   630     1     1      20000
+630   513     1     1      20000
+756   125     1     1      20000
+632   262     1     1      20000
+1183   632     1     1      20000
+558   74     1     1      20000
+122   8     1     1      20000
+180   122     1     1      20000
+473   386     1     1      20000
+769   51     1     1      20000
+1221   1058     1     1      20000
+706   114     1     1      20000
+978   511     1     1      20000
+511   390     1     1      20000
+235   183     1     1      20000
+1025   326     1     1      20000
+1101   1025     1     1      20000
+887   643     1     1      20000
+29   1     1     1      20000
+865   494     1     1      20000
+693   6     1     1      20000
+586   91     1     1      20000
+1230   551     1     1      20000
+1042   42     1     1      20000
+995   562     1     1      20000
+562   472     1     1      20000
+922   140     1     1      20000
+864   398     1     1      20000
+731   560     1     1      20000
+935   821     1     1      20000
+821   139     1     1      20000
+572   419     1     1      20000
+419   190     1     1      20000
+856   841     1     1      20000
+841   310     1     1      20000
+709   33     1     1      20000
+335   144     1     1      20000
+687   335     1     1      20000
+988   930     1     1      20000
+1135   988     1     1      20000
+1227   1170     1     1      20000
+1170   1116     1     1      20000
+1236   237     1     1      20000
+237   203     1     1      20000
+417   373     1     1      20000
+373   342     1     1      20000
+1243   173     1     1      20000
+1183   1012     1     1      20000
+1012   539     1     1      20000
+654   127     1     1      20000
+834   682     1     1      20000
+912   548     1     1      20000
+158   126     1     1      20000
+126   93     1     1      20000
+307   130     1     1      20000
+692   556     1     1      20000
+556   413     1     1      20000
+734   340     1     1      20000
+830   790     1     1      20000
+790   682     1     1      20000
+1228   278     1     1      20000
+278   235     1     1      20000
+357   224     1     1      20000
+224   135     1     1      20000
+852   720     1     1      20000
+994   578     1     1      20000
+578   547     1     1      20000
+820   84     1     1      20000
+1147   634     1     1      20000
+634   603     1     1      20000
+953   911     1     1      20000
+911   834     1     1      20000
+973   818     1     1      20000
+706   159     1     1      20000
+588   271     1     1      20000
+1057   1033     1     1      20000
+1140   1057     1     1      20000
+1188   545     1     1      20000
+1039   632     1     1      20000
+632   322     1     1      20000
+746   743     1     1      20000
+743   504     1     1      20000
+223   76     1     1      20000
+731   684     1     1      20000
+684   4     1     1      20000
+1188   1093     1     1      20000
+854   414     1     1      20000
+414   80     1     1      20000
+387   112     1     1      20000
+940   895     1     1      20000
+1022   940     1     1      20000
+702   103     1     1      20000
+690   434     1     1      20000
+434   406     1     1      20000
+142   130     1     1      20000
+130   76     1     1      20000
+415   44     1     1      20000
+685   415     1     1      20000
+417   384     1     1      20000
+384   359     1     1      20000
+467   189     1     1      20000
+989   467     1     1      20000
+1228   945     1     1      20000
+966   790     1     1      20000
+790   666     1     1      20000
+1121   1004     1     1      20000
+1225   1121     1     1      20000
+1188   1170     1     1      20000
+1227   1188     1     1      20000
+243   189     1     1      20000
+189   65     1     1      20000
+820   760     1     1      20000
+760   84     1     1      20000
+264   238     1     1      20000
+1247   264     1     1      20000
+792   456     1     1      20000
+456   404     1     1      20000
+1043   542     1     1      20000
+542   277     1     1      20000
+1067   238     1     1      20000
+1014   629     1     1      20000
+857   310     1     1      20000
+907   487     1     1      20000
+793   345     1     1      20000
+1141   923     1     1      20000
+747   11     1     1      20000
+84   5     1     1      20000
+783   84     1     1      20000
+967   238     1     1      20000
+321   118     1     1      20000
+118   45     1     1      20000
+881   837     1     1      20000
+837   799     1     1      20000
+383   348     1     1      20000
+1108   1004     1     1      20000
+1139   1108     1     1      20000
+1048   1041     1     1      20000
+1179   1048     1     1      20000
+893   788     1     1      20000
+788   777     1     1      20000
+552   442     1     1      20000
+1154   1070     1     1      20000
+1070   640     1     1      20000
+733   679     1     1      20000
+806   733     1     1      20000
+752   695     1     1      20000
+820   752     1     1      20000
+473   398     1     1      20000
+398   386     1     1      20000
+965   111     1     1      20000
+1233   729     1     1      20000
+1066   979     1     1      20000
+583   184     1     1      20000
+398   1     1     1      20000
+583   318     1     1      20000
+318   171     1     1      20000
+1146   922     1     1      20000
+922   809     1     1      20000
+546   405     1     1      20000
+405   363     1     1      20000
+946   238     1     1      20000
+1185   903     1     1      20000
+1245   1185     1     1      20000
+850   620     1     1      20000
+517   318     1     1      20000
+318   179     1     1      20000
+977   436     1     1      20000
+1126   926     1     1      20000
+443   406     1     1      20000
+406   16     1     1      20000
+586   396     1     1      20000
+531   407     1     1      20000
+1223   945     1     1      20000
+1078   767     1     1      20000
+767   150     1     1      20000
+1171   912     1     1      20000
+464   432     1     1      20000
+432   377     1     1      20000
+201   80     1     1      20000
+414   201     1     1      20000
+856   140     1     1      20000
+977   546     1     1      20000
+546   363     1     1      20000
+635   562     1     1      20000
+562   33     1     1      20000
+501   367     1     1      20000
+543   440     1     1      20000
+440   351     1     1      20000
+374   342     1     1      20000
+745   711     1     1      20000
+807   745     1     1      20000
+1242   944     1     1      20000
+95   30     1     1      20000
+1227   1156     1     1      20000
+773   411     1     1      20000
+1212   906     1     1      20000
+1138   802     1     1      20000
+994   508     1     1      20000
+1153   465     1     1      20000
+614   541     1     1      20000
+541   465     1     1      20000
+1183   1064     1     1      20000
+1064   986     1     1      20000
+1173   1103     1     1      20000
+1103   910     1     1      20000
+1118   913     1     1      20000
+452   241     1     1      20000
+1196   1022     1     1      20000
+1022   889     1     1      20000
+1026   990     1     1      20000
+990   316     1     1      20000
+664   273     1     1      20000
+758   379     1     1      20000
+1001   629     1     1      20000
+629   542     1     1      20000
+924   255     1     1      20000
+372   106     1     1      20000
+106   99     1     1      20000
+981   642     1     1      20000
+642   329     1     1      20000
+1142   597     1     1      20000
+597   457     1     1      20000
+571   468     1     1      20000
+1226   1036     1     1      20000
+1036   926     1     1      20000
+760   5     1     1      20000
+808   722     1     1      20000
+722   173     1     1      20000
+1000   245     1     1      20000
+1135   1046     1     1      20000
+1046   885     1     1      20000
+825   1     1     1      20000
+421   92     1     1      20000
+92   42     1     1      20000
+849   620     1     1      20000
+620   497     1     1      20000
+807   680     1     1      20000
+680   478     1     1      20000
+714   691     1     1      20000
+794   714     1     1      20000
+706   121     1     1      20000
+121   114     1     1      20000
+1034   595     1     1      20000
+635   584     1     1      20000
+584   562     1     1      20000
+519   450     1     1      20000
+450   148     1     1      20000
+963   879     1     1      20000
+879   804     1     1      20000
+444   413     1     1      20000
+556   444     1     1      20000
+158   93     1     1      20000
+735   402     1     1      20000
+779   735     1     1      20000
+965   705     1     1      20000
+705   59     1     1      20000
+1011   992     1     1      20000
+992   251     1     1      20000
+1145   968     1     1      20000
+968   934     1     1      20000
+1054   500     1     1      20000
+866   527     1     1      20000
+527   442     1     1      20000
+742   156     1     1      20000
+156   81     1     1      20000
+293   192     1     1      20000
+303   293     1     1      20000
+789   735     1     1      20000
+735   414     1     1      20000
+865   511     1     1      20000
+511   494     1     1      20000
+531   426     1     1      20000
+1103   563     1     1      20000
+707   547     1     1      20000
+1252   1202     1     1      20000
+983   542     1     1      20000
+1002   594     1     1      20000
+1031   1002     1     1      20000
+1127   267     1     1      20000
+170   136     1     1      20000
+635   33     1     1      20000
+1112   1106     1     1      20000
+1106   1074     1     1      20000
+1189   648     1     1      20000
+648   568     1     1      20000
+1038   969     1     1      20000
+969   97     1     1      20000
+851   258     1     1      20000
+1202   851     1     1      20000
+1163   462     1     1      20000
+335   115     1     1      20000
+586   528     1     1      20000
+528   405     1     1      20000
+303   87     1     1      20000
+1078   303     1     1      20000
+1094   888     1     1      20000
+888   577     1     1      20000
+1068   211     1     1      20000
+463   2     1     1      20000
+786   185     1     1      20000
+825   439     1     1      20000
+375   99     1     1      20000
+294   205     1     1      20000
+205   105     1     1      20000
+642   569     1     1      20000
+569   380     1     1      20000
+662   28     1     1      20000
+659   44     1     1      20000
+984   117     1     1      20000
+714   424     1     1      20000
+372   31     1     1      20000
+416   372     1     1      20000
+181   131     1     1      20000
+131   7     1     1      20000
+991   862     1     1      20000
+1139   991     1     1      20000
+863   776     1     1      20000
+776   509     1     1      20000
+1226   945     1     1      20000
+994   272     1     1      20000
+752   196     1     1      20000
+543   190     1     1      20000
+885   570     1     1      20000
+988   885     1     1      20000
+1220   828     1     1      20000
+824   626     1     1      20000
+270   267     1     1      20000
+580   270     1     1      20000
+606   331     1     1      20000
+1174   828     1     1      20000
+828   738     1     1      20000
+1153   467     1     1      20000
+1198   462     1     1      20000
+287   202     1     1      20000
+202   183     1     1      20000
+571   325     1     1      20000
+267   263     1     1      20000
+263   186     1     1      20000
+829   625     1     1      20000
+625   460     1     1      20000
+976   309     1     1      20000
+309   258     1     1      20000
+1166   902     1     1      20000
+633   36     1     1      20000
+758   390     1     1      20000
+757   362     1     1      20000
+1123   1051     1     1      20000
+1195   1123     1     1      20000
+848   138     1     1      20000
+642   458     1     1      20000
+1210   1140     1     1      20000
+709   349     1     1      20000
+415   369     1     1      20000
+427   415     1     1      20000
+692   62     1     1      20000
+721   692     1     1      20000
+672   327     1     1      20000
+327   73     1     1      20000
+588   396     1     1      20000
+396   271     1     1      20000
+857   177     1     1      20000
+821   766     1     1      20000
+963   821     1     1      20000
+1203   1107     1     1      20000
+1107   305     1     1      20000
+825   29     1     1      20000
+863   431     1     1      20000
+792   404     1     1      20000
+924   292     1     1      20000
+292   234     1     1      20000
+264   193     1     1      20000
+1204   264     1     1      20000
+953   790     1     1      20000
+672   89     1     1      20000
+1135   1117     1     1      20000
+1117   582     1     1      20000
+861   161     1     1      20000
+989   189     1     1      20000
+541   491     1     1      20000
+745   697     1     1      20000
+697   600     1     1      20000
+1150   894     1     1      20000
+1212   1002     1     1      20000
+1059   1028     1     1      20000
+1028   979     1     1      20000
+1234   620     1     1      20000
+213   38     1     1      20000
+838   213     1     1      20000
+394   112     1     1      20000
+843   748     1     1      20000
+886   843     1     1      20000
+1244   889     1     1      20000
+1230   1130     1     1      20000
+1130   912     1     1      20000
+1096   840     1     1      20000
+840   227     1     1      20000
+190   77     1     1      20000
+455   190     1     1      20000
+1079   614     1     1      20000
+614   465     1     1      20000
+734   536     1     1      20000
+536   1     1     1      20000
+956   601     1     1      20000
+1222   941     1     1      20000
+1035   489     1     1      20000
+1190   1035     1     1      20000
+502   492     1     1      20000
+531   502     1     1      20000
+1246   985     1     1      20000
+1119   316     1     1      20000
+316   285     1     1      20000
+642   211     1     1      20000
+580   185     1     1      20000
+1030   580     1     1      20000
+858   234     1     1      20000
+875   858     1     1      20000
+808   718     1     1      20000
+718   652     1     1      20000
+575   444     1     1      20000
+797   575     1     1      20000
+1176   1145     1     1      20000
+1145   934     1     1      20000
+1067   309     1     1      20000
+1048   873     1     1      20000
+299   182     1     1      20000
+440   299     1     1      20000
+141   48     1     1      20000
+813   193     1     1      20000
+1231   413     1     1      20000
+734   689     1     1      20000
+689   340     1     1      20000
+626   438     1     1      20000
+401   380     1     1      20000
+993   539     1     1      20000
+654   301     1     1      20000
+301   41     1     1      20000
+853   212     1     1      20000
+739   22     1     1      20000
+864   438     1     1      20000
+891   764     1     1      20000
+1220   891     1     1      20000
+394   34     1     1      20000
+1135   885     1     1      20000
+1079   567     1     1      20000
+887   561     1     1      20000
+1238   597     1     1      20000
+383   374     1     1      20000
+611   383     1     1      20000
+1014   585     1     1      20000
+688   414     1     1      20000
+269   105     1     1      20000
+1155   942     1     1      20000
+1235   1155     1     1      20000
+914   652     1     1      20000
+503   179     1     1      20000
+1027   1003     1     1      20000
+1003   955     1     1      20000
+623   441     1     1      20000
+1144   1038     1     1      20000
+255   38     1     1      20000
+833   255     1     1      20000
+793   778     1     1      20000
+778   17     1     1      20000
+1066   1028     1     1      20000
+1028   982     1     1      20000
+629   154     1     1      20000
+746   582     1     1      20000
+1117   746     1     1      20000
+1157   627     1     1      20000
+1025   568     1     1      20000
+568   326     1     1      20000
+1243   312     1     1      20000
+1082   250     1     1      20000
+592   504     1     1      20000
+504   454     1     1      20000
+812   53     1     1      20000
+95   6     1     1      20000
+687   95     1     1      20000
+558   291     1     1      20000
+291   46     1     1      20000
+1191   777     1     1      20000
+1233   1191     1     1      20000
+1085   592     1     1      20000
+1225   1107     1     1      20000
+1107   219     1     1      20000
+656   57     1     1      20000
+1206   283     1     1      20000
+1247   238     1     1      20000
+858   310     1     1      20000
+1219   258     1     1      20000
+1144   1041     1     1      20000
+1159   1144     1     1      20000
+1159   1048     1     1      20000
+1048   909     1     1      20000
+774   109     1     1      20000
+109   62     1     1      20000
+886   748     1     1      20000
+1149   552     1     1      20000
+1023   627     1     1      20000
+1157   1023     1     1      20000
+1122   878     1     1      20000
+353   67     1     1      20000
+288   131     1     1      20000
+822   334     1     1      20000
+334   25     1     1      20000
+1067   860     1     1      20000
+860   238     1     1      20000
+710   19     1     1      20000
+1071   319     1     1      20000
+114   41     1     1      20000
+301   114     1     1      20000
+281   187     1     1      20000
+744   360     1     1      20000
+756   156     1     1      20000
+786   756     1     1      20000
+1231   741     1     1      20000
+741   413     1     1      20000
+1181   982     1     1      20000
+646   615     1     1      20000
+615   591     1     1      20000
+858   857     1     1      20000
+924   858     1     1      20000
+1147   603     1     1      20000
+416   31     1     1      20000
+1124   246     1     1      20000
+246   225     1     1      20000
+500   314     1     1      20000
+314   207     1     1      20000
+1174   738     1     1      20000
+208   36     1     1      20000
+506   397     1     1      20000
+709   506     1     1      20000
+1168   577     1     1      20000
+1248   1075     1     1      20000
+1075   237     1     1      20000
+1228   902     1     1      20000
+1092   610     1     1      20000
+741   692     1     1      20000
+692   413     1     1      20000
+607   253     1     1      20000
+253   229     1     1      20000
+1202   214     1     1      20000
+493   61     1     1      20000
+1157   276     1     1      20000
+1051   195     1     1      20000
+195   97     1     1      20000
+792   496     1     1      20000
+382   64     1     1      20000
+869   459     1     1      20000
+1129   603     1     1      20000
+603   260     1     1      20000
+970   293     1     1      20000
+293   150     1     1      20000
+611   373     1     1      20000
+373   331     1     1      20000
+1248   1172     1     1      20000
+1230   644     1     1      20000
+962   932     1     1      20000
+932   906     1     1      20000
+179   129     1     1      20000
+997   179     1     1      20000
+993   277     1     1      20000
+1119   581     1     1      20000
+832   782     1     1      20000
+782   60     1     1      20000
+281   247     1     1      20000
+247   179     1     1      20000
+420   291     1     1      20000
+123   22     1     1      20000
+418   123     1     1      20000
+703   22     1     1      20000
+22   21     1     1      20000
+1207   1202     1     1      20000
+1202   258     1     1      20000
+576   341     1     1      20000
+972   874     1     1      20000
+874   846     1     1      20000
+1013   985     1     1      20000
+1105   1013     1     1      20000
+224   74     1     1      20000
+437   417     1     1      20000
+417   342     1     1      20000
+1035   590     1     1      20000
+590   276     1     1      20000
+528   396     1     1      20000
+588   528     1     1      20000
+364   291     1     1      20000
+447   364     1     1      20000
+693   2     1     1      20000
+875   140     1     1      20000
+920   892     1     1      20000
+892   234     1     1      20000
+1116   942     1     1      20000
+942   315     1     1      20000
+584   524     1     1      20000
+1115   584     1     1      20000
+824   438     1     1      20000
+929   828     1     1      20000
+828   764     1     1      20000
+485   209     1     1      20000
+530   182     1     1      20000
+921   647     1     1      20000
+647   601     1     1      20000
+1065   314     1     1      20000
+580   284     1     1      20000
+284   172     1     1      20000
+1087   1033     1     1      20000
+443   118     1     1      20000
+565   159     1     1      20000
+662   449     1     1      20000
+449   14     1     1      20000
+765   665     1     1      20000
+798   765     1     1      20000
+690   61     1     1      20000
+1241   953     1     1      20000
+953   915     1     1      20000
+922   234     1     1      20000
+747   536     1     1      20000
+849   716     1     1      20000
+112   47     1     1      20000
+248   112     1     1      20000
+733   109     1     1      20000
+799   698     1     1      20000
+880   799     1     1      20000
+649   62     1     1      20000
+948   256     1     1      20000
+880   766     1     1      20000
+447   254     1     1      20000
+254   222     1     1      20000
+665   19     1     1      20000
+710   665     1     1      20000
+677   14     1     1      20000
+1225   219     1     1      20000
+583   311     1     1      20000
+633   583     1     1      20000
+977   363     1     1      20000
+363   252     1     1      20000
+702   98     1     1      20000
+456   438     1     1      20000
+438   404     1     1      20000
+1029   489     1     1      20000
+1151   1029     1     1      20000
+775   360     1     1      20000
+868   866     1     1      20000
+866   643     1     1      20000
+970   198     1     1      20000
+198   192     1     1      20000
+1189   568     1     1      20000
+368   345     1     1      20000
+415   368     1     1      20000
+590   567     1     1      20000
+567   276     1     1      20000
+792   391     1     1      20000
+1128   769     1     1      20000
+769   661     1     1      20000
+128   110     1     1      20000
+110   108     1     1      20000
+905   256     1     1      20000
+348   342     1     1      20000
+374   348     1     1      20000
+95   88     1     1      20000
+88   37     1     1      20000
+1111   199     1     1      20000
+199   56     1     1      20000
+1046   582     1     1      20000
+637   250     1     1      20000
+1082   637     1     1      20000
+989   243     1     1      20000
+243   154     1     1      20000
+665   68     1     1      20000
+68   40     1     1      20000
+966   666     1     1      20000
+666   595     1     1      20000
+503   7     1     1      20000
+793   369     1     1      20000
+369   330     1     1      20000
+1091   286     1     1      20000
+286   146     1     1      20000
+1189   624     1     1      20000
+881   799     1     1      20000
+799   336     1     1      20000
+314   204     1     1      20000
+880   796     1     1      20000
+499   133     1     1      20000
+133   117     1     1      20000
+1067   976     1     1      20000
+976   856     1     1      20000
+659   18     1     1      20000
+1111   303     1     1      20000
+303   302     1     1      20000
+775   391     1     1      20000
+450   36     1     1      20000
+633   450     1     1      20000
+572   437     1     1      20000
+721   62     1     1      20000
+608   211     1     1      20000
+1197   936     1     1      20000
+936   921     1     1      20000
+1081   947     1     1      20000
+947   166     1     1      20000
+1027   990     1     1      20000
+830   575     1     1      20000
+40   23     1     1      20000
+23   19     1     1      20000
+797   666     1     1      20000
+666   575     1     1      20000
+914   877     1     1      20000
+877   740     1     1      20000
+635   544     1     1      20000
+1133   589     1     1      20000
+855   796     1     1      20000
+880   855     1     1      20000
+376   337     1     1      20000
+686   376     1     1      20000
+946   860     1     1      20000
+962   917     1     1      20000
+1194   962     1     1      20000
+1228   813     1     1      20000
+741   725     1     1      20000
+725   692     1     1      20000
+687   63     1     1      20000
+728   687     1     1      20000
+863   797     1     1      20000
+797   776     1     1      20000
+405   252     1     1      20000
+807   478     1     1      20000
+840   255     1     1      20000
+943   840     1     1      20000
+970   150     1     1      20000
+973   848     1     1      20000
+848   292     1     1      20000
+1241   911     1     1      20000
+1020   217     1     1      20000
+878   618     1     1      20000
+1040   878     1     1      20000
+333   149     1     1      20000
+703   110     1     1      20000
+1229   902     1     1      20000
+945   813     1     1      20000
+1109   945     1     1      20000
+766   701     1     1      20000
+1186   1156     1     1      20000
+1198   1094     1     1      20000
+1094   802     1     1      20000
+523   348     1     1      20000
+1218   949     1     1      20000
+1026   1013     1     1      20000
+1136   1026     1     1      20000
+1194   932     1     1      20000
+576   339     1     1      20000
+1122   958     1     1      20000
+958   823     1     1      20000
+485   299     1     1      20000
+299   209     1     1      20000
+1146   175     1     1      20000
+466   117     1     1      20000
+117   35     1     1      20000
+1249   944     1     1      20000
+861   227     1     1      20000
+227   161     1     1      20000
+997   187     1     1      20000
+623   454     1     1      20000
+454   441     1     1      20000
+811   462     1     1      20000
+928   811     1     1      20000
+865   496     1     1      20000
+496   404     1     1      20000
+1160   1137     1     1      20000
+1137   624     1     1      20000
+1183   1076     1     1      20000
+1076   305     1     1      20000
+630   596     1     1      20000
+596   513     1     1      20000
+516   390     1     1      20000
+1035   276     1     1      20000
+693   687     1     1      20000
+687   6     1     1      20000
+1232   896     1     1      20000
+896   872     1     1      20000
+186   131     1     1      20000
+922   875     1     1      20000
+875   234     1     1      20000
+822   25     1     1      20000
+375   160     1     1      20000
+571   559     1     1      20000
+559   320     1     1      20000
+893   777     1     1      20000
+936   893     1     1      20000
+871   174     1     1      20000
+1176   871     1     1      20000
+786   156     1     1      20000
+1217   1100     1     1      20000
+1100   551     1     1      20000
+92   47     1     1      20000
+387   92     1     1      20000
+871   577     1     1      20000
+888   871     1     1      20000
+387   231     1     1      20000
+1042   387     1     1      20000
+1168   1094     1     1      20000
+1094   577     1     1      20000
+634   262     1     1      20000
+1180   1132     1     1      20000
+1132   971     1     1      20000
+1236   971     1     1      20000
+812   784     1     1      20000
+784   53     1     1      20000
+483   243     1     1      20000
+243   153     1     1      20000
+393   89     1     1      20000
+525   380     1     1      20000
+996   608     1     1      20000
+608   429     1     1      20000
+410   77     1     1      20000
+1103   1010     1     1      20000
+1010   636     1     1      20000
+719   109     1     1      20000
+1193   847     1     1      20000
+1060   529     1     1      20000
+781   496     1     1      20000
+865   781     1     1      20000
+778   686     1     1      20000
+686   674     1     1      20000
+1240   1089     1     1      20000
+1089   174     1     1      20000
+965   32     1     1      20000
+1053   289     1     1      20000
+289   215     1     1      20000
+375   64     1     1      20000
+261   181     1     1      20000
+712   261     1     1      20000
+982   250     1     1      20000
+1017   982     1     1      20000
+1110   1019     1     1      20000
+1019   155     1     1      20000
+79   56     1     1      20000
+242   145     1     1      20000
+145   124     1     1      20000
+588   409     1     1      20000
+543   351     1     1      20000
+549   543     1     1      20000
+861   86     1     1      20000
+1174   920     1     1      20000
+920   138     1     1      20000
+1147   1062     1     1      20000
+703   395     1     1      20000
+395   110     1     1      20000
+1223   279     1     1      20000
+827   749     1     1      20000
+997   129     1     1      20000
+1216   874     1     1      20000
+928   894     1     1      20000
+1150   928     1     1      20000
+1160   906     1     1      20000
+1158   563     1     1      20000
+1000   290     1     1      20000
+1168   940     1     1      20000
+940   618     1     1      20000
+1054   314     1     1      20000
+418   12     1     1      20000
+1237   1099     1     1      20000
+1006   500     1     1      20000
+500   260     1     1      20000
+411   18     1     1      20000
+353   113     1     1      20000
+395   353     1     1      20000
+935   796     1     1      20000
+796   82     1     1      20000
+1198   872     1     1      20000
+1213   1198     1     1      20000
+1049   1048     1     1      20000
+1048   236     1     1      20000
+1056   567     1     1      20000
+1079   1056     1     1      20000
+1127   263     1     1      20000
+677   69     1     1      20000
+69   19     1     1      20000
+1054   246     1     1      20000
+246   240     1     1      20000
+995   596     1     1      20000
+596   522     1     1      20000
+1140   612     1     1      20000
+533   391     1     1      20000
+938   647     1     1      20000
+849   774     1     1      20000
+774   720     1     1      20000
+1221   1061     1     1      20000
+1193   845     1     1      20000
+1230   912     1     1      20000
+912   551     1     1      20000
+1036   945     1     1      20000
+1155   581     1     1      20000
+1164   1155     1     1      20000
+1011   251     1     1      20000
+1052   153     1     1      20000
+386   365     1     1      20000
+451   386     1     1      20000
+1105   636     1     1      20000
+891   814     1     1      20000
+814   764     1     1      20000
+606   55     1     1      20000
+703   21     1     1      20000
+835   177     1     1      20000
+976   835     1     1      20000
+1200   1058     1     1      20000
+673   3     1     1      20000
+1199   929     1     1      20000
+1066   910     1     1      20000
+1001   154     1     1      20000
+728   145     1     1      20000
+145   30     1     1      20000
+868   527     1     1      20000
+393   3     1     1      20000
+268   183     1     1      20000
+1173   910     1     1      20000
+1237   1173     1     1      20000
+1146   809     1     1      20000
+809   738     1     1      20000
+663   404     1     1      20000
+1139   1092     1     1      20000
+1092   305     1     1      20000
+1239   548     1     1      20000
+1121   897     1     1      20000
+1228   1121     1     1      20000
+687   30     1     1      20000
+1226   926     1     1      20000
+926   237     1     1      20000
+1209   515     1     1      20000
+1120   923     1     1      20000
+1201   823     1     1      20000
+1128   354     1     1      20000
+541   524     1     1      20000
+544   541     1     1      20000
+694   128     1     1      20000
+241   16     1     1      20000
+300   241     1     1      20000
+553   332     1     1      20000
+1123   1122     1     1      20000
+1122   195     1     1      20000
+884   57     1     1      20000
+694   53     1     1      20000
+784   694     1     1      20000
+791   414     1     1      20000
+1007   483     1     1      20000
+483   230     1     1      20000
+619   389     1     1      20000
+880   698     1     1      20000
+1241   708     1     1      20000
+1193   1063     1     1      20000
+1063   844     1     1      20000
+882   652     1     1      20000
+652   532     1     1      20000
+1031   962     1     1      20000
+776   428     1     1      20000
+1060   986     1     1      20000
+1064   1060     1     1      20000
+936   647     1     1      20000
+322   319     1     1      20000
+1072   322     1     1      20000
+405   77     1     1      20000
+1074   285     1     1      20000
+518   455     1     1      20000
+455   410     1     1      20000
+1063   815     1     1      20000
+879   652     1     1      20000
+1110   1064     1     1      20000
+1064   1019     1     1      20000
+892   839     1     1      20000
+839   234     1     1      20000
+1187   591     1     1      20000
+865   795     1     1      20000
+795   781     1     1      20000
+778   14     1     1      20000
+904   881     1     1      20000
+881   336     1     1      20000
+1091   146     1     1      20000
+917   548     1     1      20000
+1194   917     1     1      20000
+335   10     1     1      20000
+468   319     1     1      20000
+799   796     1     1      20000
+796   388     1     1      20000
+422   230     1     1      20000
+483   422     1     1      20000
+800   94     1     1      20000
+298   251     1     1      20000
+317   298     1     1      20000
+143   125     1     1      20000
+1043   631     1     1      20000
+631   542     1     1      20000
+1032   295     1     1      20000
+354   196     1     1      20000
+771   354     1     1      20000
+1174   816     1     1      20000
+1243   1174     1     1      20000
+242   103     1     1      20000
+317   184     1     1      20000
+743   527     1     1      20000
+1047   743     1     1      20000
+543   299     1     1      20000
+1211   1140     1     1      20000
+251   225     1     1      20000
+274   75     1     1      20000
+837   759     1     1      20000
+965   8     1     1      20000
+891   462     1     1      20000
+1246   638     1     1      20000
+929   764     1     1      20000
+1051   929     1     1      20000
+691   686     1     1      20000
+686   337     1     1      20000
+700   300     1     1      20000
+357   244     1     1      20000
+244   224     1     1      20000
+1066   982     1     1      20000
+576   350     1     1      20000
+521   294     1     1      20000
+566   521     1     1      20000
+805   733     1     1      20000
+733   701     1     1      20000
+861   213     1     1      20000
+662   14     1     1      20000
+739   662     1     1      20000
+1056   1001     1     1      20000
+1001   627     1     1      20000
+1232   1163     1     1      20000
+1163   896     1     1      20000
+937   644     1     1      20000
+1100   937     1     1      20000
+1181   324     1     1      20000
+180   24     1     1      20000
+1065   152     1     1      20000
+1097   554     1     1      20000
+619   379     1     1      20000
+1174   809     1     1      20000
+918   193     1     1      20000
+1092   1019     1     1      20000
+1019   610     1     1      20000
+1154   640     1     1      20000
+1238   1154     1     1      20000
+621   569     1     1      20000
+625   621     1     1      20000
+659   411     1     1      20000
+411   44     1     1      20000
+1032   297     1     1      20000
+297   269     1     1      20000
+705   681     1     1      20000
+681   158     1     1      20000
+963   766     1     1      20000
+415   330     1     1      20000
+772   732     1     1      20000
+589   582     1     1      20000
+599   589     1     1      20000
+904   388     1     1      20000
+388   308     1     1      20000
+749   212     1     1      20000
+853   749     1     1      20000
+873   860     1     1      20000
+860   233     1     1      20000
+1187   487     1     1      20000
+1093   638     1     1      20000
+1170   1093     1     1      20000
+433   105     1     1      20000
+660   431     1     1      20000
+525   513     1     1      20000
+596   525     1     1      20000
+1048   1037     1     1      20000
+1037   236     1     1      20000
+947   787     1     1      20000
+905   901     1     1      20000
+1243   905     1     1      20000
+524   491     1     1      20000
+608   524     1     1      20000
+657   414     1     1      20000
+884   657     1     1      20000
+1054   1044     1     1      20000
+1044   323     1     1      20000
+479   17     1     1      20000
+687   678     1     1      20000
+678   335     1     1      20000
+427   44     1     1      20000
+706   654     1     1      20000
+654   197     1     1      20000
+703   128     1     1      20000
+1052   400     1     1      20000
+400   297     1     1      20000
+1084   469     1     1      20000
+546   488     1     1      20000
+488   91     1     1      20000
+824   744     1     1      20000
+744   477     1     1      20000
+947   840     1     1      20000
+830   761     1     1      20000
+761   575     1     1      20000
+904   94     1     1      20000
+493   49     1     1      20000
+331   55     1     1      20000
+611   331     1     1      20000
+731   70     1     1      20000
+1250   817     1     1      20000
+1115   605     1     1      20000
+605   584     1     1      20000
+981   472     1     1      20000
+608   491     1     1      20000
+491   429     1     1      20000
+832   818     1     1      20000
+818   782     1     1      20000
+867   643     1     1      20000
+643   561     1     1      20000
+1133   648     1     1      20000
+1183   262     1     1      20000
+488   481     1     1      20000
+481   91     1     1      20000
+1068   645     1     1      20000
+645   458     1     1      20000
+791   735     1     1      20000
+904   308     1     1      20000
+980   384     1     1      20000
+691   15     1     1      20000
+694   134     1     1      20000
+134   108     1     1      20000
+992   317     1     1      20000
+317   251     1     1      20000
+450   328     1     1      20000
+328   36     1     1      20000
+95   37     1     1      20000
+1165   95     1     1      20000
+803   282     1     1      20000
+318   35     1     1      20000
+1187   645     1     1      20000
+645   487     1     1      20000
+453   229     1     1      20000
+229   188     1     1      20000
+474   423     1     1      20000
+423   391     1     1      20000
+920   785     1     1      20000
+785   138     1     1      20000
+948   901     1     1      20000
+901   256     1     1      20000
+684   168     1     1      20000
+168   107     1     1      20000
+737   532     1     1      20000
+448   222     1     1      20000
+222   74     1     1      20000
+803   178     1     1      20000
+370   23     1     1      20000
+829   646     1     1      20000
+646   625     1     1      20000
+1237   1082     1     1      20000
+756   185     1     1      20000
+185   131     1     1      20000
+714   344     1     1      20000
+1167   602     1     1      20000
+602   595     1     1      20000
+1016   225     1     1      20000
+1143   923     1     1      20000
+498   33     1     1      20000
+709   498     1     1      20000
+1011   66     1     1      20000
+995   525     1     1      20000
+724   698     1     1      20000
+1162   163     1     1      20000
+397   349     1     1      20000
+709   397     1     1      20000
+1154   597     1     1      20000
+1215   704     1     1      20000
+446   29     1     1      20000
+1095   902     1     1      20000
+1228   1095     1     1      20000
+515   441     1     1      20000
+1078   202     1     1      20000
+1238   844     1     1      20000
+1073   1026     1     1      20000
+1026   1009     1     1      20000
+1005   250     1     1      20000
+250   155     1     1      20000
+296   130     1     1      20000
+46   42     1     1      20000
+1042   46     1     1      20000
+706   356     1     1      20000
+356   54     1     1      20000
+273   241     1     1      20000
+452   273     1     1      20000
+1252   1081     1     1      20000
+604   416     1     1      20000
+96   28     1     1      20000
+408   96     1     1      20000
+580   172     1     1      20000
+172   130     1     1      20000
+484   206     1     1      20000
+206   34     1     1      20000
+593   417     1     1      20000
+157   124     1     1      20000
+124   32     1     1      20000
+78   39     1     1      20000
+670   78     1     1      20000
+537   271     1     1      20000
+1128   661     1     1      20000
+661   354     1     1      20000
+996   429     1     1      20000
+429   249     1     1      20000
+1113   470     1     1      20000
+721   556     1     1      20000
+603   228     1     1      20000
+151   85     1     1      20000
+669   151     1     1      20000
+1182   315     1     1      20000
+333   39     1     1      20000
+1085   591     1     1      20000
+585   539     1     1      20000
+628   585     1     1      20000
+1167   595     1     1      20000
+544   271     1     1      20000
+455   349     1     1      20000
+349   190     1     1      20000
+1176   577     1     1      20000
+726   620     1     1      20000
+1215   726     1     1      20000
+1045   746     1     1      20000
+1135   1045     1     1      20000
+744   626     1     1      20000
+626   360     1     1      20000
+1135   746     1     1      20000
+715   512     1     1      20000
+876   715     1     1      20000
+1099   1026     1     1      20000
+1193   1167     1     1      20000
+1167   1063     1     1      20000
+1113   399     1     1      20000
+839   809     1     1      20000
+922   839     1     1      20000
+464   85     1     1      20000
+1084   547     1     1      20000
+893   174     1     1      20000
+852   579     1     1      20000
+1238   952     1     1      20000
+851   214     1     1      20000
+1227   1182     1     1      20000
+1182   1156     1     1      20000
+802   764     1     1      20000
+814   802     1     1      20000
+1231   761     1     1      20000
+761   579     1     1      20000
+1121   279     1     1      20000
+251   246     1     1      20000
+323   251     1     1      20000
+1194   548     1     1      20000
+142   56     1     1      20000
+199   142     1     1      20000
+812   768     1     1      20000
+691   337     1     1      20000
+734   438     1     1      20000
+980   630     1     1      20000
+630   502     1     1      20000
+970   192     1     1      20000
+834   361     1     1      20000
+590   469     1     1      20000
+1246   1170     1     1      20000
+1170   638     1     1      20000
+476   15     1     1      20000
+804   749     1     1      20000
+749   139     1     1      20000
+999   324     1     1      20000
+978   553     1     1      20000
+553   511     1     1      20000
+642   550     1     1      20000
+550   329     1     1      20000
+761   751     1     1      20000
+751   575     1     1      20000
+506   471     1     1      20000
+471   397     1     1      20000
+223   130     1     1      20000
+1052   297     1     1      20000
+297   295     1     1      20000
+798   665     1     1      20000
+229   65     1     1      20000
+488   229     1     1      20000
+1205   1037     1     1      20000
+1218   1041     1     1      20000
+1224   1218     1     1      20000
+1217   598     1     1      20000
+990   285     1     1      20000
+351   119     1     1      20000
+119   77     1     1      20000
+1115   608     1     1      20000
+608   587     1     1      20000
+1200   1180     1     1      20000
+1180   944     1     1      20000
+344   15     1     1      20000
+691   344     1     1      20000
+1026   1003     1     1      20000
+1027   1026     1     1      20000
+994   599     1     1      20000
+599   378     1     1      20000
+246   152     1     1      20000
+731   4     1     1      20000
+739   21     1     1      20000
+1001   989     1     1      20000
+989   154     1     1      20000
+304   194     1     1      20000
+1207   304     1     1      20000
+428   362     1     1      20000
+477   428     1     1      20000
+1040   940     1     1      20000
+469   429     1     1      20000
+491   469     1     1      20000
+1129   1095     1     1      20000
+1095   1062     1     1      20000
+1068   608     1     1      20000
+975   275     1     1      20000
+1053   975     1     1      20000
+274   37     1     1      20000
+300   107     1     1      20000
+107   43     1     1      20000
+693   114     1     1      20000
+834   790     1     1      20000
+953   834     1     1      20000
+534   360     1     1      20000
+994   547     1     1      20000
+547   508     1     1      20000
+754   655     1     1      20000
+655   370     1     1      20000
+1201   1196     1     1      20000
+1196   1086     1     1      20000
+627   567     1     1      20000
+1056   627     1     1      20000
+1124   152     1     1      20000
+1211   906     1     1      20000
+207   192     1     1      20000
+1053   215     1     1      20000
+1081   1053     1     1      20000
+435   26     1     1      20000
+502   435     1     1      20000
+818   5     1     1      20000
+869   757     1     1      20000
+757   459     1     1      20000
+743   616     1     1      20000
+616   442     1     1      20000
+1232   872     1     1      20000
+872   462     1     1      20000
+971   203     1     1      20000
+1120   971     1     1      20000
+564   220     1     1      20000
+980   26     1     1      20000
+1199   969     1     1      20000
+969   217     1     1      20000
+522   490     1     1      20000
+995   522     1     1      20000
+789   402     1     1      20000
+128   108     1     1      20000
+134   128     1     1      20000
+1125   828     1     1      20000
+1174   1125     1     1      20000
+1139   1107     1     1      20000
+1135   930     1     1      20000
+879   766     1     1      20000
+766   730     1     1      20000
+1091   194     1     1      20000
+1051   764     1     1      20000
+1195   1051     1     1      20000
+254   74     1     1      20000
+1077   1005     1     1      20000
+1005   1003     1     1      20000
+954   723     1     1      20000
+793   17     1     1      20000
+783   196     1     1      20000
+196   84     1     1      20000
+825   667     1     1      20000
+667   510     1     1      20000
+169   34     1     1      20000
+1003   862     1     1      20000
+253   105     1     1      20000
+297   253     1     1      20000
+1248   237     1     1      20000
+745   600     1     1      20000
+931   772     1     1      20000
+772   361     1     1      20000
+518   349     1     1      20000
+783   141     1     1      20000
+672   73     1     1      20000
+73   31     1     1      20000
+695   354     1     1      20000
+853   695     1     1      20000
+973   755     1     1      20000
+779   430     1     1      20000
+1053   275     1     1      20000
+1241   974     1     1      20000
+974   911     1     1      20000
+1181   529     1     1      20000
+156   37     1     1      20000
+677   19     1     1      20000
+1102   1059     1     1      20000
+1059   631     1     1      20000
+370   19     1     1      20000
+406   4     1     1      20000
+672   116     1     1      20000
+[ system ] 
+ triangluated surface 
+[ molecules ] 
+ surface 1 

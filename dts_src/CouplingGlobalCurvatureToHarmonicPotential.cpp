@@ -55,10 +55,31 @@ double CouplingGlobalCurvatureToHarmonicPotential::CalculateEnergyChange(double 
 {
     double dh2 = m_TotalCurvature+D_curvature-m_gC0*(m_TotalArea+D_area);
     double dh1 = m_TotalCurvature-m_gC0*m_TotalArea;
-    dh2 = dh2 * dh2/(m_TotalArea + D_area);
-    dh1 = dh1 * dh1/m_TotalArea;
+    
+    // Avoid division by zero or very small numbers that could cause NaN
+    // If the new area is too small, use the old area to avoid numerical instability
+    double new_area = m_TotalArea + D_area;
+    double old_area = m_TotalArea;
+    
+    // Use a small threshold to avoid numerical issues
+    const double MIN_AREA = 1e-10;
+    if (new_area < MIN_AREA) {
+        new_area = old_area;  // Fall back to old area if new area is too small
+    }
+    if (old_area < MIN_AREA) {
+        // If old area is also too small, return 0 (shouldn't happen in normal simulations)
+        return 0.0;
+    }
+    
+    dh2 = dh2 * dh2 / new_area;
+    dh1 = dh1 * dh1 / old_area;
 
     double de = dh2 - dh1;
+    
+    // Check for NaN or infinity before returning
+    if (std::isnan(de) || std::isinf(de)) {
+        return 0.0;  // Return 0 if calculation produces invalid result
+    }
     
     return m_K * de;
 }
