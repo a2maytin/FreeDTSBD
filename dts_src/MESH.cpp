@@ -528,13 +528,6 @@ bool MESH::CheckMesh(double min_l, double max_l, double min_angle, Voxelization<
 
         vertex *p_v1 = (*it)->GetV1();
         vertex *p_v2 = (*it)->GetV2();
-        
-        // Skip if either vertex is a bonded (linearly connected untriangulated) vertex
-        // Bonded vertices shouldn't have links, but we check bonds first to avoid calling GetVLinkList which can hang
-        bool is_bonded_v1 = !p_v1->GetBonds().empty();
-        bool is_bonded_v2 = !p_v2->GetBonds().empty();
-        if (is_bonded_v1 || is_bonded_v2) continue;
-        
         double dist2 = p_v1->SquareDistanceFromAVertex(p_v2);
         if(dist2 < min_l || dist2 > max_l){
             
@@ -560,15 +553,7 @@ bool MESH::CheckMesh(double min_l, double max_l, double min_angle, Voxelization<
             
         //--- check distances within the same voxel
         for (std::vector<vertex*>::iterator it1 = voxel_ver.begin(); it1 != voxel_ver.end(); ++it1) {
-            // Skip bonded (linearly connected untriangulated) vertices - they don't need to satisfy membrane distance constraints
-            bool is_bonded_v1 = !(*it1)->GetBonds().empty();
-            if (is_bonded_v1) continue;
-            
             for (std::vector<vertex*>::iterator it2 = it1 + 1; it2 != voxel_ver.end(); ++it2) {
-                    // Skip if it2 is also a bonded vertex
-                    bool is_bonded_v2 = !(*it2)->GetBonds().empty();
-                    if (is_bonded_v2) continue;
-                    
                     double l2 = SquareDistanceBetweenTwoVertices(*it1, *it2);
                     if (l2 < min_l) {
                         return false;
@@ -583,16 +568,8 @@ bool MESH::CheckMesh(double min_l, double max_l, double min_angle, Voxelization<
                     std::vector<vertex*> voxel_ver2 = (voxels[i][j][k])->GetANeighbourCell(n,m,s)->GetContentObjects();
 
                     for (std::vector<vertex *>::iterator it1 = voxel_ver.begin() ; it1 != voxel_ver.end(); ++it1) {
-                        // Skip bonded (linearly connected untriangulated) vertices - they don't need to satisfy membrane distance constraints
-                        bool is_bonded_v1 = !(*it1)->GetBonds().empty();
-                        if (is_bonded_v1) continue;
-                        
                         for (std::vector<vertex *>::iterator it2 = voxel_ver2.begin() ; it2 != voxel_ver2.end(); ++it2) {
                             if(it1 != it2){
-                                // Skip if it2 is also a bonded vertex
-                                bool is_bonded_v2 = !(*it2)->GetBonds().empty();
-                                if (is_bonded_v2) continue;
-                                
                                 double l2 = SquareDistanceBetweenTwoVertices(*it1, *it2);
                                 if (l2 < min_angle) {
                                     return false;

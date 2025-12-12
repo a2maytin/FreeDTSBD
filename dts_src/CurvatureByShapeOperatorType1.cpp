@@ -76,18 +76,10 @@ bool CurvatureByShapeOperatorType1::UpdateVertexCurvature(vertex *pvertex){
 }
 bool CurvatureByShapeOperatorType1::UpdateSurfVertexCurvature(vertex * pvertex){
     
-    // DNA beads (and other vertices without links) don't have curvature
-    std::vector<links *> NLinks=pvertex->GetVLinkList();
-    if (NLinks.empty()) {
-        // No links means this is not a membrane vertex (e.g., DNA bead)
-        // Skip curvature calculation - DNA beads don't have membrane curvature
-        return true;
-    }
-    
     // Get vertex area from Calculate_Vertex_Normal
     double Area;
     
-    // Update vertex normal and area (requires links/triangles)
+    // Update vertex normal and area
     Vec3D Normal = Calculate_Vertex_Normal(pvertex, Area);
     
     //--- update this values in the vertex
@@ -98,6 +90,7 @@ bool CurvatureByShapeOperatorType1::UpdateSurfVertexCurvature(vertex * pvertex){
     Tensor2 IT('I');
     Tensor2 P=IT-IT.makeTen(Normal);
     Tensor2 Pt=P.Transpose();
+    std::vector<links *> NLinks=pvertex->GetVLinkList();
 
     // Assuming necessary includes and context are already provided
 

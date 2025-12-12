@@ -4,7 +4,7 @@
  Run_Tag = dts
 ;-- abstract classes
 Integrator_Type = MC_Simulation
- Min_Max_Lenghts = 1 9
+ Min_Max_Lenghts = 1 3
  MinfaceAngle = -0.5
  Temprature = 1 0
  Box_Centering_F = 0

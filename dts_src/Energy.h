@@ -50,9 +50,6 @@ private:
     double InteractionFunction(double N2, double A, double B, double theta);
     double InteractionFunctionFull(double N2, double A, double B, double theta, links*);
     double InteractionFive(double N2, double A, double B, double C,  links*);
-    double Interaction_6(double N2, double A, double B, double C,  links*);
-    double Interaction_7(double N2, double A, double B, double C, double l_0, links*);
-
     double Filament_int(double A, double B, double C, vertex* p_v1, vertex* p_v2);
 
 private:

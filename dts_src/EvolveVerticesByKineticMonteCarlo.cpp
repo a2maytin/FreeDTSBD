@@ -369,22 +369,12 @@ bool EvolveVerticesByKineticMonteCarlo::VertexMoveIsFine(vertex* pvertex, double
         }
     
 //--->  let check the distances with the nighbours
-    // For vertices with links (membrane vertices), check link-based neighbors
-    // For vertices without links (DNA beads), skip this check as they're not constrained by membrane edge lengths
     std::vector <vertex *> npvertex = pvertex->GetVNeighbourVertex();
-    if (!pvertex->GetVLinkList().empty()) {
-        // This is a membrane vertex - check distances to link-connected neighbors
     for (std::vector<vertex *>::iterator it = npvertex.begin() ; it != npvertex.end(); ++it){
-            // Only check neighbors that are also membrane vertices (have links)
-            // DNA beads without links shouldn't constrain membrane vertex moves
-            if (!(*it)->GetVLinkList().empty()) {
         double dist2 = (*it)->SquareDistanceOfAVertexFromAPoint(new_x, new_y, new_z, *it);
             if(dist2 < mindist2 || dist2 > maxdist2)
             return false;
     }
-        }
-    }
-    // For DNA beads (no links), we skip the Min_Max_Lenghts check as they're not part of the membrane mesh
 //---> now check it within the voxel cells
 //---> lets get the object voxel, note: the voxel could be different from the associated one as it is moving
         //-- obtain the object (vertex) new cell id, with respect to the current cell

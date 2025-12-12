@@ -5,10 +5,8 @@
  Copyright (c) Weria Pezeshkian
  2024
 */
-#include <set>
 #include "vertex.h"
 #include "bond.h"
-#include "angle.h"
 #include "AbstractBondedPotentialBetweenVertices.h"
 class State;
 class HarmonicBondsList : public AbstractBondedPotentialBetweenVertices {
@@ -27,13 +25,8 @@ public:
 private:
     std::string m_FileName;
     std::vector<bond> m_AllBonds;
-    std::vector<angle*> m_AllAngles;  // Use pointers to avoid invalidation
-    std::set<std::pair<int, int> > m_SMCBonds;  // Set of SMC bond pairs (vid1, vid2) to exclude from angle creation
 
     State *m_pState;
-    
-    // Helper function to create angles for DNA chains
-    void CreateAnglesForChains(double k_angle, double theta0);
 };
 
 

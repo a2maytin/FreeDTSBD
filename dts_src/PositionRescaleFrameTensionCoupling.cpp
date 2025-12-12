@@ -65,11 +65,8 @@ bool PositionRescaleFrameTensionCoupling::ChangeBoxSize(int step){
     double voxel_lx = m_pState->GetVoxelization()->GetXSideVoxel();
     double voxel_ly = m_pState->GetVoxelization()->GetYSideVoxel();
     double voxel_lz = m_pState->GetVoxelization()->GetZSideVoxel();
-    
-    Vec3D DVS = m_pState->GetVoxelization()->GetDefaultVoxelSize();
-    
-    if(voxel_lx < DVS(0) || voxel_ly < DVS(1) || voxel_lz < DVS (2)) {
-        m_pState->GetVoxelization()->UpdateVoxelSize(DVS(0) + 0.2, DVS(1) + 0.2, DVS(2) + 0.2);
+    if(voxel_lx < 1.05 || voxel_ly < 1.05 || voxel_lz < 1.05) {
+        m_pState->GetVoxelization()->UpdateVoxelSize(1.2, 1.2, 1.2);
         m_pState->GetVoxelization()->Voxelize(m_pActiveV);
     }
     

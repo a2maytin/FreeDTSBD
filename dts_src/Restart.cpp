@@ -70,12 +70,6 @@ void Restart::WriteRestart(std::string &filename, int step, MESH * pmesh, double
      * @endcode
      */
 
-    // flash the energy file
-    m_pState->GetTimeSeriesDataOutput()->FlushFile();
-    
-    // flash the log file
-    m_pState->GetTimeSeriesLog()->FlushLogFile();
-    
     MeshBluePrint blueprint = pmesh->Convert_Mesh_2_BluePrint(pmesh);
 
     //=== we write the restart into tem restart file

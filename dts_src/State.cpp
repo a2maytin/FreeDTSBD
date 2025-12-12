@@ -9,7 +9,6 @@ State::State(){
 }
 State::State(std::vector<std::string> argument) :
 
-      m_pMesh(&m_Mesh), // still until the opening of the constractor, this will not be affective
       m_NumberOfErrors(0),
       m_NumberOfWarnings(0),
       //============ Initialization of all files
@@ -51,7 +50,6 @@ State::State(std::vector<std::string> argument) :
       //--- Initialize accessory objects
       m_pCurvatureCalculations(new CurvatureByShapeOperatorType1(this)),  // Initialize CurvatureCalculations
       m_RandomNumberGenerator(new RNG(1234)),  // Initialize RandomNumberGenerator
-      //m_pEnergyCalculator(new Energy(this)),  // Initialize EnergyCalculator
 
         // Initialize Simulation
      //--- Local state member variables
@@ -70,7 +68,7 @@ State::State(std::vector<std::string> argument) :
     omp_set_num_threads(m_Total_no_Threads),
 #endif
     //---- Initialize integrators
-    //m_pMesh = &m_Mesh;
+    m_pMesh = &m_Mesh;
     m_pEnergyCalculator         = new Energy(this);  // Initialize EnergyCalculator
     m_pVisualizationFile        = new WritevtuFiles(this);  // Initialize WritevtuFiles
     m_pVertexPositionIntegrator = new EvolveVerticesByMetropolisAlgorithm(this);
@@ -557,11 +555,6 @@ while (input >> firstword) {
                     getline(input,rest);
                     m_NonbondedInteractionBetweenVertices = new InteractionBetweenInclusionsIn3D(this, rest);
                 }
-                else if(type == DNARepulsion::GetDefaultReadName()) { //
-                    
-                    getline(input,rest);
-                    m_NonbondedInteractionBetweenVertices = new DNARepulsion(this, rest);
-                }
                 else {
                     std::cerr<<AbstractNonbondedInteractionBetweenVertices::GetErrorMessage(type)<<"\n";
                     m_NumberOfErrors++;
@@ -718,20 +711,9 @@ while (input >> firstword) {
             if(type == ActiveTwoStateInclusion::GetDefaultReadName() ){ // "ActiveTwoStateInclusion"
                 
                 std::string inctype1, inctype2;
-                int period;
-                double ep,persentage,gama;
-                input>> inctype1>> inctype2>> period>> ep>> persentage>> gama;
-                m_pInclusionConversion = new ActiveTwoStateInclusion(period, ep, persentage, gama, inctype1, inctype2);
-
-            }
-            else if(type == EquilibriumInclusionExchangeByChemicalPotential::GetDefaultReadName() ){ // "ActiveTwoStateInclusion"
-                
-                std::string inctype1, inctype2;
-                double mu, rate;
-                int period;
-
-                input>> period>> rate>> mu>> inctype1>> inctype2;
-                m_pInclusionConversion = new EquilibriumInclusionExchangeByChemicalPotential (this, period, rate, mu, inctype1, inctype2);
+                double ep1,ep2,persentage,gama;
+                input>> inctype1>> inctype2>> ep1>> ep2>> persentage>> gama;
+                m_pInclusionConversion = new ActiveTwoStateInclusion(ep1, ep2, persentage, gama, inctype1, inctype2);
 
             }
             else if(type == NoInclusionConversion::GetDefaultReadName()){ // No
@@ -1027,7 +1009,6 @@ while (input >> firstword) {
             double lx,ly,lz;
             input>>str>>lx>>ly>>lz;
             m_pVoxelization->UpdateVoxelSize(lx, ly,  lz);
-            m_pVoxelization->SetDefaultVoxelSize(lx, ly,  lz);
             getline(input,rest);
         }
         else if(firstword == AbstractNonbinaryTrajectory::GetBaseDefaultReadName()) {

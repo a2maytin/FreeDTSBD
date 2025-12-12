@@ -55,15 +55,6 @@ Voxelization(){ // Use Type here
     m_Lx = 1;
     m_Ly = 1;
     m_Lz = 1;
-    m_pBox = nullptr;  // Initialize to nullptr to catch uninitialized access
-    m_AllVoxel = nullptr;  // Initialize to nullptr
-    m_Nx = 0;  // Initialize to 0
-    m_Ny = 0;  // Initialize to 0
-    m_Nz = 0;  // Initialize to 0
-    Voxel_Size_Default(0) = 1.05;
-    Voxel_Size_Default(1) = 1.05;
-    Voxel_Size_Default(2) = 1.05;
-
 }
 Voxelization(Vec3D *pBox) { // Use Type here
         // Initialize the box object
@@ -71,13 +62,6 @@ Voxelization(Vec3D *pBox) { // Use Type here
         m_Lx = 1;
         m_Ly = 1;
         m_Lz = 1;
-        m_AllVoxel = nullptr;  // Initialize to nullptr
-        m_Nx = 0;  // Initialize to 0
-        m_Ny = 0;  // Initialize to 0
-        m_Nz = 0;  // Initialize to 0
-    Voxel_Size_Default(0) = 1.05;
-    Voxel_Size_Default(1) = 1.05;
-    Voxel_Size_Default(2) = 1.05;
 
 }
 ~Voxelization() {// to clear the memory allocated for this
@@ -103,7 +87,6 @@ inline int GetXVoxelNumber() const { return m_Nx; }
 inline int GetYVoxelNumber() const { return m_Ny; }
 inline int GetZVoxelNumber() const { return m_Nz; }
 inline  Voxel<Type> **** GetAllVoxel() const { return m_AllVoxel;}
-inline Vec3D GetDefaultVoxelSize() const { return Voxel_Size_Default; }
 
 
 
@@ -112,12 +95,6 @@ void UpdateVoxelSize(double lx, double ly, double lz) {
     m_Ly = ly;
     m_Lz = lz;
     return;
-}
-void SetDefaultVoxelSize(double lx, double ly, double lz) {
-    Voxel_Size_Default(0) = lx;
-    Voxel_Size_Default(1) = ly;
-    Voxel_Size_Default(2) = lz;
-        return;
 }
 void SetBox(Vec3D *pBox) {
     m_pBox = pBox;
@@ -147,11 +124,6 @@ bool Voxelize(std::vector<Type *> all_pObjects) {
     std::cout<<" all voxels has been emptied \n";
 #endif
         //--->find the appropriate voxel size and number of voxels
-        // Safety check: ensure m_pBox is initialized
-        if (m_pBox == nullptr) {
-            std::cerr << "Error: Voxelization::Voxelize() called with uninitialized m_pBox!" << std::endl;
-            return false;
-        }
         m_Nx = int((*m_pBox)(0)/m_Lx);
         m_Ny = int((*m_pBox)(1)/m_Ly);
         m_Nz = int((*m_pBox)(2)/m_Lz);
@@ -374,7 +346,6 @@ private:
     double m_Lz; // voxel length in the z direction
 
     Vec3D *m_pBox;
-    Vec3D Voxel_Size_Default;
  //   Voxel<Type> *m_AllVoxel[2][2][2];
     Voxel<Type> ****m_AllVoxel;
 

@@ -98,9 +98,6 @@ void TimeSeriesLogInformation::WriteStartingState(){
     m_TimeSeriesFile<<m_pState->GetTimeSeriesDataOutput()->CurrentState()<<std::endl;
     m_TimeSeriesFile<<m_pState->GetRestart()->CurrentState()<<std::endl;
 
-    if (m_pState->GetInclusionConversion()->GetDerivedDefaultReadName() != NoInclusionConversion::GetDefaultReadName()) {
-        m_TimeSeriesFile <<m_pState->GetInclusionConversion()->CurrentState()<<"  ";
-    }
     m_TimeSeriesFile<<";------------------------------------------  "<<std::endl;
     m_TimeSeriesFile<<"; the total number of thread used in this run was: "<<m_pState->GetThreads_Number()<<std::endl;
 
