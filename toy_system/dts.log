@@ -1,5 +1,5 @@
 ;--------- this state is initiated by this command ---------------------------------  
-../DTS   -in   input.dts   -top   topology.top   -nt   30   
+../DTS   -in   input.dts   -top   topology.top   -nt   1   
 ;--------- this part can be used as an input.dts file ---------------------------------  
  Run_Tag = dts
 ;-- abstract classes
@@ -39,4 +39,4 @@ OpenEdgeEvolution = No
 TimeSeriesData_Period = 1000
 Restart_Period  =  1000
 ;------------------------------------------  
-; the total number of thread used in this run was: 30
+; the total number of thread used in this run was: 1

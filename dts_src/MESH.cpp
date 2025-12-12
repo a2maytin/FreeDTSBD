@@ -496,7 +496,7 @@ bool MESH::UpdateGroupFromIndexFile(std::string &filename){
     indexfile.close();
     return true;
 }
-double MESH::SquareDistanceBetweenTwoVertices(vertex *p_v1, vertex* p_v2, Vec3D Box) {
+double MESH::SquareDistanceBetweenTwoVertices(vertex *p_v1, vertex* p_v2, Vec3D Box){
         
     double dx = p_v1->GetVXPos() - p_v2->GetVXPos();
     double dy = p_v1->GetVYPos() - p_v2->GetVYPos();
@@ -523,67 +523,27 @@ double MESH::SquareDistanceBetweenTwoVertices(vertex *p_v1, vertex* p_v2, Vec3D 
 }
 bool MESH::CheckMesh(double min_l, double max_l, double min_angle, Voxelization<vertex>  *pVoxelization){
         
-    std::cerr << "---> [CheckMesh] ENTERED FUNCTION\n";
-    std::cerr.flush();
-    
-    try {
-    std::cerr << "---> [CheckMesh] Starting mesh quality check\n";
-    std::cerr.flush();
-    
     // this is only the  edges
-    // Note: DNA beads shouldn't have links, but check anyway to be safe
-    std::cout << "---> [CheckMesh] Checking " << m_pActiveL.size() << " links...\n";
-    std::cout.flush();
-    int link_count = 0;
-    int dna_links_skipped = 0;
     for (std::vector<links *>::const_iterator it = m_pActiveL.begin() ; it != m_pActiveL.end(); ++it){
-        link_count++;
 
         vertex *p_v1 = (*it)->GetV1();
         vertex *p_v2 = (*it)->GetV2();
-        
-        // Skip if either vertex is a DNA bead (they have bonds)
-        bool is_dna1 = !p_v1->GetBonds().empty();
-        bool is_dna2 = !p_v2->GetBonds().empty();
-        if (is_dna1 || is_dna2) {
-            dna_links_skipped++;
-            continue;
-        }
-        
         double dist2 = p_v1->SquareDistanceFromAVertex(p_v2);
         if(dist2 < min_l || dist2 > max_l){
             
-            std::cout<<"---> [CheckMesh] ERROR: bad edge length: length of an edge is "<<sqrt(dist2)<<" (min: "<<sqrt(min_l)<<", max: "<<sqrt(max_l)<<")\n";
-            std::cout.flush();
+            std::cout<<"---> error: bad edge length: length of an edge is "<<dist2<<"\n";
             return false;
         }
     }
-    std::cout << "---> [CheckMesh] Checked " << link_count << " links, skipped " << dna_links_skipped << " DNA links\n";
-    std::cout.flush();
    
     // all vertices should also have a distance larger then sqrt(m_MinLength2)
 
    
     //--- checking the distance between each pair
-    // Skip voxel-based checks if voxelization is not available (e.g., for DNA-only systems)
-    std::cerr << "---> [CheckMesh] About to check voxels...\n";
-    std::cerr.flush();
-    if (pVoxelization == nullptr) {
-        std::cout << "---> Skipping voxel checks (no voxelization)\n";
-        return true;  // If no voxelization, skip these checks
-    }
-    
     Voxel<vertex>  ****voxels = pVoxelization->GetAllVoxel();
-    if (voxels == nullptr) {
-        std::cout << "---> Skipping voxel checks (voxels not initialized)\n";
-        return true;  // If voxels not initialized, skip these checks
-    }
-    
     int Nx = pVoxelization->GetXVoxelNumber();
     int Ny = pVoxelization->GetYVoxelNumber();
     int Nz = pVoxelization->GetZVoxelNumber();
-    std::cerr << "---> [CheckMesh] Checking voxel distances (" << Nx << "x" << Ny << "x" << Nz << " voxels)...\n";
-    std::cerr.flush();
 
     for (int i = 0; i < Nx; ++i) {
     for (int j = 0; j < Ny; ++j) {
@@ -592,69 +552,26 @@ bool MESH::CheckMesh(double min_l, double max_l, double min_angle, Voxelization<
         std::vector<vertex*> voxel_ver = (voxels[i][j][k])->GetContentObjects();
             
         //--- check distances within the same voxel
-        // Skip DNA beads (they have bonds but no links, and don't need to satisfy membrane edge length constraints)
         for (std::vector<vertex*>::iterator it1 = voxel_ver.begin(); it1 != voxel_ver.end(); ++it1) {
-            // Skip DNA beads - check bonds first (safer than calling GetVLinkList which can hang)
-            bool is_dna1 = !(*it1)->GetBonds().empty();
-            if (is_dna1) continue;
-            
             for (std::vector<vertex*>::iterator it2 = it1 + 1; it2 != voxel_ver.end(); ++it2) {
-                // Skip DNA beads - check if it2 is DNA
-                bool is_dna2 = !(*it2)->GetBonds().empty();
-                if (is_dna2) continue;
-                
-                // Additional safety: if vertices are very close (distance < 1.0), they might be DNA beads
-                // This is a fallback check in case GetBonds() isn't working properly
-                int vid1 = (*it1)->GetVID();
-                int vid2 = (*it2)->GetVID();
-                Vec3D Box = *((*it1)->GetBox());
-                double l2 = SquareDistanceBetweenTwoVertices(*it1, *it2, Box);
-                
-                // If distance is very small (< 1.0 nm), likely DNA-DNA bond, skip the check
-                // DNA bonds are typically 0.4-0.5 nm, much smaller than membrane min distance (1.0 nm)
-                if (l2 < 1.0) {
-                    // Very close vertices - likely DNA beads, skip distance check
-                    continue;
+                    double l2 = SquareDistanceBetweenTwoVertices(*it1, *it2);
+                    if (l2 < min_l) {
+                        return false;
+                    }
                 }
-                
-                // At this point, both it1 and it2 are NOT DNA (membrane vertices only)
-                // The GetBonds().empty() check above ensures we skip all DNA beads
-                // So we can safely check the distance constraint
-                if (l2 < min_l) {
-                    std::cout<<"---> error: bad vertex distance in voxel: distance is "<<sqrt(l2)<<" (min: "<<sqrt(min_l)<<") between vertices "<<vid1<<" and "<<vid2<<"\n";
-                    std::cout<<"---> [DEBUG] it1 bonds: "<<(*it1)->GetBonds().size()<<"\n";
-                    std::cout<<"---> [DEBUG] it2 bonds: "<<(*it2)->GetBonds().size()<<"\n";
-                    return false;
-                }
-            }
         }
         // check distances of vertex from neighbouring voxels
             for (int n = 0; n < 2; ++n)
             for (int m = 0; m < 2; ++m)
             for (int s = 0; s < 2; ++s)
               if(n != 0 || m != 0 || s!=0) {
-                    Voxel<vertex>* neighbor_voxel = (voxels[i][j][k])->GetANeighbourCell(n,m,s);
-                    if (neighbor_voxel == nullptr) continue;  // Skip if neighbor voxel is null
-                    std::vector<vertex*> voxel_ver2 = neighbor_voxel->GetContentObjects();
+                    std::vector<vertex*> voxel_ver2 = (voxels[i][j][k])->GetANeighbourCell(n,m,s)->GetContentObjects();
 
                     for (std::vector<vertex *>::iterator it1 = voxel_ver.begin() ; it1 != voxel_ver.end(); ++it1) {
-                        // Skip DNA beads - check bonds first (safer than calling GetVLinkList which can hang)
-                        bool is_dna1 = !(*it1)->GetBonds().empty();
-                        if (is_dna1) continue;
-                        
                         for (std::vector<vertex *>::iterator it2 = voxel_ver2.begin() ; it2 != voxel_ver2.end(); ++it2) {
-                            // Skip DNA beads - check if it2 is DNA
-                            bool is_dna2 = !(*it2)->GetBonds().empty();
-                            if (is_dna2) continue;
-                            
                             if(it1 != it2){
-                                // At this point, both it1 and it2 are NOT DNA (membrane vertices only)
-                                // The GetBonds().empty() check above ensures we skip all DNA beads
-                                // So we can safely check the distance constraint
-                                Vec3D Box = *((*it1)->GetBox());
-                                double l2 = SquareDistanceBetweenTwoVertices(*it1, *it2, Box);
+                                double l2 = SquareDistanceBetweenTwoVertices(*it1, *it2);
                                 if (l2 < min_angle) {
-                                    std::cout<<"---> error: bad vertex distance between voxels: distance is "<<sqrt(l2)<<" (min: "<<sqrt(min_angle)<<") between vertices "<<(*it1)->GetVID()<<" and "<<(*it2)->GetVID()<<"\n";
                                     return false;
                                 }
                         }//  if(it1 != it2){
@@ -663,34 +580,20 @@ bool MESH::CheckMesh(double min_l, double max_l, double min_angle, Voxelization<
             }// for (int s = 0; s < 2; ++s) {
     }
     }
-    }  // End of voxel distance checks
+    }
 
 
-    std::cout << "---> Checking " << m_pHL.size() << " links for face angles...\n";
+   
     for (std::vector<links*>::iterator it = m_pHL.begin(); it != m_pHL.end(); ++it) {
         // For each link, check if the face angle condition is satisfied using CheckFaceAngleOfOneLink function.
         // If any link does not satisfy the condition, return false.
-        // Skip links that involve DNA beads (they have bonds but no links, so shouldn't be here, but check anyway)
-        vertex *p_v1 = (*it)->GetV1();
-        vertex *p_v2 = (*it)->GetV2();
-        bool is_dna1 = !p_v1->GetBonds().empty();
-        bool is_dna2 = !p_v2->GetBonds().empty();
-        if (is_dna1 || is_dna2) continue;  // Skip face angle checks for DNA beads
-        
         if (!(*it)->CheckFaceAngleWithMirrorFace(min_angle)) {
-            std::cout<<"---> error: bad face angle in link\n";
             return false;
         }
     }
+
     
-    std::cerr << "---> Mesh quality check passed!\n";
-    std::cerr.flush();
     return true;
-    } catch (...) {
-        std::cerr << "---> [CheckMesh] Exception caught in CheckMesh!\n";
-        std::cerr.flush();
-        return false;
-    }
 }
 double MESH::SquareDistanceBetweenTwoVertices(vertex * v1,vertex * v2){
     /**

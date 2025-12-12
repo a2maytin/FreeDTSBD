@@ -1,0 +1,24 @@
+[ defaults ] 
+1 1 
+[ atomtypes ] 
+CT1 72.0 0.000 A 0.0 0.0  
+[ moleculetype ] 
+ surface    1 
+ [atoms] 
+1 	CT1 	0	Sur 	C 	1 	0  
+2 	CT1 	0	Sur 	C 	2 	0  
+3 	CT1 	0	Sur 	C 	3 	0  
+4 	CT1 	0	Sur 	C 	4 	0  
+5 	CT1 	0	Sur 	C 	5 	0  
+6 	CT1 	0	Sur 	C 	6 	0  
+7 	CT1 	0	Sur 	C 	7 	0  
+8 	CT1 	0	Sur 	C 	8 	0  
+9 	CT1 	0	Sur 	C 	9 	0  
+ [bonds] 
+4   1     1     1      20000
+4   3     1     1      20000
+3   1     1     1      20000
+[ system ] 
+ triangluated surface 
+[ molecules ] 
+ surface 1 

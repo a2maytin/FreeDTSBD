@@ -42,8 +42,6 @@ public:
 
     // Public methods for calculating contributions to global variables
     void CalculateAVertexRingContributionToGlobalVariables(vertex* p_vertex, double& vol, double& area, double& curvature);
-    // Overloaded version that accepts neighbor list to avoid calling GetVNeighbourVertex() again
-    void CalculateAVertexRingContributionToGlobalVariables(vertex* p_vertex, const std::vector<vertex*>& neighbors, double& vol, double& area, double& curvature);
     void CalculateALinkTrianglesContributionToGlobalVariables(links* p_link, double& vol, double& area, double& curvature);
     void CalculateBoxRescalingContributionToGlobalVariables(double lx, double ly, double lz, double& vol, double& area, double& curvature);
     void CalculateGlobalVariables(double& vol, double& area, double& curvature);
