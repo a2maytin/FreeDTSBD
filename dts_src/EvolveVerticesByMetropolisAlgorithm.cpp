@@ -116,7 +116,8 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
         old_energy += pvertex->GetBindingEnergy();
         pvertex->ConstantMesh_Copy();
         pvertex->Copy_VFsBindingEnergy();  // vector field
-        vNeighbourV = &(pvertex->GetVNeighbourVertex());  
+        const std::vector<vertex *>& vNeighbourV_ref = pvertex->GetVNeighbourVertex();
+        vNeighbourV = &vNeighbourV_ref;  
         for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
             (*it)->ConstantMesh_Copy();
             old_energy += (*it)->GetEnergy();
