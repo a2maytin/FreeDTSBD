@@ -248,6 +248,12 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     double old_energy = 0;
     double new_energy = 0;
     bool is_bonded_vertex = !pvertex->GetBonds().empty();
+    
+    // Declare variables that may be used conditionally
+    const std::vector<vertex *>* vNeighbourV = nullptr;
+    std::vector<triangle *> N_triangles;
+    const std::vector<links *>* v_NLinks = nullptr;
+    std::vector<links*> Affected_links;
 
 //---> first checking if all the distances will be fine if we move the vertex
     if(!VertexMoveIsFine(pvertex,dx,dy,dz,m_MinLength2,m_MaxLength2))  // this function could get a booling varaible to say, it crossed the voxel
@@ -255,21 +261,18 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
 
     //--- obtain vertices energy terms and make copies
     if (!is_bonded_vertex) {
-        // Standard membrane vertex processing
         old_energy = pvertex->GetEnergy();
         old_energy += pvertex->GetBindingEnergy();
         pvertex->ConstantMesh_Copy();
         pvertex->Copy_VFsBindingEnergy();  // vector field
     } else {
-        // Bonded vertex: no membrane energy, only bond energy
         old_energy = 0;
         pvertex->ConstantMesh_Copy();
     }
     
     if (!is_bonded_vertex) {
-        // Standard membrane vertex processing
-        const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();  
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+        vNeighbourV = &(pvertex->GetVNeighbourVertex());  
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
             (*it)->ConstantMesh_Copy();
             old_energy += (*it)->GetEnergy();
             old_energy += (*it)->GetBindingEnergy();
@@ -277,12 +280,13 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
 
 
         }
-        std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
+        N_triangles = pvertex->GetVTraingleList();
         for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
             (*it)->ConstantMesh_Copy();
         }
-        const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
-        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
+        const std::vector<links *>& v_NLinks_ref = pvertex->GetVLinkList();
+        v_NLinks = &v_NLinks_ref;
+        for (std::vector<links *>::const_iterator it = v_NLinks->begin() ; it != v_NLinks->end(); ++it){
             
             (*it)->ConstantMesh_Copy();
             (*it)->GetNeighborLink1()->ConstantMesh_Copy();
@@ -292,13 +296,19 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             pvertex->GetPrecedingEdgeLink()->ConstantMesh_Copy();
         }
         // find the links in which there interaction energy changes
-        std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
+        Affected_links = GetEdgesWithInteractionChange(pvertex);
         for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
             (*it)->Copy_InteractionEnergy();
             (*it)->Copy_VFInteractionEnergy();
             old_energy += 2 * (*it)->GetIntEnergy();
             old_energy += 2 * (*it)->GetVFIntEnergy();
         }
+    }
+    
+    // Bond energy for bonded vertices (before move)
+    double bond_energy = 0.0;
+    if (is_bonded_vertex) {
+        bond_energy = -(pvertex->GetBondEnergyOfVertex());
     }
     // --- obtaining global variables that can change by the move. Note, this is not the total volume, only the one that can change.
      double old_Tvolume = 0;
@@ -321,19 +331,11 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         dE_force_from_vector_fields  = m_pState->GetForceonVerticesfromVectorFields()->Energy_of_Force(pvertex, Dx);
         dE_force_on_vertex  = m_pState->GetForceonVertices()->Energy_of_Force(pvertex, Dx);
     }
-    
-    // Bond energy for bonded vertices
-    double bond_energy = 0.0;
-    if (is_bonded_vertex) {
-        bond_energy = -(pvertex->GetBondEnergyOfVertex());
-    }
 
 //----> Move the vertex;
         pvertex->PositionPlus(dx,dy,dz);
     
     if (!is_bonded_vertex) {
-        // Standard membrane vertex processing
-        std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
         //--- update triangles normal
         for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
             (*it)->UpdateNormal_Area(m_pBox);
@@ -347,10 +349,9 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             pvertex->PositionPlus(-dx,-dy,-dz);
             return false;
         }
-//---->
+    //---->
         //--> calculate edge shape operator;
-        const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
-        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
+        for (std::vector<links *>::const_iterator it = v_NLinks->begin() ; it != v_NLinks->end(); ++it){
             
            // (*it)->UpdateNormal();
             //  (*it)->GetNeighborLink1()->UpdateNormal();
@@ -363,21 +364,20 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         }
         // --> calculate vertex shape operator
         (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(pvertex);
-        const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
             (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(*it);
         }
         //---> calculate new energies
         new_energy = (m_pState->GetEnergyCalculator())->SingleVertexEnergy(pvertex);
         new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(pvertex);
 
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
             new_energy += (m_pState->GetEnergyCalculator())->SingleVertexEnergy(*it);
             new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(*it);
 
         }
         //-- interaction energy should be calculated here
-        std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
+
         for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
             new_energy += (m_pState->GetEnergyCalculator())->TwoInclusionsInteractionEnergy(*it);
             
@@ -388,10 +388,8 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             }
             }
         }
-    } else {
-        // Bonded vertex: no membrane energy, only bond energy
-        new_energy = 0;
     }
+    
     //---> get energy for ApplyConstraintBetweenGroups
     double dE_Cgroup = 0;
     if (!is_bonded_vertex) {
@@ -412,21 +410,20 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
     }
     
+    // Nonbonded interaction energy (applies to all vertices)
+    double dE_nonbonded = -(m_pState->GetNonbondedInteractionBetweenVertices()->GetVertexNonBondedEnergy(pvertex));
+    
+    // Bond energy for bonded vertices (after move)
+    if (is_bonded_vertex) {
+        bond_energy += (pvertex->GetBondEnergyOfVertex());
+    }
+    
     //--> only elatsic energy
     double diff_energy = new_energy - old_energy;
-    changed_en = diff_energy;
-    
-    // Bond energy update after move
-    if (is_bonded_vertex) {
-        bond_energy += pvertex->GetBondEnergyOfVertex();
-    }
-    
+            changed_en = diff_energy;
     //std::cout<<diff_energy<<" dif en \n";
     //--> sum of all the energies
-    double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv;
-    if (is_bonded_vertex) {
-        tot_diff_energy += bond_energy;
-    }
+    double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv + dE_nonbonded + bond_energy;
     double U = m_Beta * tot_diff_energy - m_DBeta;
     //---> accept or reject the move
     if(U <= 0 || exp(-U) > temp ) {
@@ -437,9 +434,7 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             pvertex->UpdateVoxelAfterAVertexMove();
         }
         //---> ApplyConstraintBetweenGroups
-        if (!is_bonded_vertex) {
-            m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
-        }
+        m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
         
         //---> global variables
         if (!is_bonded_vertex && m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
@@ -454,21 +449,17 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
 //---> reverse the changes that has been made to the system
         changed_en = 0;
         if (!is_bonded_vertex) {
-            // Standard membrane vertex reversal
-            std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
             //---> reverse the triangles
             for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
                 (*it)->ReverseConstantMesh_Copy();
             }
             //---> reverse the links
-            const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
-            for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
+            for (std::vector<links *>::const_iterator it = v_NLinks->begin() ; it != v_NLinks->end(); ++it){
                 
                 (*it)->ReverseConstantMesh_Copy();
                 (*it)->GetNeighborLink1()->ReverseConstantMesh_Copy();
             }
             //--> the shape operator of these links has not been affected, therefore we only update the interaction energy
-            std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
             for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
                 (*it)->Reverse_InteractionEnergy();
                 (*it)->Reverse_VFInteractionEnergy();
@@ -482,17 +473,16 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             pvertex->ReverseConstantMesh_Copy();
             pvertex->Reverse_VFsBindingEnergy();
 
-            const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
-            for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+            for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
                 (*it)->ReverseConstantMesh_Copy();
                 (*it)->Reverse_VFsBindingEnergy();
             }
-            //---> reverse ApplyConstraintBetweenGroups (no RejectMove method exists, so we skip it)
         } else {
-            // Bonded vertex: just reverse position
+            // For bonded vertices, just reverse the position
             pvertex->ReverseConstantMesh_Copy();
         }
         pvertex->PositionPlus(-dx,-dy,-dz);
+
         return false;
      }
     return true;
