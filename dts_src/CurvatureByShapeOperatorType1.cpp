@@ -61,6 +61,12 @@ bool CurvatureByShapeOperatorType1::Initialize(){
 }
 bool CurvatureByShapeOperatorType1::UpdateVertexCurvature(vertex *pvertex){
  
+    // Skip bonded (linearly connected untriangulated) vertices - they have no links, so no curvature
+    std::vector<links *> NLinks = pvertex->GetVLinkList();
+    if (NLinks.empty() || !pvertex->GetBonds().empty()) {
+        return true;  // Bonded vertices have no curvature
+    }
+    
     if(pvertex->GetVertexType() == 0){
         return UpdateSurfVertexCurvature(pvertex);
     }
@@ -76,6 +82,12 @@ bool CurvatureByShapeOperatorType1::UpdateVertexCurvature(vertex *pvertex){
 }
 bool CurvatureByShapeOperatorType1::UpdateSurfVertexCurvature(vertex * pvertex){
     
+    // Skip bonded (linearly connected untriangulated) vertices - they have no links, so no curvature
+    std::vector<links *> NLinks = pvertex->GetVLinkList();
+    if (NLinks.empty() || !pvertex->GetBonds().empty()) {
+        return true;  // Bonded vertices have no curvature
+    }
+    
     // Get vertex area from Calculate_Vertex_Normal
     double Area;
     
@@ -90,7 +102,6 @@ bool CurvatureByShapeOperatorType1::UpdateSurfVertexCurvature(vertex * pvertex){
     Tensor2 IT('I');
     Tensor2 P=IT-IT.makeTen(Normal);
     Tensor2 Pt=P.Transpose();
-    std::vector<links *> NLinks=pvertex->GetVLinkList();
 
     // Assuming necessary includes and context are already provided
 
@@ -182,6 +193,12 @@ bool CurvatureByShapeOperatorType1::UpdateSurfVertexCurvature(vertex * pvertex){
 }
 bool CurvatureByShapeOperatorType1::UpdateEdgeVertexCurvature(vertex * pvertex)
 {
+    // Skip bonded (linearly connected untriangulated) vertices - they have no links, so no curvature
+    std::vector<links *> NLinks = pvertex->GetVLinkList();
+    if (NLinks.empty() || !pvertex->GetBonds().empty()) {
+        return true;  // Bonded vertices have no curvature
+    }
+    
     // first we obtain the vertex area and normal. Area is not important here as the vertex is an edge vertex
     double Area=0.0;
     Vec3D Normal = Calculate_Vertex_Normal(pvertex, Area);

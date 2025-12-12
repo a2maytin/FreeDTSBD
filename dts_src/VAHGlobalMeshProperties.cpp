@@ -73,6 +73,14 @@ void VAHGlobalMeshProperties::Add2GlobalCurvature(double CG){
 }
 void VAHGlobalMeshProperties::CalculateAVertexRingContributionToGlobalVariables(vertex *p_vertex, double &vol, double &area, double& curvature){
     
+    // Skip bonded (linearly connected untriangulated) vertices - they don't contribute to membrane properties
+    if (!p_vertex->GetBonds().empty()) {
+        vol = 0.0;
+        area = 0.0;
+        curvature = 0.0;
+        return;
+    }
+    
     vol = 0.0;
     area = 0.0;
     curvature = 0.0;

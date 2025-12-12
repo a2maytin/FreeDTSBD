@@ -247,46 +247,58 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     
     double old_energy = 0;
     double new_energy = 0;
+    bool is_bonded_vertex = !pvertex->GetBonds().empty();
 
 //---> first checking if all the distances will be fine if we move the vertex
     if(!VertexMoveIsFine(pvertex,dx,dy,dz,m_MinLength2,m_MaxLength2))  // this function could get a booling varaible to say, it crossed the voxel
         return 0;
 
     //--- obtain vertices energy terms and make copies
-    old_energy = pvertex->GetEnergy();
-    old_energy += pvertex->GetBindingEnergy();
-    pvertex->ConstantMesh_Copy();
-    pvertex->Copy_VFsBindingEnergy();  // vector field
-    const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();  
-    for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
-        (*it)->ConstantMesh_Copy();
-        old_energy += (*it)->GetEnergy();
-        old_energy += (*it)->GetBindingEnergy();
-        (*it)->Copy_VFsBindingEnergy();
+    if (!is_bonded_vertex) {
+        // Standard membrane vertex processing
+        old_energy = pvertex->GetEnergy();
+        old_energy += pvertex->GetBindingEnergy();
+        pvertex->ConstantMesh_Copy();
+        pvertex->Copy_VFsBindingEnergy();  // vector field
+    } else {
+        // Bonded vertex: no membrane energy, only bond energy
+        old_energy = 0;
+        pvertex->ConstantMesh_Copy();
+    }
+    
+    if (!is_bonded_vertex) {
+        // Standard membrane vertex processing
+        const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();  
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+            (*it)->ConstantMesh_Copy();
+            old_energy += (*it)->GetEnergy();
+            old_energy += (*it)->GetBindingEnergy();
+            (*it)->Copy_VFsBindingEnergy();
 
 
-    }
-    std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
-    for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
-        (*it)->ConstantMesh_Copy();
-    }
-    const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
-    for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
-        
-        (*it)->ConstantMesh_Copy();
-        (*it)->GetNeighborLink1()->ConstantMesh_Copy();
-    }
-    //-- we need this to make sure all the links connected to this v is updated
-    if(pvertex->GetVertexType() == 1){
-        pvertex->GetPrecedingEdgeLink()->ConstantMesh_Copy();
-    }
-    // find the links in which there interaction energy changes
-    std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
-    for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
-        (*it)->Copy_InteractionEnergy();
-        (*it)->Copy_VFInteractionEnergy();
-        old_energy += 2 * (*it)->GetIntEnergy();
-        old_energy += 2 * (*it)->GetVFIntEnergy();
+        }
+        std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
+        for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
+            (*it)->ConstantMesh_Copy();
+        }
+        const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
+            
+            (*it)->ConstantMesh_Copy();
+            (*it)->GetNeighborLink1()->ConstantMesh_Copy();
+        }
+        //-- we need this to make sure all the links connected to this v is updated
+        if(pvertex->GetVertexType() == 1){
+            pvertex->GetPrecedingEdgeLink()->ConstantMesh_Copy();
+        }
+        // find the links in which there interaction energy changes
+        std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
+        for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
+            (*it)->Copy_InteractionEnergy();
+            (*it)->Copy_VFInteractionEnergy();
+            old_energy += 2 * (*it)->GetIntEnergy();
+            old_energy += 2 * (*it)->GetVFIntEnergy();
+        }
     }
     // --- obtaining global variables that can change by the move. Note, this is not the total volume, only the one that can change.
      double old_Tvolume = 0;
@@ -296,87 +308,125 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
      double new_Tarea = 0;
      double new_Tcurvature = 0;
 //--->
-    if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
+    if (!is_bonded_vertex && m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
         m_pState->GetVAHGlobalMeshProperties()->CalculateAVertexRingContributionToGlobalVariables(pvertex, old_Tvolume, old_Tarea, old_Tcurvature);
     }
     //---> for now, only active nematic force: ForceonVerticesfromInclusions
     Vec3D Dx(dx,dy,dz);
-    double dE_force_from_inc  = m_pState->GetForceonVerticesfromInclusions()->Energy_of_Force(pvertex, Dx);
-    double dE_force_from_vector_fields  = m_pState->GetForceonVerticesfromVectorFields()->Energy_of_Force(pvertex, Dx);
-    double dE_force_on_vertex  = m_pState->GetForceonVertices()->Energy_of_Force(pvertex, Dx);
+    double dE_force_from_inc = 0;
+    double dE_force_from_vector_fields = 0;
+    double dE_force_on_vertex = 0;
+    if (!is_bonded_vertex) {
+        dE_force_from_inc  = m_pState->GetForceonVerticesfromInclusions()->Energy_of_Force(pvertex, Dx);
+        dE_force_from_vector_fields  = m_pState->GetForceonVerticesfromVectorFields()->Energy_of_Force(pvertex, Dx);
+        dE_force_on_vertex  = m_pState->GetForceonVertices()->Energy_of_Force(pvertex, Dx);
+    }
+    
+    // Bond energy for bonded vertices
+    double bond_energy = 0.0;
+    if (is_bonded_vertex) {
+        bond_energy = -(pvertex->GetBondEnergyOfVertex());
+    }
 
 //----> Move the vertex;
         pvertex->PositionPlus(dx,dy,dz);
-    //--- update triangles normal
-    for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
-        (*it)->UpdateNormal_Area(m_pBox);
-    }
-    //  check new faces angles, if bad, reverse the trinagles
-    if(!CheckFacesAfterAVertexMove(pvertex)){
-        
+    
+    if (!is_bonded_vertex) {
+        // Standard membrane vertex processing
+        std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
+        //--- update triangles normal
         for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
-            (*it)->ReverseConstantMesh_Copy();
+            (*it)->UpdateNormal_Area(m_pBox);
         }
-        pvertex->PositionPlus(-dx,-dy,-dz);
-        return false;
-    }
+        //  check new faces angles, if bad, reverse the trinagles
+        if(!CheckFacesAfterAVertexMove(pvertex)){
+            
+            for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
+                (*it)->ReverseConstantMesh_Copy();
+            }
+            pvertex->PositionPlus(-dx,-dy,-dz);
+            return false;
+        }
 //---->
-    //--> calculate edge shape operator;
-    for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
-        
-       // (*it)->UpdateNormal();
-        //  (*it)->GetNeighborLink1()->UpdateNormal();
-        (*it)->UpdateShapeOperator(m_pBox);
-        (*it)->GetNeighborLink1()->UpdateShapeOperator(m_pBox);
-    }
-    //-- we need this to make sure all the links connected to this v is updated
-    if(pvertex->GetVertexType() == 1){
-        pvertex->GetPrecedingEdgeLink()->UpdateEdgeVector(m_pBox);
-    }
-    // --> calculate vertex shape operator
-    (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(pvertex);
-    for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
-        (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(*it);
-    }
-    //---> calculate new energies
-    new_energy = (m_pState->GetEnergyCalculator())->SingleVertexEnergy(pvertex);
-    new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(pvertex);
-
-    for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
-        new_energy += (m_pState->GetEnergyCalculator())->SingleVertexEnergy(*it);
-        new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(*it);
-
-    }
-    //-- interaction energy should be calculated here
-
-    for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
-        new_energy += (m_pState->GetEnergyCalculator())->TwoInclusionsInteractionEnergy(*it);
-        
-        if(pvertex->GetNumberOfVF() != 0 ){
-            for( int vf_layer = 0; vf_layer< m_pState->GetMesh()->GetNoVFPerVertex(); vf_layer++){
-                
-                new_energy +=  (m_pState->GetEnergyCalculator())->TwoVectorFieldInteractionEnergy(vf_layer, *it);
+        //--> calculate edge shape operator;
+        const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
+            
+           // (*it)->UpdateNormal();
+            //  (*it)->GetNeighborLink1()->UpdateNormal();
+            (*it)->UpdateShapeOperator(m_pBox);
+            (*it)->GetNeighborLink1()->UpdateShapeOperator(m_pBox);
         }
+        //-- we need this to make sure all the links connected to this v is updated
+        if(pvertex->GetVertexType() == 1){
+            pvertex->GetPrecedingEdgeLink()->UpdateEdgeVector(m_pBox);
         }
+        // --> calculate vertex shape operator
+        (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(pvertex);
+        const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+            (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(*it);
+        }
+        //---> calculate new energies
+        new_energy = (m_pState->GetEnergyCalculator())->SingleVertexEnergy(pvertex);
+        new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(pvertex);
+
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+            new_energy += (m_pState->GetEnergyCalculator())->SingleVertexEnergy(*it);
+            new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(*it);
+
+        }
+        //-- interaction energy should be calculated here
+        std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
+        for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
+            new_energy += (m_pState->GetEnergyCalculator())->TwoInclusionsInteractionEnergy(*it);
+            
+            if(pvertex->GetNumberOfVF() != 0 ){
+                for( int vf_layer = 0; vf_layer< m_pState->GetMesh()->GetNoVFPerVertex(); vf_layer++){
+                    
+                    new_energy +=  (m_pState->GetEnergyCalculator())->TwoVectorFieldInteractionEnergy(vf_layer, *it);
+            }
+            }
+        }
+    } else {
+        // Bonded vertex: no membrane energy, only bond energy
+        new_energy = 0;
     }
     //---> get energy for ApplyConstraintBetweenGroups
-    double dE_Cgroup = m_pState->GetApplyConstraintBetweenGroups()->CalculateEnergyChange(pvertex, Dx);
+    double dE_Cgroup = 0;
+    if (!is_bonded_vertex) {
+        dE_Cgroup = m_pState->GetApplyConstraintBetweenGroups()->CalculateEnergyChange(pvertex, Dx);
+    }
 
 //---> new global variables
-    if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
+    if (!is_bonded_vertex && m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
         m_pState->GetVAHGlobalMeshProperties()->CalculateAVertexRingContributionToGlobalVariables(pvertex, new_Tvolume, new_Tarea, new_Tcurvature);
     }
     //---> energy change of global variables
-    double dE_volume =  m_pState->GetVolumeCoupling()->GetEnergyChange(old_Tarea, old_Tvolume, new_Tarea, new_Tvolume);
-    double dE_t_area = m_pState->GetTotalAreaCoupling()->CalculateEnergyChange(old_Tarea, new_Tarea);
-    double dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
+    double dE_volume = 0;
+    double dE_t_area = 0;
+    double dE_g_curv = 0;
+    if (!is_bonded_vertex) {
+        dE_volume =  m_pState->GetVolumeCoupling()->GetEnergyChange(old_Tarea, old_Tvolume, new_Tarea, new_Tvolume);
+        dE_t_area = m_pState->GetTotalAreaCoupling()->CalculateEnergyChange(old_Tarea, new_Tarea);
+        dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
+    }
     
     //--> only elatsic energy
     double diff_energy = new_energy - old_energy;
-            changed_en = diff_energy;
+    changed_en = diff_energy;
+    
+    // Bond energy update after move
+    if (is_bonded_vertex) {
+        bond_energy += pvertex->GetBondEnergyOfVertex();
+    }
+    
     //std::cout<<diff_energy<<" dif en \n";
     //--> sum of all the energies
-    double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv ;
+    double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv;
+    if (is_bonded_vertex) {
+        tot_diff_energy += bond_energy;
+    }
     double U = m_Beta * tot_diff_energy - m_DBeta;
     //---> accept or reject the move
     if(U <= 0 || exp(-U) > temp ) {
@@ -387,10 +437,12 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             pvertex->UpdateVoxelAfterAVertexMove();
         }
         //---> ApplyConstraintBetweenGroups
-        m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
+        if (!is_bonded_vertex) {
+            m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
+        }
         
         //---> global variables
-        if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
+        if (!is_bonded_vertex && m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
            
             m_pState->GetVAHGlobalMeshProperties()->Add2Volume(new_Tvolume - old_Tvolume);
             m_pState->GetVAHGlobalMeshProperties()->Add2TotalArea(new_Tarea - old_Tarea);
@@ -400,36 +452,47 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     }
     else {
 //---> reverse the changes that has been made to the system
-        //---> reverse the triangles
         changed_en = 0;
-        for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
-            (*it)->ReverseConstantMesh_Copy();
-        }
-        //---> reverse the links
-        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
-            
-            (*it)->ReverseConstantMesh_Copy();
-            (*it)->GetNeighborLink1()->ReverseConstantMesh_Copy();
-        }
-        //--> the shape operator of these links has not been affected, therefore we only update the interaction energy
-        for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
-            (*it)->Reverse_InteractionEnergy();
-            (*it)->Reverse_VFInteractionEnergy();
+        if (!is_bonded_vertex) {
+            // Standard membrane vertex reversal
+            std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
+            //---> reverse the triangles
+            for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
+                (*it)->ReverseConstantMesh_Copy();
+            }
+            //---> reverse the links
+            const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+            for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
+                
+                (*it)->ReverseConstantMesh_Copy();
+                (*it)->GetNeighborLink1()->ReverseConstantMesh_Copy();
+            }
+            //--> the shape operator of these links has not been affected, therefore we only update the interaction energy
+            std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
+            for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
+                (*it)->Reverse_InteractionEnergy();
+                (*it)->Reverse_VFInteractionEnergy();
 
-        }
-        //-- we need this to make sure all the links connected to this v is updated
-        if(pvertex->GetVertexType() == 1){
-            pvertex->GetPrecedingEdgeLink()->ReverseConstantMesh_Copy();
-        }
-        //---> reverse the vertices
-        pvertex->ReverseConstantMesh_Copy();
-        pvertex->Reverse_VFsBindingEnergy();
+            }
+            //-- we need this to make sure all the links connected to this v is updated
+            if(pvertex->GetVertexType() == 1){
+                pvertex->GetPrecedingEdgeLink()->ReverseConstantMesh_Copy();
+            }
+            //---> reverse the vertices
+            pvertex->ReverseConstantMesh_Copy();
+            pvertex->Reverse_VFsBindingEnergy();
 
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
-            (*it)->ReverseConstantMesh_Copy();
-            (*it)->Reverse_VFsBindingEnergy();
+            const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
+            for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
+                (*it)->ReverseConstantMesh_Copy();
+                (*it)->Reverse_VFsBindingEnergy();
+            }
+            //---> reverse ApplyConstraintBetweenGroups (no RejectMove method exists, so we skip it)
+        } else {
+            // Bonded vertex: just reverse position
+            pvertex->ReverseConstantMesh_Copy();
         }
-
+        pvertex->PositionPlus(-dx,-dy,-dz);
         return false;
      }
     return true;

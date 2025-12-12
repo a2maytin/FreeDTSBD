@@ -230,6 +230,13 @@ bool MC_Simulation::CheckMesh(int step){
 
         vertex *p_v1 = (*it)->GetV1();
         vertex *p_v2 = (*it)->GetV2();
+        
+        // Skip if either vertex is a bonded (linearly connected untriangulated) vertex
+        // Bonded vertices shouldn't have links, but we check bonds first to avoid calling GetVLinkList which can hang
+        bool is_bonded_v1 = !p_v1->GetBonds().empty();
+        bool is_bonded_v2 = !p_v2->GetBonds().empty();
+        if (is_bonded_v1 || is_bonded_v2) continue;
+        
         double dist2 = p_v1->SquareDistanceFromAVertex(p_v2);
         if(dist2 < m_MinLength2 || dist2 > m_MaxLength2){
             
