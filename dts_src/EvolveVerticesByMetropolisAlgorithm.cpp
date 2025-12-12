@@ -101,9 +101,7 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
     bool is_bonded_vertex = !pvertex->GetBonds().empty();
     
     // Declare variables that may be used conditionally
-    const std::vector<vertex *>* vNeighbourV = nullptr;
     std::vector<triangle *> N_triangles;
-    const std::vector<links *>* v_NLinks = nullptr;
     std::vector<links*> Affected_links;
 
 //---> first checking if all the distances will be fine if we move the vertex
@@ -116,9 +114,8 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
         old_energy += pvertex->GetBindingEnergy();
         pvertex->ConstantMesh_Copy();
         pvertex->Copy_VFsBindingEnergy();  // vector field
-        const std::vector<vertex *>& vNeighbourV_ref = pvertex->GetVNeighbourVertex();
-        vNeighbourV = &vNeighbourV_ref;  
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
+        const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
             (*it)->ConstantMesh_Copy();
             old_energy += (*it)->GetEnergy();
             old_energy += (*it)->GetBindingEnergy();
@@ -130,9 +127,8 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
         for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
             (*it)->ConstantMesh_Copy();
         }
-        const std::vector<links *>& v_NLinks_ref = pvertex->GetVLinkList();
-        v_NLinks = &v_NLinks_ref;
-        for (std::vector<links *>::const_iterator it = v_NLinks->begin() ; it != v_NLinks->end(); ++it){
+        const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
             
             (*it)->ConstantMesh_Copy();
             (*it)->GetNeighborLink1()->ConstantMesh_Copy();
@@ -202,7 +198,8 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
         }
     //---->
         //--> calculate edge shape operator;
-        for (std::vector<links *>::const_iterator it = v_NLinks->begin() ; it != v_NLinks->end(); ++it){
+        const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+        for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
             
            // (*it)->UpdateNormal();
             //  (*it)->GetNeighborLink1()->UpdateNormal();
@@ -214,15 +211,16 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
             pvertex->GetPrecedingEdgeLink()->UpdateEdgeVector(m_pBox);
         }
         // --> calculate vertex shape operator
+        const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
         (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(pvertex);
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
             (m_pState->GetCurvatureCalculator())->UpdateVertexCurvature(*it);
         }
         //---> calculate new energies
         new_energy = (m_pState->GetEnergyCalculator())->SingleVertexEnergy(pvertex);
         new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(pvertex);
 
-        for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
+        for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
             new_energy += (m_pState->GetEnergyCalculator())->SingleVertexEnergy(*it);
             new_energy += (m_pState->GetEnergyCalculator())->CalculateVectorFieldMembraneBindingEnergy(*it);
 
@@ -308,7 +306,8 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
                 (*it)->ReverseConstantMesh_Copy();
             }
             //---> reverse the links
-            for (std::vector<links *>::const_iterator it = v_NLinks->begin() ; it != v_NLinks->end(); ++it){
+            const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+            for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
                 
                 (*it)->ReverseConstantMesh_Copy();
                 (*it)->GetNeighborLink1()->ReverseConstantMesh_Copy();
@@ -327,7 +326,8 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
             pvertex->ReverseConstantMesh_Copy();
             pvertex->Reverse_VFsBindingEnergy();
 
-            for (std::vector<vertex *>::const_iterator it = vNeighbourV->begin() ; it != vNeighbourV->end(); ++it){
+            const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();
+            for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
                 (*it)->ReverseConstantMesh_Copy();
                 (*it)->Reverse_VFsBindingEnergy();
             }
