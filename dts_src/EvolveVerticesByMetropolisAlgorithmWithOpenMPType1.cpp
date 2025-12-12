@@ -457,11 +457,18 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         }
         //---> reverse the vertices
         pvertex->ReverseConstantMesh_Copy();
-        pvertex->Reverse_VFsBindingEnergy();
+        // Phase 2 Step 7: Only reverse VFsBindingEnergy if it was copied (i.e., for non-bonded vertices)
+        // Match Step 4's logic: use is_bonded_vertex (referring to pvertex) for both pvertex and neighbors
+        if (!is_bonded_vertex) {
+            pvertex->Reverse_VFsBindingEnergy();
+        }
 
         for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
             (*it)->ReverseConstantMesh_Copy();
-            (*it)->Reverse_VFsBindingEnergy();
+            // Phase 2 Step 7: Match Step 4 - use is_bonded_vertex (pvertex) for neighbors too
+            if (!is_bonded_vertex) {
+                (*it)->Reverse_VFsBindingEnergy();
+            }
         }
 
         return false;
