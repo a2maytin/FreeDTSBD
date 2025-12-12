@@ -304,9 +304,12 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     
     // Bond energy for bonded vertices (before move)
     double bond_energy = 0.0;
+    double dE_nonbonded = 0.0;
     if (is_bonded_vertex) {
         bond_energy = -(pvertex->GetBondEnergyOfVertex());
     }
+    // Nonbonded interaction energy (before move) - applies to all vertices
+    dE_nonbonded = -(m_pState->GetNonbondedInteractionBetweenVertices()->GetVertexNonBondedEnergy(pvertex));
     // --- obtaining global variables that can change by the move. Note, this is not the total volume, only the one that can change.
      double old_Tvolume = 0;
      double old_Tarea = 0;
@@ -409,8 +412,8 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
     }
     
-    // Nonbonded interaction energy (applies to all vertices)
-    double dE_nonbonded = -(m_pState->GetNonbondedInteractionBetweenVertices()->GetVertexNonBondedEnergy(pvertex));
+    // Nonbonded interaction energy (after move) - add to get the change
+    dE_nonbonded += (m_pState->GetNonbondedInteractionBetweenVertices()->GetVertexNonBondedEnergy(pvertex));
     
     // Bond energy for bonded vertices (after move)
     if (is_bonded_vertex) {
