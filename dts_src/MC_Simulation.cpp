@@ -67,20 +67,32 @@ bool MC_Simulation::do_Simulation(){
 #endif
 // Your OpenMP parallel code here
 
-    if(!m_pState->GetMesh()->CheckMesh(m_MinLength2, m_MaxLength2, m_MinAngle, m_pState->GetVoxelization())){
+    std::cout << "---> About to check mesh quality...\n";
+    bool mesh_ok = m_pState->GetMesh()->CheckMesh(m_MinLength2, m_MaxLength2, m_MinAngle, m_pState->GetVoxelization());
+    std::cout << "---> Mesh check returned: " << (mesh_ok ? "true" : "false") << "\n";
+    if(!mesh_ok){
         
         std::cout << "---> error: The  mesh quality is insufficient for running a simulation.\n";
         exit(0);
     }
 
-    
-    
+    // NOTE: Global variables (volume, area, curvature) are initialized by the coupling classes
+    // (VolumeCouplingSecondOrder::Initialize, CouplingTotalAreaToHarmonicPotential::Initialize, etc.)
+    // They calculate initial values by summing triangles directly, which matches how incremental
+    // updates work (vertex ring contributions sum triangles around each vertex).
+    // We don't need to initialize here because the coupling classes handle it.
 
     std::cout<<"------>   Simulation will be performed from "<<m_Initial_Step<<" to "<<m_Final_Step<<" steps\n";
 for (int step = m_Initial_Step; step <= m_Final_Step; step++){
+        // if (step <= 5 || step % 10 == 0) {
+        //     std::cout << "Starting step " << step << "..." << std::flush;
+        // }
         
 //----> write files
         //--- write visulaization frame
+        // if (step <= 5 || step % 10 == 0) {
+        //     std::cout << " [writing files] " << std::flush;
+        // }
         m_pState->GetVisualization()->WriteAFrame(step);
         //--- write non-binary trejectory e.g., tsi, tsg
         m_pState->GetNonbinaryTrajectory()->WriteAFrame(step);
@@ -99,8 +111,14 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
 
 //---> Run standard Integrators
         //--- run the vertex position update
+        // if (step <= 5 || step % 10 == 0) {
+        //     std::cout << " [vertex moves] " << std::flush;
+        // }
         m_pState->GetVertexPositionUpdate()->EvolveOneStep(step); // we may need the final step as well to check if the update of move size should be done
         //--- run the link flip update
+        // if (step <= 5 || step % 10 == 0) {
+        //     std::cout << "[alexander moves] " << std::flush;
+        // }
         m_pState->GetAlexanderMove()->EvolveOneStep(step);
         //--- run the inclusion update
         m_pState->GetInclusionPoseUpdate()->EvolveOneStep(step);
@@ -126,9 +144,13 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
     if(!CheckMesh(step)){
         std::cout<<"---> error, the mesh does not meet the requirment for MC sim \n";
     }
+    if (step <= 5 || step % 10 == 0) {
+        // std::cout << "[done step " << step << "]\n" << std::flush;
+    }
     if (step%100 == 0) {
         PrintRate(step, true, true);
     }
+    std::cout.flush();  // Force output flush
 
 } // for(int step=GetInitialStep(); step<GetFinalStep(); step++)
     std::clock_t end = std::clock();
@@ -202,10 +224,9 @@ void  MC_Simulation::PrintRate(int step, bool clean, bool clear){
     if(m_pState->GetDynamicBox()->GetDerivedDefaultReadName() != "No"){
         std::cout<<"; Box Move = "<<bmove_rate<<"%"<<std::flush;
     }
-    if(clear){
-        std::cout << '\r';
-        std::cout << "\033[K";
-    }
+    // Always print newline for visibility (instead of overwriting with \r)
+    std::cout << std::endl;
+    std::cout.flush();
 }
 std::string MC_Simulation::CurrentState(){
     
@@ -225,11 +246,19 @@ bool MC_Simulation::CheckMesh(int step){
     }
     
     // this is only the  edges
+    // Note: Links only exist for membrane vertices, not bonded vertices, so we don't need to filter here
     const std::vector<links *>& all_links = m_pState->GetMesh()->GetActiveL();
     for (std::vector<links *>::const_iterator it = all_links.begin() ; it != all_links.end(); ++it){
 
         vertex *p_v1 = (*it)->GetV1();
         vertex *p_v2 = (*it)->GetV2();
+        
+        // Skip if either vertex is a bonded (linearly connected untriangulated) vertex
+        // Bonded vertices shouldn't have links, but we check bonds first to avoid calling GetVLinkList which can hang
+        bool is_bonded_v1 = !p_v1->GetBonds().empty();
+        bool is_bonded_v2 = !p_v2->GetBonds().empty();
+        if (is_bonded_v1 || is_bonded_v2) continue;
+        
         double dist2 = p_v1->SquareDistanceFromAVertex(p_v2);
         if(dist2 < m_MinLength2 || dist2 > m_MaxLength2){
             
