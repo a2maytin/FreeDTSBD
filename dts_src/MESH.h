@@ -30,6 +30,8 @@ public:
     inline std::vector<links*>&      GetActiveL()               {return m_pActiveL;}
     inline std::vector<vertex*>&           GetSurfV()                 {return m_pSurfV;}
     inline std::vector<vertex*>&           GetEdgeV()                 {return m_pEdgeV;}
+    // Mapping from original vertex position (original ID) to active vertex index
+    inline std::map<int, int>& GetOriginalToActiveVertexMap() {return m_OriginalToActiveVertexMap;}
     inline std::vector<links*>&      GetEdgeL()                      {return m_pEdgeL;}
     inline std::vector<links*>&      GetRightL()                    {return m_pHL;}
     inline std::vector<links*>&        GetLeftL()                 {return m_pMHL;}
@@ -99,6 +101,7 @@ protected:
     std::vector<vertex*>        m_pGhostV;
     Vec3D                       *m_pBox;
     std::map<std::string, std::vector<vertex*> > m_Groups;
+    std::map<int, int> m_OriginalToActiveVertexMap; // Maps original vertex position (original ID) to active vertex index
 
 
     

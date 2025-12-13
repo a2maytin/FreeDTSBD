@@ -115,6 +115,8 @@ bool MESH::GenerateMesh(MeshBluePrint meshblueprint)
             v.UpdateDomainID(it->domain);
             m_Vertex.push_back(v);
     }
+    std::cout << "---> Debug: Total vertices in blueprint: " << meshblueprint.bvertex.size() 
+              << ", Total vertices created: " << m_Vertex.size() << std::endl;
 //===== Make exclution [since June, 2023]
        
        std::vector<int> excluded_ver = meshblueprint.excluded_id; // this vertices should be excluded
@@ -122,20 +124,29 @@ bool MESH::GenerateMesh(MeshBluePrint meshblueprint)
        {
            ((meshblueprint.bvertex).at((*it))).include = false;
        }
+       // Build mapping from original vertex position (original ID) to active vertex index
+       // Note: Only map vertices that are included (active). Vertices that are excluded won't be in the map.
+       m_OriginalToActiveVertexMap.clear();
        int t=0;
+       int active_index = 0;
        for (std::vector<vertex>::iterator it = m_Vertex.begin() ; it != m_Vertex.end(); ++it)
        {
-               if(((meshblueprint.bvertex).at((t))).include == true)
+               if(((meshblueprint.bvertex).at((t))).include == true) {
                    m_pActiveV.push_back(&(*it));
+                   m_OriginalToActiveVertexMap[t] = active_index; // Map original position t to active index
+                   (*it).UpdateVID(active_index);
+                   active_index++;
+               }
            t++;
        }
-    //== since the vertex number remain constant, it is better to change the id of active vertices
-    t=0;
-    for (std::vector<vertex*>::iterator it = m_pActiveV.begin() ; it != m_pActiveV.end(); ++it)
-    {
-        (*it)->UpdateVID(t);
-        t++;
-    }
+       
+       // Debug: Check if there are vertices beyond the active list
+       if (m_Vertex.size() > m_pActiveV.size()) {
+           std::cout << "---> Note: Total vertices in mesh: " << m_Vertex.size() 
+                     << ", Active vertices: " << m_pActiveV.size() << std::endl;
+           std::cout << "---> Note: " << (m_Vertex.size() - m_pActiveV.size()) 
+                     << " vertices are not active (may be DNA/LCUV vertices without triangles)" << std::endl;
+       }
     // Making triangles
     t=0;
     int temid = 0;

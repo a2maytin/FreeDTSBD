@@ -106,6 +106,10 @@ void VAHGlobalMeshProperties::CalculateAVertexRingContributionToGlobalVariables(
         curvature = C * (p_vertex->GetArea());
         const std::vector<vertex *>& ring_vertex = p_vertex->GetVNeighbourVertex();
         for (std::vector<vertex *>::const_iterator it = ring_vertex.begin() ; it != ring_vertex.end(); ++it){
+            // Skip bonded (linearly connected untriangulated) neighbor vertices - they don't contribute to membrane curvature
+            if (!(*it)->GetBonds().empty()) {
+                continue;
+            }
             C = (*it)->GetP1Curvature() + (*it)->GetP2Curvature();
             double A = (*it)->GetArea();
             curvature += C * A;

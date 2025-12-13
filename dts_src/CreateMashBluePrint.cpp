@@ -5,6 +5,7 @@
  Copyright (c) Weria Pezeshkian
  */
 #include <fstream>
+#include <limits>
 #include "CreateMashBluePrint.h"
 #include "Nfunction.h"
 #include "RNG.h"
@@ -222,19 +223,24 @@ void CreateMashBluePrint::Read_Mult_QFile(const std::string& topfile)
     int id;
     std::ifstream top;
     top.open(topfile.c_str());
-    while (true)
+    if (!top.is_open()) {
+        std::cerr << "---> Error: Failed to open topology file: " << topfile << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    std::cout << "---> Debug: Parsing topology file: " << topfile << std::endl;
+    while (top >> str >> id)
     {
-        top>>str>>id;
-        if(top.eof())
-            break;
         qfiles.push_back(str);
         groupid.push_back(id);
+        std::cout << "---> Debug: Found q file in topology: " << str << " with group id " << id << std::endl;
 #if TEST_MODE == Enabled
         std::cout<<"----> q file in the top file: "<<str<<std::endl;
 #endif
-        getline(top,str);
+        // Skip the rest of the line (in case there are comments or extra whitespace)
+        top.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     top.close();
+    std::cout << "---> Debug: Total q files found: " << qfiles.size() << std::endl;
     // read each q file
     double Lx,Ly,Lz;
     int vid = 0;
@@ -244,7 +250,13 @@ void CreateMashBluePrint::Read_Mult_QFile(const std::string& topfile)
     for (int fi=0;fi<qfiles.size();fi++)
     {
         std::ifstream Qs;
-        Qs.open((qfiles.at(fi)).c_str());
+        std::string qfilename = qfiles.at(fi);
+        Qs.open(qfilename.c_str());
+        if (!Qs.is_open()) {
+            std::cerr << "---> Error: Failed to open q file: " << qfilename << std::endl;
+            exit(EXIT_FAILURE);
+        }
+        std::cout << "---> Debug: Reading q file: " << qfilename << " (file " << (fi+1) << " of " << qfiles.size() << ")" << std::endl;
         
         // first line is the box size and it should only contain 3 numbers;
         getline(Qs,str);
@@ -298,6 +310,8 @@ void CreateMashBluePrint::Read_Mult_QFile(const std::string& topfile)
             m_VertexMap.push_back(v);
             vid++;
         }
+        std::cout << "---> Debug: Read " << NV << " vertices from " << qfilename 
+                  << ", total vertices so far: " << m_VertexMap.size() << std::endl;
 #if DEBUG_MODE == Enabled
         std::cout<<"----> vertex section was read  "<<std::endl;
 #endif

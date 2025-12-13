@@ -251,8 +251,11 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     bool is_bonded_vertex = !pvertex->GetBonds().empty();
 
 //---> first checking if all the distances will be fine if we move the vertex
-    if(!VertexMoveIsFine(pvertex,dx,dy,dz,m_MinLength2,m_MaxLength2))  // this function could get a booling varaible to say, it crossed the voxel
-        return 0;
+    // Phase 2: Skip distance checks for bonded vertices (they don't need to satisfy membrane edge length constraints)
+    if (!is_bonded_vertex) {
+        if(!VertexMoveIsFine(pvertex,dx,dy,dz,m_MinLength2,m_MaxLength2))  // this function could get a booling varaible to say, it crossed the voxel
+            return 0;
+    }
 
     //--- obtain vertices energy terms and make copies
     // Phase 2 Step 4: For bonded vertices, skip energy accumulation but still do mesh copying
@@ -310,7 +313,8 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
      double new_Tarea = 0;
      double new_Tcurvature = 0;
 //--->
-    if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
+    // Phase 2: Skip global mesh properties for bonded vertices (they don't contribute to membrane volume/area/curvature)
+    if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH() && !is_bonded_vertex){
         m_pState->GetVAHGlobalMeshProperties()->CalculateAVertexRingContributionToGlobalVariables(pvertex, old_Tvolume, old_Tarea, old_Tcurvature);
     }
     //---> for now, only active nematic force: ForceonVerticesfromInclusions
@@ -391,13 +395,19 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     }
 
 //---> new global variables
-    if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
+    // Phase 2: Skip global mesh properties for bonded vertices (they don't contribute to membrane volume/area/curvature)
+    if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH() && !is_bonded_vertex){
         m_pState->GetVAHGlobalMeshProperties()->CalculateAVertexRingContributionToGlobalVariables(pvertex, new_Tvolume, new_Tarea, new_Tcurvature);
     }
-    //---> energy change of global variables
-    double dE_volume =  m_pState->GetVolumeCoupling()->GetEnergyChange(old_Tarea, old_Tvolume, new_Tarea, new_Tvolume);
-    double dE_t_area = m_pState->GetTotalAreaCoupling()->CalculateEnergyChange(old_Tarea, new_Tarea);
-    double dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
+    //---> energy change of global variables (skip for bonded vertices)
+    double dE_volume = 0;
+    double dE_t_area = 0;
+    double dE_g_curv = 0;
+    if (!is_bonded_vertex) {
+        dE_volume =  m_pState->GetVolumeCoupling()->GetEnergyChange(old_Tarea, old_Tvolume, new_Tarea, new_Tvolume);
+        dE_t_area = m_pState->GetTotalAreaCoupling()->CalculateEnergyChange(old_Tarea, new_Tarea);
+        dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
+    }
     
     // Phase 2 Step 2: Calculate bond energy after move
     if (is_bonded_vertex) {
@@ -423,8 +433,8 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         //---> ApplyConstraintBetweenGroups
         m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
         
-        //---> global variables
-        if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH()){
+        //---> global variables (skip for bonded vertices - they don't contribute to membrane properties)
+        if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH() && !is_bonded_vertex){
            
             m_pState->GetVAHGlobalMeshProperties()->Add2Volume(new_Tvolume - old_Tvolume);
             m_pState->GetVAHGlobalMeshProperties()->Add2TotalArea(new_Tarea - old_Tarea);
