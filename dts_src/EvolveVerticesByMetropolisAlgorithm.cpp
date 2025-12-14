@@ -286,6 +286,7 @@ bool EvolveVerticesByMetropolisAlgorithm::EvolveOneVertex(int step, vertex *pver
         // move is accepted
         (m_pState->GetEnergyCalculator())->AddToTotalEnergy(diff_energy);
         //---> if vertex is out of the voxel, update its voxel
+        // Update voxel for all vertices (including DNA) for efficient nonbonded interaction searches
         if(!pvertex->CheckVoxel()){
             pvertex->UpdateVoxelAfterAVertexMove();
         }

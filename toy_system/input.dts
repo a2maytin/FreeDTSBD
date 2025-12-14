@@ -26,8 +26,9 @@ AlexanderMove = MetropolisAlgorithmOpenMP 1
 BondedPotentialBetweenVertices = HarmonicBondsList dna_bonds.txt
 
 ; Repulsion between membrane vertices and DNA beads, and between DNA beads
-; Format: EP (repulsion strength) R0_membrane (cutoff for membrane-DNA in nm) R0_dna (cutoff for DNA-DNA in nm)
-NonbondedInteractionBetweenVertices = DNARepulsion 10000 2 1
+; E(r) = EP * (R0/r)^power, and 0 beyond r=R0 cutoff distance 
+; Format: DNARepulsion EP R0_membrane R0_dna [power=6] 
+NonbondedInteractionBetweenVertices = DNARepulsion 100 2 1
 
 ; Output settings
 TimeSeriesData_Period = 1000

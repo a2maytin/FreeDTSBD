@@ -454,8 +454,9 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         // move is accepted
      // (m_pState->GetEnergyCalculator())->AddToTotalEnergy(diff_energy);
         
-        //---> if vertex is out of the voxel, update its voxel (skip for DNA vertices)
-        if (!is_bonded_vertex && !pvertex->CheckVoxel()){
+        //---> if vertex is out of the voxel, update its voxel
+        // Note: DNA vertices also need voxel updates for efficient nonbonded interaction searches
+        if (!pvertex->CheckVoxel()){
             pvertex->UpdateVoxelAfterAVertexMove();
         }
         //---> ApplyConstraintBetweenGroups (skip for bonded vertices - they don't affect membrane constraints)

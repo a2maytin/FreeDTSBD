@@ -53,6 +53,7 @@ private:
     double m_R0_2;                              // Cutoff radius squared for membrane-DNA (for efficiency)
     double m_R0_DNA;                            // Cutoff radius for DNA-DNA interactions
     double m_R0_DNA_2;                          // Cutoff radius squared for DNA-DNA (for efficiency)
+    double m_Power;                             // Power law exponent (default 6 for strong short-range repulsion)
     Vec3D *m_pBox;
     
     /**

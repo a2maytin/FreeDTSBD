@@ -26,7 +26,11 @@ void DNARepulsion::Initialize() {
     // Prevent out-of-bounds access
     if (data.size() < 3) {
         std::cerr << "---> error: insufficient input data for "
-                  << this->GetDefaultReadName() << ". Expected: EP R0_membrane R0_dna\n";
+                  << this->GetDefaultReadName() << ". Expected: EP R0_membrane R0_dna [power]\n";
+        std::cerr << "  EP = repulsion strength\n";
+        std::cerr << "  R0_membrane = cutoff radius for membrane-DNA interactions (nm)\n";
+        std::cerr << "  R0_dna = cutoff radius for DNA-DNA interactions (nm)\n";
+        std::cerr << "  Optional: power = exponent for power law (default 6, higher = steeper repulsion)\n";
         exit(-1);
     }
 
@@ -36,6 +40,9 @@ void DNARepulsion::Initialize() {
     m_R0_2 = m_R0 * m_R0;
     m_R0_DNA = Nfunction::String_to_Double(data[2]);
     m_R0_DNA_2 = m_R0_DNA * m_R0_DNA;
+    
+    // Optional parameter: power law exponent
+    m_Power = (data.size() > 3) ? Nfunction::String_to_Double(data[3]) : 6.0;  // Default: 1/r^6 (LJ-like)
 
     m_pBox = m_pState->GetMesh()->GetBox();
 
@@ -95,6 +102,8 @@ void DNARepulsion::Initialize() {
               << " with " << m_pMembraneVertices.size() << " membrane vertices and "
               << m_pDNABeads.size() << " DNA beads.\n";
     std::cout << "--->   Membrane-DNA cutoff: " << m_R0 << " nm, DNA-DNA cutoff: " << m_R0_DNA << " nm\n";
+    std::cout << "--->   Repulsion form: E(r) = EP * (R0/r)^power for r < R0, E(r) = 0 for r >= R0\n";
+    std::cout << "--->   Power exponent: " << m_Power << " (higher = steeper repulsion at short distances)\n";
     std::cout << "--->   Performance optimizations: Hash sets enabled, neighbor caching enabled\n";
 
     return;
@@ -384,20 +393,24 @@ double DNARepulsion::CalculateRepulsionEnergy(vertex* v1, vertex* v2, double cut
         return 0;
     }
     
-    // Performance optimization: Early cutoff check before expensive sqrt and cos
-    if (cutoff_radius_squared < Dist2) return 0;  // Beyond cutoff radius
+    // Performance optimization: Early cutoff check before expensive sqrt
+    // R0 is the cutoff radius - interactions beyond R0 are not calculated
+    if (cutoff_radius_squared < Dist2) return 0;  // Beyond cutoff radius, no interaction
     
-    // Soft cosine repulsion potential (LAMMPS-style)
-    // E(r) = A * (1 + cos(π * r / R0)) for r < R0, and 0 for r >= R0
-    // This creates a smooth repulsive potential that goes to zero at the cutoff
     double Dist = sqrt(Dist2);
+    
+    // Power law repulsion potential: E(r) = EP * (R0/r)^power for r < R0
+    // This creates a steep repulsive potential that prevents strand crossings
+    // Higher power values create steeper repulsion at short distances
+    // At r = R0, E = EP (the repulsion strength parameter)
+    // As r -> 0, E -> infinity (very strong repulsion prevents overlap)
     double R0 = sqrt(cutoff_radius_squared);
-    double E = m_EP * (1.0 + cos(M_PI * Dist / R0));
+    double E = m_EP * std::pow(R0 / Dist, m_Power);
     
     // Check if energy calculation produced invalid result
     if (std::isnan(E) || std::isinf(E)) {
         std::cerr << "---> WARNING: Repulsion energy calculation produced NaN/Inf. "
-                  << "Dist2=" << Dist2 << ", EP=" << m_EP << std::endl;
+                  << "Dist=" << Dist << ", EP=" << m_EP << ", Power=" << m_Power << std::endl;
         return 0;
     }
     
@@ -492,7 +505,7 @@ std::vector<vertex*> DNARepulsion::FindNearbyDNABeadsForDNA(vertex* pV) const {
     // Performance optimization: Use cached neighbor exclusion set
     const std::unordered_set<vertex*>& neighboringBeads = GetNeighborExclusionSet(pV);
     
-    // Since DNA bead voxels are now updated when they move, we can trust voxel-based search
+    // DNA bead voxels are updated when they move (for efficient nonbonded interaction searches)
     // Only use fallback if there's no voxel (shouldn't happen, but safety check)
     
     if (pV->GetVoxel() != nullptr) {
