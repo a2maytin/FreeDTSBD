@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include <thread>   // For std::this_thread::sleep_for
 #include <chrono>   // For std::chrono::milliseconds
+#include <map>      // For tracking moves per vertex
+#include <vector>   // For tracking moves per vertex
+#include <tuple>    // For storing old positions
+#include <cmath>    // For sqrt
+#include <algorithm> // For min_element, max_element
+#include <numeric>   // For accumulate
 #ifdef _OPENMP
 # include <omp.h>
 #endif
@@ -41,6 +47,8 @@ EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveVerticesByMetropolisAl
 EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::~EvolveVerticesByMetropolisAlgorithmWithOpenMPType1(){
 
 }
+
+
 void EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::Initialize(){
     m_pBox = m_pState->GetMesh()->GetBox();
     m_Total_ThreadsNo = m_pState->GetThreads_Number();
@@ -231,7 +239,7 @@ for (int i = 0; i < no_steps_edge; i++) {
 
 // Add total energy from the local diff_energy calculated by each thread
 m_pState->GetEnergyCalculator()->AddToTotalEnergy(diff_energy);
-m_NumberOfAttemptedMoves += no_steps_surf;
+m_NumberOfAttemptedMoves += no_steps_edge;  // Fixed: should be no_steps_edge, not no_steps_surf
 
 
 
@@ -249,6 +257,11 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     double new_energy = 0;
     // Phase 2 Step 1: Add bonded vertex check (no logic changes yet - just detection)
     bool is_bonded_vertex = !pvertex->GetBonds().empty();
+    
+    // Store old position BEFORE any operations (for accurate tracking)
+    // Use global thread-local map to store old positions keyed by vertex pointer
+    if (is_bonded_vertex) {
+    }
 
 //---> first checking if all the distances will be fine if we move the vertex
     // Phase 2: Skip distance checks for bonded vertices (they don't need to satisfy membrane edge length constraints)
@@ -267,7 +280,8 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     if (!is_bonded_vertex) {
         pvertex->Copy_VFsBindingEnergy();  // vector field
     }
-    const std::vector<vertex *>& vNeighbourV = pvertex->GetVNeighbourVertex();  
+    // Phase 2: For DNA vertices, skip neighbor/triangle/link operations (they have none)
+    const std::vector<vertex *> vNeighbourV = (!is_bonded_vertex) ? pvertex->GetVNeighbourVertex() : std::vector<vertex *>();
     for (std::vector<vertex *>::const_iterator it = vNeighbourV.begin() ; it != vNeighbourV.end(); ++it){
         (*it)->ConstantMesh_Copy();
         if (!is_bonded_vertex) {
@@ -276,22 +290,22 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             (*it)->Copy_VFsBindingEnergy();
         }
     }
-    std::vector<triangle *> N_triangles = pvertex->GetVTraingleList();
+    std::vector<triangle *> N_triangles = (!is_bonded_vertex) ? pvertex->GetVTraingleList() : std::vector<triangle *>();
     for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
         (*it)->ConstantMesh_Copy();
     }
-    const std::vector<links *>& v_NLinks = pvertex->GetVLinkList();
+    const std::vector<links *> v_NLinks = (!is_bonded_vertex) ? pvertex->GetVLinkList() : std::vector<links *>();
     for (std::vector<links *>::const_iterator it = v_NLinks.begin() ; it != v_NLinks.end(); ++it){
         
         (*it)->ConstantMesh_Copy();
         (*it)->GetNeighborLink1()->ConstantMesh_Copy();
     }
-    //-- we need this to make sure all the links connected to this v is updated
-    if(pvertex->GetVertexType() == 1){
+    //-- we need this to make sure all the links connected to this v is updated (skip for DNA vertices - they have no edge links)
+    if(pvertex->GetVertexType() == 1 && !is_bonded_vertex){
         pvertex->GetPrecedingEdgeLink()->ConstantMesh_Copy();
     }
-    // find the links in which there interaction energy changes
-    std::vector<links*> Affected_links = GetEdgesWithInteractionChange(pvertex);
+    // find the links in which there interaction energy changes (skip for DNA vertices - they have no links)
+    std::vector<links*> Affected_links = (!is_bonded_vertex) ? GetEdgesWithInteractionChange(pvertex) : std::vector<links*>();
     for (std::vector<links *>::iterator it = Affected_links.begin() ; it != Affected_links.end(); ++it){
         (*it)->Copy_InteractionEnergy();
         (*it)->Copy_VFInteractionEnergy();
@@ -330,7 +344,7 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     }
 
 //----> Move the vertex;
-        pvertex->PositionPlus(dx,dy,dz);
+    pvertex->PositionPlus(dx,dy,dz);
     
     // Phase 2 Step 6: Skip post-move geometry updates for bonded vertices
     if (!is_bonded_vertex) {
@@ -422,16 +436,20 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     // Phase 2 Step 3: Include bond energy in total (only affects bonded vertices, should be 0 for membrane)
     double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv + bond_energy;
     double U = m_Beta * tot_diff_energy - m_DBeta;
+    
     //---> accept or reject the move
     if(U <= 0 || exp(-U) > temp ) {
         // move is accepted
-     // (m_pState->GetEnergyCalculator())->AddToTotalEnergy(diff_energy);        
-        //---> if vertex is out of the voxel, update its voxel
-        if(!pvertex->CheckVoxel()){
+     // (m_pState->GetEnergyCalculator())->AddToTotalEnergy(diff_energy);
+        
+        //---> if vertex is out of the voxel, update its voxel (skip for DNA vertices)
+        if (!is_bonded_vertex && !pvertex->CheckVoxel()){
             pvertex->UpdateVoxelAfterAVertexMove();
         }
-        //---> ApplyConstraintBetweenGroups
-        m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
+        //---> ApplyConstraintBetweenGroups (skip for bonded vertices - they don't affect membrane constraints)
+        if (!is_bonded_vertex) {
+            m_pState->GetApplyConstraintBetweenGroups()->AcceptMove();
+        }
         
         //---> global variables (skip for bonded vertices - they don't contribute to membrane properties)
         if(m_pState->GetVAHGlobalMeshProperties()->GetCalculateVAH() && !is_bonded_vertex){
@@ -444,8 +462,15 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     }
     else {
 //---> reverse the changes that has been made to the system
-        //---> reverse the triangles
         changed_en = 0;
+        
+        // Phase 2: For DNA vertices, only reverse position (they have no triangles/links/neighbors to reverse)
+        if (is_bonded_vertex) {
+            pvertex->ReverseConstantMesh_Copy();
+            return false;
+        }
+        
+        //---> reverse the triangles
         for (std::vector<triangle *>::iterator it = N_triangles.begin() ; it != N_triangles.end(); ++it){
             (*it)->ReverseConstantMesh_Copy();
         }
