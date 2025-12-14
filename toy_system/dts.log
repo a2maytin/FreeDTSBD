@@ -1,5 +1,5 @@
 ;--------- this state is initiated by this command ---------------------------------  
-../DTS   -in   input.dts   -top   topology.top   -nt   30   
+../DTS   -in   input_single_chromosome.dts   -top   topology_single_chromosome.top   -nt   3   
 ;--------- this part can be used as an input.dts file ---------------------------------  
  Run_Tag = dts
 ;-- abstract classes
@@ -8,7 +8,7 @@ Integrator_Type = MC_Simulation
  MinfaceAngle = -0.5
  Temprature = 1 0
  Box_Centering_F = 0
- Set_Steps = 1 1e+06
+ Set_Steps = 1 100000
 Boundary = PBC
 VertexPositionIntegrator = MetropolisAlgorithmOpenMP 1 1 0.05
 AlexanderMove = MetropolisAlgorithmOpenMP 1
@@ -30,13 +30,13 @@ ExternalFieldOnVectorFields = No
 ExternalFieldOnInclusions = No
 InclusionConversion = No
 VertexAdhesionToSubstrate = No
-VolumeCoupling = SecondOrder 0 10000 1
-GlobalCurvatureCoupling = HarmonicPotential 150 0.3
-TotalAreaCoupling = HarmonicPotential 0.377929 0.34
+VolumeCoupling = No
+GlobalCurvatureCoupling = No
+TotalAreaCoupling = No
 Dynamic_Box = No
 DynamicTopology = No
 OpenEdgeEvolution = No
 TimeSeriesData_Period = 1000
 Restart_Period  =  1000
 ;------------------------------------------  
-; the total number of thread used in this run was: 30
+; the total number of thread used in this run was: 3

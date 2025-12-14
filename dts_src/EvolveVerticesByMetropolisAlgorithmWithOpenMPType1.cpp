@@ -314,10 +314,11 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             old_energy += 2 * (*it)->GetVFIntEnergy();
         }
     }
-    // Phase 2 Step 1: Calculate bond energy (before move)
+    // Bond and angle energy calculation for bonded vertices
+    // Calculate bonded energy (bonds + angles) before move (will be subtracted from total)
     double bond_energy = 0.0;
     if (is_bonded_vertex) {
-        bond_energy = -(pvertex->GetBondEnergyOfVertex());
+        bond_energy = -(pvertex->GetBondedEnergyOfVertex());  // Includes bonds + angles
     }
     // --- obtaining global variables that can change by the move. Note, this is not the total volume, only the one that can change.
      double old_Tvolume = 0;
@@ -423,9 +424,10 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         dE_g_curv = m_pState->GetGlobalCurvature()->CalculateEnergyChange(new_Tarea-old_Tarea, new_Tcurvature-old_Tcurvature);
     }
     
-    // Phase 2 Step 2: Calculate bond energy after move
+    // Calculate bonded energy (bonds + angles) after move and add to get energy change
+    // bond_energy now = new_bonded_energy - old_bonded_energy
     if (is_bonded_vertex) {
-        bond_energy += (pvertex->GetBondEnergyOfVertex());
+        bond_energy += (pvertex->GetBondedEnergyOfVertex());  // Includes bonds + angles
     }
     
     //--> only elatsic energy
@@ -433,7 +435,7 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
             changed_en = diff_energy;
     //std::cout<<diff_energy<<" dif en \n";
     //--> sum of all the energies
-    // Phase 2 Step 3: Include bond energy in total (only affects bonded vertices, should be 0 for membrane)
+    // Include bonded energy (bonds + angles) in total (only affects bonded vertices, should be 0 for membrane)
     double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv + bond_energy;
     double U = m_Beta * tot_diff_energy - m_DBeta;
     

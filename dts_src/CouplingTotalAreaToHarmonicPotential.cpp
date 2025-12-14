@@ -29,6 +29,13 @@ void CouplingTotalAreaToHarmonicPotential::Initialize(State* pstate){
         m_TotalArea += (*it)->GetArea();
     }
     
+    // Handle case where there are no triangles (DNA-only simulation)
+    if (all_tri.size() == 0) {
+        m_A0 = 0.0;
+        m_K0 = 0.0;  // No area coupling if there are no triangles
+        return;
+    }
+    
     m_A0 = (1+2*m_Gamma)*double(all_tri.size())*sqrt(3)/4.0;   // selecting between 1-3
     m_K0 = m_K0 * double(all_tri.size())/(m_A0 * m_A0); // E=0.5*N*K*(A/A0-1)^2; K=0.5*N*K/A0^2==> E=0.5*N*K/A0^2(A-A0)^2
     

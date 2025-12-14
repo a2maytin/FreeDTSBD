@@ -33,6 +33,12 @@ void CouplingGlobalCurvatureToHarmonicPotential::Initialize(State* pState) {
     m_CalculatedGlobalVariable = true;
     std::vector<vertex *> all_vertex = m_pState->GetMesh()->GetActiveV();
     for (std::vector<vertex *>::iterator it = all_vertex.begin() ; it != all_vertex.end(); ++it) {
+        // Skip DNA vertices (bonded vertices) - they don't have triangles, so no area or curvature
+        if (!(*it)->GetBonds().empty()) {
+            continue;
+        }
+        
+        // Only calculate for membrane vertices (those without bonds should have triangles/links)
         double area = (*it)->GetArea();
         double curv = (*it)->GetP1Curvature() + (*it)->GetP2Curvature();
 
@@ -45,6 +51,11 @@ void CouplingGlobalCurvatureToHarmonicPotential::Initialize(State* pState) {
 }
 double CouplingGlobalCurvatureToHarmonicPotential::GetCouplingEnergy(){
     
+    // Handle case where there are no membrane vertices (DNA-only simulation)
+    if (m_TotalArea == 0.0) {
+        return 0.0;  // No curvature coupling energy if there's no membrane
+    }
+    
     double dh=(m_TotalCurvature-m_gC0*m_TotalArea);
     
     return m_K/(m_TotalArea)*dh*dh;
@@ -53,10 +64,26 @@ double CouplingGlobalCurvatureToHarmonicPotential::GetCouplingEnergy(){
 // this function can tell us how much this changes cost energy but it does not update the change since it can be rejected.
 double CouplingGlobalCurvatureToHarmonicPotential::CalculateEnergyChange(double D_area, double D_curvature)
 {
+    // Handle case where there are no membrane vertices (DNA-only simulation)
+    if (m_TotalArea == 0.0 && D_area == 0.0) {
+        return 0.0;  // No energy change if there's no membrane
+    }
+    
     double dh2 = m_TotalCurvature+D_curvature-m_gC0*(m_TotalArea+D_area);
     double dh1 = m_TotalCurvature-m_gC0*m_TotalArea;
-    dh2 = dh2 * dh2/(m_TotalArea + D_area);
-    dh1 = dh1 * dh1/m_TotalArea;
+    
+    // Avoid division by zero
+    double new_area = m_TotalArea + D_area;
+    double old_area = m_TotalArea;
+    if (new_area == 0.0) {
+        new_area = 1.0;  // Use a small value to avoid division by zero
+    }
+    if (old_area == 0.0) {
+        old_area = 1.0;  // Use a small value to avoid division by zero
+    }
+    
+    dh2 = dh2 * dh2/new_area;
+    dh1 = dh1 * dh1/old_area;
 
     double de = dh2 - dh1;
     

@@ -1,0 +1,36 @@
+; Toy system input file for testing single chromosome (beads 0-1999)
+Integrator_Type = MC_Simulation
+Set_Steps = 1 100000
+Temperature = 1 0
+Min_Max_Lenghts = 1 3
+MinfaceAngle = -0.5
+
+; Energy method
+EnergyMethod = FreeDTS1.0_FF
+
+; Membrane properties
+Kappa = 60 0 0
+Edge_Parameters = 5 0 0
+VertexArea = 0 0.7 0 0
+
+; Volume and area constraints
+; VolumeCoupling = SecondOrder 0.0 10000 1
+; GlobalCurvatureCoupling = HarmonicPotential 150 0.3
+; TotalAreaCoupling = HarmonicPotential 1000 0.34
+
+; Move parameters
+VertexPositionIntegrator = MetropolisAlgorithmOpenMP 1 1 0.05
+AlexanderMove = MetropolisAlgorithmOpenMP 1
+
+; DNA bonds - connect DNA beads (single chromosome only, beads 0-1999)
+BondedPotentialBetweenVertices = HarmonicBondsList dna_bonds_single_chromosome.txt
+
+; Repulsion between membrane vertices and DNA beads, and between DNA beads
+; Format: EP (repulsion strength) R0_membrane (cutoff for membrane-DNA in nm) R0_dna (cutoff for DNA-DNA in nm)
+; NonbondedInteractionBetweenVertices = DNARepulsion 10000 2 1
+
+; Output settings
+TimeSeriesData_Period = 1000
+VisualizationFormat = VTUFileFormat VTU_F 1000
+NonbinaryTrajectory = TSI TrajTSI 1000
+Restart_Period = 1000
