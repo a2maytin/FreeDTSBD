@@ -320,6 +320,11 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
     if (is_bonded_vertex) {
         bond_energy = -(pvertex->GetBondedEnergyOfVertex());  // Includes bonds + angles
     }
+    // Nonbonded interaction energy (before move) - applies to all vertices
+    double dE_nonbonded = 0.0;
+    if (m_pState->GetNonbondedInteractionBetweenVertices() != nullptr) {
+        dE_nonbonded = -(m_pState->GetNonbondedInteractionBetweenVertices()->GetVertexNonBondedEnergy(pvertex));
+    }
     // --- obtaining global variables that can change by the move. Note, this is not the total volume, only the one that can change.
      double old_Tvolume = 0;
      double old_Tarea = 0;
@@ -430,13 +435,18 @@ bool EvolveVerticesByMetropolisAlgorithmWithOpenMPType1::EvolveOneVertex(int ste
         bond_energy += (pvertex->GetBondedEnergyOfVertex());  // Includes bonds + angles
     }
     
+    // Nonbonded interaction energy (after move) - add to get the change
+    if (m_pState->GetNonbondedInteractionBetweenVertices() != nullptr) {
+        dE_nonbonded += m_pState->GetNonbondedInteractionBetweenVertices()->GetVertexNonBondedEnergy(pvertex);
+    }
+    
     //--> only elatsic energy
     double diff_energy = new_energy - old_energy;
             changed_en = diff_energy;
     //std::cout<<diff_energy<<" dif en \n";
     //--> sum of all the energies
-    // Include bonded energy (bonds + angles) in total (only affects bonded vertices, should be 0 for membrane)
-    double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv + bond_energy;
+    // Include bonded energy (bonds + angles) and nonbonded energy in total
+    double tot_diff_energy = diff_energy + dE_Cgroup + dE_force_on_vertex + dE_force_from_inc + dE_force_from_vector_fields + dE_volume + dE_t_area + dE_g_curv + bond_energy + dE_nonbonded;
     double U = m_Beta * tot_diff_energy - m_DBeta;
     
     //---> accept or reject the move

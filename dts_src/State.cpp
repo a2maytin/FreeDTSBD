@@ -555,6 +555,11 @@ while (input >> firstword) {
                     getline(input,rest);
                     m_NonbondedInteractionBetweenVertices = new InteractionBetweenInclusionsIn3D(this, rest);
                 }
+                else if(type == DNARepulsion::GetDefaultReadName()) { //
+                    
+                    getline(input,rest);
+                    m_NonbondedInteractionBetweenVertices = new DNARepulsion(this, rest);
+                }
                 else {
                     std::cerr<<AbstractNonbondedInteractionBetweenVertices::GetErrorMessage(type)<<"\n";
                     m_NumberOfErrors++;
