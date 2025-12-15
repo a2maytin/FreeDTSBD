@@ -79,7 +79,167 @@ bool MC_Simulation::do_Simulation(){
     std::cout<<"------>   Simulation will be performed from "<<m_Initial_Step<<" to "<<m_Final_Step<<" steps\n";
 for (int step = m_Initial_Step; step <= m_Final_Step; step++){
         
-//----> write files
+//---> System rotation to randomize multithreading bias direction (MUST happen before output)
+    std::vector<vertex*>& all_vertices = m_pState->GetMesh()->GetActiveV();
+    
+    // Initialize on first step if rotation is enabled
+    if (m_pState->GetSystemRotation()->IsEnabled() && step == m_Initial_Step) {
+        // Calculate COM and center system at box center
+        double xcm = 0.0, ycm = 0.0, zcm = 0.0;
+        for (auto* v : all_vertices) {
+            xcm += v->GetVXPos();
+            ycm += v->GetVYPos();
+            zcm += v->GetVZPos();
+        }
+        double n_vertices = static_cast<double>(all_vertices.size());
+        Vec3D com(xcm/n_vertices, ycm/n_vertices, zcm/n_vertices);
+        
+        // Get box center
+        Vec3D *pBox = m_pState->GetMesh()->GetBox();
+        Vec3D box_center((*pBox)(0)/2.0, (*pBox)(1)/2.0, (*pBox)(2)/2.0);
+        
+        // Initialize rotation system with box center
+        m_pState->GetSystemRotation()->Initialize(box_center);
+        
+        // Center the system at box center (like CenterMesh)
+        for (auto* v : all_vertices) {
+            v->UpdateVXPos(v->GetVXPos() - com(0) + box_center(0));
+            v->UpdateVYPos(v->GetVYPos() - com(1) + box_center(1));
+            v->UpdateVZPos(v->GetVZPos() - com(2) + box_center(2));
+        }
+        
+        // Update geometry after centering
+        std::vector<triangle*>& all_triangles = m_pState->GetMesh()->GetActiveT();
+        std::vector<links*>& all_links = m_pState->GetMesh()->GetActiveL();
+        for (auto* tri : all_triangles) {
+            if (tri != nullptr) {
+                tri->UpdateNormal_Area(pBox);
+            }
+        }
+        for (auto* link : all_links) {
+            if (link != nullptr) {
+                link->UpdateShapeOperator(pBox);
+            }
+        }
+        
+        // Re-voxelize after centering
+        m_pState->GetVoxelization()->ReassignMembersToVoxels(all_vertices);
+        
+        std::cout << "---> System rotation initialized: centered system at box center\n";
+    }
+    
+    if(m_pState->GetSystemRotation()->UpdateRotation(step)){
+        // Rotation was applied - rotate all vertices (system is already centered at origin)
+        std::vector<triangle*>& all_triangles = m_pState->GetMesh()->GetActiveT();
+        std::vector<links*>& all_links = m_pState->GetMesh()->GetActiveL();
+        std::vector<inclusion*>& all_inclusions = m_pState->GetMesh()->GetInclusion();
+        Vec3D *pBox = m_pState->GetMesh()->GetBox();
+        
+        // Rotate all vertices: move to origin, apply rotation, move back to box center
+        Vec3D box_center = m_pState->GetSystemRotation()->GetBoxCenter();
+        
+        // Debug: Track bead with ID 1000 (if it exists)
+        vertex* debug_vertex = nullptr;
+        Vec3D debug_pos_before, debug_pos_after_rotation;
+        for (auto* v : all_vertices) {
+            if (v->GetVID() == 1000) {
+                debug_vertex = v;
+                debug_pos_before = Vec3D(v->GetVXPos(), v->GetVYPos(), v->GetVZPos());
+                break;
+            }
+        }
+        
+        for (auto* v : all_vertices) {
+            // Move to origin (relative to box center)
+            Vec3D pos(v->GetVXPos() - box_center(0), v->GetVYPos() - box_center(1), v->GetVZPos() - box_center(2));
+            // Apply NEW rotation (not cumulative) - this is the rotation that was just generated
+            m_pState->GetSystemRotation()->ApplyNewRotationToVertex(pos);
+            // Move back to box center
+            v->UpdateVXPos(pos(0) + box_center(0));
+            v->UpdateVYPos(pos(1) + box_center(1));
+            v->UpdateVZPos(pos(2) + box_center(2));
+            
+            // Debug: Capture position after rotation for bead 1000
+            if (v == debug_vertex) {
+                debug_pos_after_rotation = Vec3D(v->GetVXPos(), v->GetVYPos(), v->GetVZPos());
+            }
+        }
+        
+        // Debug output
+        if (debug_vertex != nullptr) {
+            // Calculate what the position should be after rotation
+            Vec3D pos_relative = debug_pos_before - box_center;
+            m_pState->GetSystemRotation()->ApplyNewRotationToVertex(pos_relative);
+            Vec3D expected_after = pos_relative + box_center;
+            
+            Vec3D diff = debug_pos_after_rotation - expected_after;
+            double error = sqrt(diff(0)*diff(0) + diff(1)*diff(1) + diff(2)*diff(2));
+            
+            std::cout << "---> Rotation at step " << step << " - Bead ID 1000:\n";
+            std::cout << "     Before rotation: (" << debug_pos_before(0) << ", " << debug_pos_before(1) << ", " << debug_pos_before(2) << ")\n";
+            std::cout << "     After rotation:  (" << debug_pos_after_rotation(0) << ", " << debug_pos_after_rotation(1) << ", " << debug_pos_after_rotation(2) << ")\n";
+            std::cout << "     Expected after:  (" << expected_after(0) << ", " << expected_after(1) << ", " << expected_after(2) << ")\n";
+            std::cout << "     Rotation error:  " << error << "\n";
+        }
+        
+        // Update all triangle normals and areas after rotation
+        for (auto* tri : all_triangles) {
+            if (tri != nullptr) {
+                tri->UpdateNormal_Area(pBox);
+            }
+        }
+        
+        // Update all shape operators after rotation
+        for (auto* link : all_links) {
+            if (link != nullptr) {
+                link->UpdateShapeOperator(pBox);
+            }
+        }
+        
+        // Reinitialize curvature calculations (updates vertex normals, areas, and transfer matrices)
+        m_pState->GetCurvatureCalculator()->Initialize();
+        
+        // Now rotate inclusions and their directions (after transfer matrices are updated)
+        for (auto* inc : all_inclusions) {
+            if (inc == nullptr) continue;
+            vertex* v = inc->Getvertex();
+            if (v == nullptr) continue;
+            
+            // Rotate inclusion global direction
+            Vec3D gdir = inc->GetGDirection();
+            if (gdir(0) != 0.0 || gdir(1) != 0.0 || gdir(2) != 0.0) {
+                // Rotate global direction using NEW rotation (not cumulative)
+                m_pState->GetSystemRotation()->ApplyNewRotationToVertex(gdir);
+                inc->UpdateGlobalDirection(gdir);
+                // Update local direction from rotated global (transfer matrices are now updated)
+                inc->UpdateLocalDirectionFromGlobal();
+            }
+        }
+        
+        // Rotate vector fields (after transfer matrices are updated)
+        int nvf = m_pState->GetMesh()->GetNoVFPerVertex();
+        if (nvf > 0) {
+            for (auto* v : all_vertices) {
+                for (int i = 0; i < nvf; i++) {
+                    // Get global direction, rotate it, update
+                    Vec3D gdir = v->GetVectorField(i)->GetGDirection();
+                    if (gdir(0) != 0.0 || gdir(1) != 0.0 || gdir(2) != 0.0) {
+                        // Rotate using NEW rotation (not cumulative)
+                        m_pState->GetSystemRotation()->ApplyNewRotationToVertex(gdir);
+                        v->GetVectorField(i)->UpdateGlobalDirection(gdir);
+                        // Update local direction from rotated global (transfer matrices are now updated)
+                        v->UpdateVFLocalDirectionFromGlobalDirection();
+                    }
+                }
+            }
+        }
+        
+        // Re-voxelize after rotation
+        m_pState->GetVoxelization()->ReassignMembersToVoxels(all_vertices);
+        std::cout << "---> Applied system rotation at step " << step << " to randomize bias direction\n";
+    }
+
+//----> write files (after rotation, so output can apply inverse rotation)
         //--- write visulaization frame
         m_pState->GetVisualization()->WriteAFrame(step);
         //--- write non-binary trejectory e.g., tsi, tsg

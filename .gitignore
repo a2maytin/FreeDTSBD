@@ -1,0 +1,10 @@
+# Coordinate and trajectory files (auto-generated, do not commit)
+*.vtu
+*.tsi
+*.tsg
+*.gro
+*.top
+*.q
+*.xyz
+
+# You can add other large/generated data files below

@@ -5,6 +5,7 @@
 #include "vertex.h"
 #include "Traj_tsi.h"
 #include "Nfunction.h"
+#include "SystemRotation.h"
 Traj_tsi::Traj_tsi(State *pstate){
 
     m_Period = 1000;
@@ -72,8 +73,28 @@ void Traj_tsi::WriteAFrame(std::string filename){
     int size=pver.size();
     fprintf(output,"%s%20d\n",ver,size);
     format = "%5d%"+m_Precision+"lf%"+m_Precision+"lf%"+m_Precision+"lf\n";
-    for (std::vector<vertex *>::iterator it = pver.begin() ; it != pver.end(); ++it)
-        fprintf(output,format.c_str(),(*it)->GetVID(),(*it)->GetVXPos(),(*it)->GetVYPos(),(*it)->GetVZPos());
+    
+    // Always apply inverse rotation if rotation is enabled (rotations occur periodically)
+    // Move to origin, apply inverse of total rotation matrix, move back to box center
+    if (m_pState->GetSystemRotation()->IsEnabled()) {
+        Vec3D box_center = m_pState->GetSystemRotation()->GetBoxCenter();
+        
+        for (std::vector<vertex *>::iterator it = pver.begin() ; it != pver.end(); ++it) {
+            // Move to origin (relative to box center)
+            Vec3D pos((*it)->GetVXPos() - box_center(0), (*it)->GetVYPos() - box_center(1), (*it)->GetVZPos() - box_center(2));
+            // Apply inverse of total rotation matrix
+            m_pState->GetSystemRotation()->ApplyInverseRotationToVertex(pos);
+            // Move back to box center
+            pos = Vec3D(pos(0) + box_center(0), pos(1) + box_center(1), pos(2) + box_center(2));
+            
+            fprintf(output,format.c_str(),(*it)->GetVID(),pos(0),pos(1),pos(2));
+        }
+    } else {
+        // No rotation - output coordinates as-is
+        for (std::vector<vertex *>::iterator it = pver.begin() ; it != pver.end(); ++it) {
+            fprintf(output,format.c_str(),(*it)->GetVID(),(*it)->GetVXPos(),(*it)->GetVYPos(),(*it)->GetVZPos());
+        }
+    }
     
     const char* tri="triangle";
     size = ptriangle.size();
