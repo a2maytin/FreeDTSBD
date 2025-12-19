@@ -48,6 +48,7 @@ State::State(std::vector<std::string> argument) :
       m_pInclusionConversion(new NoInclusionConversion),  // Initialize InclusionConversion
 
       //--- Initialize accessory objects
+      m_pSystemRotation(new SystemRotation(0)),  // Initialize SystemRotation (disabled by default)
       m_pCurvatureCalculations(new CurvatureByShapeOperatorType1(this)),  // Initialize CurvatureCalculations
       m_RandomNumberGenerator(new RNG(1234)),  // Initialize RandomNumberGenerator
 
@@ -111,6 +112,7 @@ State::~State()
     delete m_pApplyConstraintBetweenGroups;
     delete m_pBoundary;
     delete m_pVertexPositionIntegrator;
+    delete m_pSystemRotation;
     delete m_pAlexanderMove;
     delete m_pInclusionPoseIntegrator;
     delete m_pVectorFieldsRotationIntegrator;
@@ -334,6 +336,16 @@ while (input >> firstword) {
             input>>str>>ini>>fi;
             m_pSimulation->UpdateInitialStep(ini);
             m_pSimulation->UpdateFinalStep(fi);
+            getline(input,rest);
+        }
+        else if(firstword == "SystemRotationPeriod")
+        {
+            int period;
+            input>>str>>period;
+            delete m_pSystemRotation;
+            m_pSystemRotation = new SystemRotation(period);
+            if (period > 0) {
+            }
             getline(input,rest);
         }
         else if(firstword == "MinfaceAngle")

@@ -163,6 +163,7 @@
 #include "PolarInteractionBetweenEdgesVertices.h"
 #include "InteractionBetweenInclusionsIn3D.h"
 #include "DNARepulsion.h"
+#include "SystemRotation.h"
 
 
 struct ParallelReplicaData {  // data structure for turning on and off certain moves
@@ -202,6 +203,8 @@ inline AbstractBinaryTrajectory      *GetBinaryTrajectory()                     
 //---- energy and curvature
 inline AbstractEnergy               *GetEnergyCalculator()                          {return m_pEnergyCalculator;}
 inline AbstractCurvature            *GetCurvatureCalculator()                          {return m_pCurvatureCalculations;}
+//---- system rotation
+inline SystemRotation               *GetSystemRotation()                           {return m_pSystemRotation;}
 //----
 inline AbstractApplyConstraintBetweenGroups *GetApplyConstraintBetweenGroups()                    {return m_pApplyConstraintBetweenGroups;}
 
@@ -308,6 +311,7 @@ private:
     NonequilibriumCommands        *m_pNonequilibriumCommands;
 
 //--- accessory objects
+    SystemRotation                *m_pSystemRotation;
     RNG      *m_RandomNumberGenerator;
 //----
     Voxelization<vertex>  *m_pVoxelization;
