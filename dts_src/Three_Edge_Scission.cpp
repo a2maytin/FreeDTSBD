@@ -331,8 +331,8 @@ bool Three_Edge_Scission::ScissionByMC(pair_pot_triangle &pair_t, double thermal
     double diff_energy = new_energy - old_energy;
     double tot_diff_energy = diff_energy;
     double U = m_Beta * tot_diff_energy - m_DBeta;
-    //---> accept or reject the move
-    if(U <= 0 || exp(-U) > thermal ) {
+    //---> accept or reject the move (bypassed - always accept)
+    if(true) {
         //--- Accepted
         m_pState->GetEnergyCalculator()->AddToTotalEnergy(diff_energy);
         /*
