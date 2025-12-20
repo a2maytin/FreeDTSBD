@@ -126,33 +126,6 @@ bool SystemRotation::UpdateRotation(int step) {
         m_HasRotation = true;
         m_LastRotationStep = step;
         
-        // Debug: Print rotation matrix and determinant
-        double det = m_RotationMatrix(0, 0) * (m_RotationMatrix(1, 1)*m_RotationMatrix(2, 2) - m_RotationMatrix(1, 2)*m_RotationMatrix(2, 1))
-                   - m_RotationMatrix(0, 1) * (m_RotationMatrix(1, 0)*m_RotationMatrix(2, 2) - m_RotationMatrix(1, 2)*m_RotationMatrix(2, 0))
-                   + m_RotationMatrix(0, 2) * (m_RotationMatrix(1, 0)*m_RotationMatrix(2, 1) - m_RotationMatrix(1, 1)*m_RotationMatrix(2, 0));
-        
-        // Calculate angle of rotation around z-axis for debugging
-        // For a rotation around z-axis, the angle is atan2(R(1,0), R(0,0))
-        double angle_deg = atan2(m_RotationMatrix(1, 0), m_RotationMatrix(0, 0)) * 180.0 / M_PI;
-        if (angle_deg < 0) angle_deg += 360.0;
-        
-        std::cout << "---> Rotation matrix at step " << step << " (determinant = " << det << ", z-axis angle = " << angle_deg << "°):\n";
-        for (int i = 0; i < 3; i++) {
-            std::cout << "     [";
-            for (int j = 0; j < 3; j++) {
-                std::cout << " " << m_RotationMatrix(i, j);
-            }
-            std::cout << " ]\n";
-        }
-        std::cout << "---> Inverse rotation matrix:\n";
-        for (int i = 0; i < 3; i++) {
-            std::cout << "     [";
-            for (int j = 0; j < 3; j++) {
-                std::cout << " " << m_InverseRotationMatrix(i, j);
-            }
-            std::cout << " ]\n";
-        }
-        
         return true;
     }
     
@@ -238,5 +211,17 @@ Vec3D SystemRotation::GetInverseRotatedPosition(const Vec3D& pos) const {
         return pos;
     }
     return m_InverseRotationMatrix * pos;
+}
+
+void SystemRotation::RestoreRotationState(const Tensor2& rotation_matrix, 
+                                          const Tensor2& inverse_rotation_matrix,
+                                          int last_rotation_step,
+                                          const Vec3D& box_center) {
+    m_RotationMatrix = rotation_matrix;
+    m_InverseRotationMatrix = inverse_rotation_matrix;
+    m_LastRotationStep = last_rotation_step;
+    m_BoxCenter = box_center;
+    m_Initialized = true;
+    m_HasRotation = (last_rotation_step >= 0);
 }
 

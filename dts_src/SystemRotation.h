@@ -99,6 +99,29 @@ public:
      */
     const Tensor2& GetNewRotationMatrix() const { return m_NewRotationMatrix; }
     
+    /**
+     * @brief Restore rotation state from restart file
+     * Used when restarting a simulation to restore the rotation matrices and state
+     * @param rotation_matrix The cumulative rotation matrix to restore
+     * @param inverse_rotation_matrix The inverse rotation matrix to restore
+     * @param last_rotation_step The last step when rotation was applied
+     * @param box_center The box center
+     */
+    void RestoreRotationState(const Tensor2& rotation_matrix, 
+                              const Tensor2& inverse_rotation_matrix,
+                              int last_rotation_step,
+                              const Vec3D& box_center);
+    
+    /**
+     * @brief Get the last rotation step (for saving to restart file)
+     */
+    int GetLastRotationStep() const { return m_LastRotationStep; }
+    
+    /**
+     * @brief Check if rotation system is initialized
+     */
+    bool IsInitialized() const { return m_Initialized; }
+    
 private:
     /**
      * @brief Generate a random rotation matrix (uniformly distributed on SO(3))
