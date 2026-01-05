@@ -212,17 +212,7 @@ bool WritevtuFiles::WriteAFrame(int step){
     if (m_pState->GetSystemRotation()->IsEnabled()) {
         Vec3D box_center = m_pState->GetSystemRotation()->GetBoxCenter();
         
-        // Debug: Track bead with ID 1000 (if it exists)
-        Vec3D debug_pos_before_inverse, debug_pos_after_inverse;
-        bool debug_found = false;
-        
         for (std::vector<vertex*>::iterator it = all_ver.begin() ; it != all_ver.end(); ++it) {
-            // Debug: Capture position before inverse rotation for bead 1000
-            if ((*it)->GetVID() == 1000) {
-                debug_pos_before_inverse = Vec3D((*it)->GetXPos(), (*it)->GetYPos(), (*it)->GetZPos());
-                debug_found = true;
-            }
-            
             // Move to origin (relative to box center)
             Vec3D pos((*it)->GetXPos() - box_center(0), (*it)->GetYPos() - box_center(1), (*it)->GetZPos() - box_center(2));
             // Apply inverse of total rotation matrix
@@ -230,32 +220,7 @@ bool WritevtuFiles::WriteAFrame(int step){
             // Move back to box center
             pos = Vec3D(pos(0) + box_center(0), pos(1) + box_center(1), pos(2) + box_center(2));
             
-            // Debug: Capture position after inverse rotation for bead 1000
-            if ((*it)->GetVID() == 1000) {
-                debug_pos_after_inverse = pos;
-            }
-            
             Output<<"          "<<pos(0)<<" "<<pos(1)<<" "<<pos(2)<<" "<<"\n";
-        }
-        
-        // Debug output (only print occasionally to avoid spam)
-        static int debug_counter = 0;
-        static Vec3D debug_initial_pos;
-        static bool debug_initial_set = false;
-        if (debug_found) {
-            if (!debug_initial_set) {
-                debug_initial_pos = debug_pos_after_inverse;
-                debug_initial_set = true;
-            }
-            if (debug_counter % 100 == 0) {
-                Vec3D diff = debug_pos_after_inverse - debug_initial_pos;
-                double drift = sqrt(diff(0)*diff(0) + diff(1)*diff(1) + diff(2)*diff(2));
-                std::cout << "---> VTU Output at step " << step << " - Bead ID 1000:\n";
-                std::cout << "     Before inverse rotation: (" << debug_pos_before_inverse(0) << ", " << debug_pos_before_inverse(1) << ", " << debug_pos_before_inverse(2) << ")\n";
-                std::cout << "     After inverse rotation:  (" << debug_pos_after_inverse(0) << ", " << debug_pos_after_inverse(1) << ", " << debug_pos_after_inverse(2) << ")\n";
-                std::cout << "     Drift from initial: " << drift << "\n";
-            }
-            debug_counter++;
         }
     } else {
         // No rotation - output coordinates as-is

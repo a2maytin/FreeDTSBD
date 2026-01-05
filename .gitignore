@@ -6,5 +6,6 @@
 *.top
 *.q
 *.xyz
+*.lammpstrj
 
 # You can add other large/generated data files below

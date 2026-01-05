@@ -1,3 +1,5 @@
+SystemRotationPeriod = 1000
+
 ; Toy system input file for testing DNA bead repulsion
 Integrator_Type = MC_Simulation
 Set_Steps = 1 10000
@@ -14,25 +16,28 @@ Edge_Parameters = 5 0 0
 VertexArea = 0 0.7 0 0
 
 ; Volume and area constraints
-; VolumeCoupling = SecondOrder 0.0 10000 1
-; GlobalCurvatureCoupling = HarmonicPotential 150 0.3
-; TotalAreaCoupling = HarmonicPotential 1000 0.34
+VolumeCoupling = SecondOrder 0.0 10000 1
+GlobalCurvatureCoupling = HarmonicPotential 700 -0.2
+TotalAreaCoupling = HarmonicPotential 1000 0.34
+
+; Scission
+DynamicTopology = Three_Edge_Scission 10000
 
 ; Move parameters
 VertexPositionIntegrator = MetropolisAlgorithmOpenMP 1 1 0.05
 AlexanderMove = MetropolisAlgorithmOpenMP 1
 
 ; DNA bonds - connect DNA beads
-BondedPotentialBetweenVertices = HarmonicBondsList dna_bonds.txt
+BondedPotentialBetweenVertices = HarmonicBondsList dna_bonds_50.txt
 
 ; Repulsion between membrane vertices and DNA beads, and between DNA beads
 ; E(r) = EP * (R0/r)^power, and 0 beyond r=R0 cutoff distance 
 ; Format: DNARepulsion EP R0_membrane R0_dna [power=6] 
-NonbondedInteractionBetweenVertices = DNARepulsion 100 2 1
+NonbondedInteractionBetweenVertices = DNARepulsion 10 .85 .472
 
 ; Output settings
-TimeSeriesData_Period = 1000
-VisualizationFormat = VTUFileFormat VTU_F 1000
-NonbinaryTrajectory = TSI TrajTSI 1000
-Restart_Period = 1000
+TimeSeriesData_Period = 10000
+VisualizationFormat = VTUFileFormat VTU_F 10000
+NonbinaryTrajectory = TSI TrajTSI 10000
+Restart_Period = 10000
 

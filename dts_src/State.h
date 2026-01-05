@@ -163,8 +163,8 @@
 #include "PolarInteractionBetweenEdgesVertices.h"
 #include "InteractionBetweenInclusionsIn3D.h"
 #include "DNARepulsion.h"
+//--- system rotation for randomizing multithreading bias
 #include "SystemRotation.h"
-
 
 struct ParallelReplicaData {  // data structure for turning on and off certain moves
     ParallelReplicaData(){State = false;}
@@ -203,8 +203,6 @@ inline AbstractBinaryTrajectory      *GetBinaryTrajectory()                     
 //---- energy and curvature
 inline AbstractEnergy               *GetEnergyCalculator()                          {return m_pEnergyCalculator;}
 inline AbstractCurvature            *GetCurvatureCalculator()                          {return m_pCurvatureCalculations;}
-//---- system rotation
-inline SystemRotation               *GetSystemRotation()                           {return m_pSystemRotation;}
 //----
 inline AbstractApplyConstraintBetweenGroups *GetApplyConstraintBetweenGroups()                    {return m_pApplyConstraintBetweenGroups;}
 
@@ -240,6 +238,7 @@ inline AbstractBoundary                 *GetBoundary()                          
 inline MESH                     *GetMesh()                                      {return m_pMesh;}  //
 inline Voxelization<vertex>     *GetVoxelization()                              {return m_pVoxelization;}
 inline AbstractSimulation           *GetSimulation()                                {return m_pSimulation;};
+inline SystemRotation            *GetSystemRotation()                              {return m_pSystemRotation;}
 //--- accessory objects
 inline  RNG            *GetRandomNumberGenerator()                 const { return m_RandomNumberGenerator; }
 //--- some constant variables
@@ -311,8 +310,8 @@ private:
     NonequilibriumCommands        *m_pNonequilibriumCommands;
 
 //--- accessory objects
-    SystemRotation                *m_pSystemRotation;
     RNG      *m_RandomNumberGenerator;
+    SystemRotation *m_pSystemRotation;  // System rotation for randomizing multithreading bias
 //----
     Voxelization<vertex>  *m_pVoxelization;
     MESH                  *m_pMesh;

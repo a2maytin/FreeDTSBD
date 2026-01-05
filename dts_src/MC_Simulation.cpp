@@ -83,6 +83,8 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
     std::vector<vertex*>& all_vertices = m_pState->GetMesh()->GetActiveV();
     
     // Initialize on first step if rotation is enabled
+    // Note: restart files now save vertices in unrotated frame (same as output files),
+    // so rotation system starts fresh on restart
     if (m_pState->GetSystemRotation()->IsEnabled() && step == m_Initial_Step) {
         // Calculate COM and center system at box center
         double xcm = 0.0, ycm = 0.0, zcm = 0.0;
@@ -124,8 +126,6 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
         
         // Re-voxelize after centering
         m_pState->GetVoxelization()->ReassignMembersToVoxels(all_vertices);
-        
-        std::cout << "---> System rotation initialized: centered system at box center\n";
     }
     
     if(m_pState->GetSystemRotation()->UpdateRotation(step)){
@@ -138,17 +138,6 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
         // Rotate all vertices: move to origin, apply rotation, move back to box center
         Vec3D box_center = m_pState->GetSystemRotation()->GetBoxCenter();
         
-        // Debug: Track bead with ID 1000 (if it exists)
-        vertex* debug_vertex = nullptr;
-        Vec3D debug_pos_before, debug_pos_after_rotation;
-        for (auto* v : all_vertices) {
-            if (v->GetVID() == 1000) {
-                debug_vertex = v;
-                debug_pos_before = Vec3D(v->GetVXPos(), v->GetVYPos(), v->GetVZPos());
-                break;
-            }
-        }
-        
         for (auto* v : all_vertices) {
             // Move to origin (relative to box center)
             Vec3D pos(v->GetVXPos() - box_center(0), v->GetVYPos() - box_center(1), v->GetVZPos() - box_center(2));
@@ -158,28 +147,6 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
             v->UpdateVXPos(pos(0) + box_center(0));
             v->UpdateVYPos(pos(1) + box_center(1));
             v->UpdateVZPos(pos(2) + box_center(2));
-            
-            // Debug: Capture position after rotation for bead 1000
-            if (v == debug_vertex) {
-                debug_pos_after_rotation = Vec3D(v->GetVXPos(), v->GetVYPos(), v->GetVZPos());
-            }
-        }
-        
-        // Debug output
-        if (debug_vertex != nullptr) {
-            // Calculate what the position should be after rotation
-            Vec3D pos_relative = debug_pos_before - box_center;
-            m_pState->GetSystemRotation()->ApplyNewRotationToVertex(pos_relative);
-            Vec3D expected_after = pos_relative + box_center;
-            
-            Vec3D diff = debug_pos_after_rotation - expected_after;
-            double error = sqrt(diff(0)*diff(0) + diff(1)*diff(1) + diff(2)*diff(2));
-            
-            std::cout << "---> Rotation at step " << step << " - Bead ID 1000:\n";
-            std::cout << "     Before rotation: (" << debug_pos_before(0) << ", " << debug_pos_before(1) << ", " << debug_pos_before(2) << ")\n";
-            std::cout << "     After rotation:  (" << debug_pos_after_rotation(0) << ", " << debug_pos_after_rotation(1) << ", " << debug_pos_after_rotation(2) << ")\n";
-            std::cout << "     Expected after:  (" << expected_after(0) << ", " << expected_after(1) << ", " << expected_after(2) << ")\n";
-            std::cout << "     Rotation error:  " << error << "\n";
         }
         
         // Update all triangle normals and areas after rotation
@@ -236,7 +203,6 @@ for (int step = m_Initial_Step; step <= m_Final_Step; step++){
         
         // Re-voxelize after rotation
         m_pState->GetVoxelization()->ReassignMembersToVoxels(all_vertices);
-        std::cout << "---> Applied system rotation at step " << step << " to randomize bias direction\n";
     }
 
 //----> write files (after rotation, so output can apply inverse rotation)

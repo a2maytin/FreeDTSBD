@@ -8,6 +8,8 @@
 #include "Restart.h"
 #include "State.h"
 #include "CreateMashBluePrint.h"
+#include "SystemRotation.h"
+#include "Vec3D.h"
 
 Restart::Restart(){
     m_Period = 1000;
@@ -72,6 +74,22 @@ void Restart::WriteRestart(std::string &filename, int step, MESH * pmesh, double
 
     MeshBluePrint blueprint = pmesh->Convert_Mesh_2_BluePrint(pmesh);
 
+    // Apply inverse rotation to vertex positions before saving (same as output files)
+    // This ensures restart file is in unrotated frame, matching TSI and VTU output
+    if (m_pState->GetSystemRotation()->IsEnabled() && m_pState->GetSystemRotation()->HasRotation()) {
+        Vec3D box_center = m_pState->GetSystemRotation()->GetBoxCenter();
+        for (std::vector<Vertex_Map>::iterator it = blueprint.bvertex.begin(); it != blueprint.bvertex.end(); ++it) {
+            // Move to origin (relative to box center)
+            Vec3D pos(it->x - box_center(0), it->y - box_center(1), it->z - box_center(2));
+            // Apply inverse of total rotation matrix
+            m_pState->GetSystemRotation()->ApplyInverseRotationToVertex(pos);
+            // Move back to box center
+            it->x = pos(0) + box_center(0);
+            it->y = pos(1) + box_center(1);
+            it->z = pos(2) + box_center(2);
+        }
+    }
+
     //=== we write the restart into tem restart file
     std::fstream Rfile;
     Rfile.open(m_TEMFileName.c_str(),std::ios::out | std::ios::binary);
@@ -86,7 +104,7 @@ void Restart::WriteRestart(std::string &filename, int step, MESH * pmesh, double
     int size = (blueprint.bvertex).size();
     (Rfile).write((char *) &size, sizeof(int));
     for (std::vector<Vertex_Map>::iterator it = (blueprint.bvertex).begin() ; it != (blueprint.bvertex).end(); ++it){
-        // write vertices
+        // write vertices (now in unrotated frame)
         (Rfile).write((char *) &(*it), sizeof(Vertex_Map));
     }
     size = (blueprint.btriangle).size();

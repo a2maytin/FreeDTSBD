@@ -22,7 +22,8 @@ mkdir -p VMD_format
 
 # Convert each trajectory file
 if [ -d "TrajTSI" ]; then
-    for tsi_file in TrajTSI/*.tsi; do
+    # Sort files numerically (increasing order)
+    for tsi_file in $(ls TrajTSI/*.tsi 2>/dev/null | sort -V); do
         if [ -f "$tsi_file" ]; then
             base_name=$(basename "$tsi_file" .tsi)
             output_file="VMD_format/${base_name}.gro"
